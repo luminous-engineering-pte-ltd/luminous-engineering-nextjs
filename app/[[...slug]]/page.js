@@ -2,10 +2,12 @@ import { notFound } from "next/navigation";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import BodyClass from "../../components/BodyClass";
+import JsonLd from "../../components/JsonLd";
 import PageEnhancements from "../../components/PageEnhancements";
 import PageStyle from "../../components/PageStyle";
 import StaticContent from "../../components/StaticContent";
 import { PAGES, getPageByRoute, getStaticSlugs } from "../../lib/pages";
+import { getSeoByRoute, metadataForRoute } from "../../lib/seo";
 
 export function generateStaticParams() {
   return getStaticSlugs();
@@ -16,20 +18,19 @@ export async function generateMetadata({ params }) {
   const route = toRoute(resolvedParams?.slug);
   const page = getPageByRoute(route);
 
-  if (!page) {
+  if (!page || isErrorUtilityRoute(route)) {
     return {};
   }
 
-  return {
-    title: page.title || "Luminous Engineering",
-    description: page.description || undefined,
-    alternates: page.canonical ? { canonical: page.canonical } : undefined
-  };
+  return metadataForRoute(route, page);
 }
 
 export default async function SitePage({ params }) {
   const resolvedParams = await params;
   const route = toRoute(resolvedParams?.slug);
+  if (isErrorUtilityRoute(route)) {
+    notFound();
+  }
   const page = getPageByRoute(route);
 
   if (!page) {
@@ -69,10 +70,15 @@ export default async function SitePage({ params }) {
         legacyShim={legacyShim}
       />
       <StaticContent html={content} />
+      <JsonLd data={getSeoByRoute(route)?.jsonLd || []} />
       <PageEnhancements route={route} />
 
     </>
   );
+}
+
+function isErrorUtilityRoute(route) {
+  return route === "/404" || route === "/404.html" || route === "/not-found";
 }
 
 function toRoute(slug = []) {

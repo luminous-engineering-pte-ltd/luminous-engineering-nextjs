@@ -1,12 +1,15 @@
 {
   "name": "luminous-nextjs",
   "version": "1.0.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "migrate": "node scripts/migrate.mjs"
+    "migrate": "node scripts/migrate.mjs",
+    "seo:import": "node scripts/import-live-seo.mjs",
+    "seo:verify": "node scripts/verify-seo.mjs"
   },
   "dependencies": {
     "next": "latest",

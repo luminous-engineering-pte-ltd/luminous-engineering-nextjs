@@ -254,18 +254,39 @@ function textFromMatch(match) {
 }
 
 function attrFromMeta(html, name) {
-  const match = html.match(new RegExp(`<meta[^>]+name=["']${name}["'][^>]+content=["']([^"']*)["']`, "i"));
-  return decodeEntities(match?.[1] || "");
+  for (const match of html.matchAll(/<meta\b[^>]*>/gi)) {
+    const attributes = attributesFromTag(match[0]);
+    if ((attributes.name || "").toLowerCase() === name.toLowerCase()) {
+      return decodeEntities(attributes.content || "");
+    }
+  }
+  return "";
 }
 
 function attrFromCanonical(html) {
-  const match = html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']*)["']/i);
-  return decodeEntities(match?.[1] || "");
+  for (const match of html.matchAll(/<link\b[^>]*>/gi)) {
+    const attributes = attributesFromTag(match[0]);
+    if ((attributes.rel || "").toLowerCase().split(/\s+/).includes("canonical")) {
+      return decodeEntities(attributes.href || "");
+    }
+  }
+  return "";
 }
 
 function attrFromBody(attrs, name) {
-  const match = attrs.match(new RegExp(`${name}=["']([^"']*)["']`, "i"));
-  return match?.[1] || "";
+  return attributesFromTag(`<body ${attrs}>`)[name.toLowerCase()] || "";
+}
+
+function attributesFromTag(tag) {
+  const attributes = {};
+  const pattern = /([^\s=<>/]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+)))?/g;
+  let match;
+  while ((match = pattern.exec(tag))) {
+    const key = match[1].toLowerCase();
+    if (["meta", "link", "body"].includes(key)) continue;
+    attributes[key] = match[2] ?? match[3] ?? match[4] ?? "";
+  }
+  return attributes;
 }
 
 function decodeEntities(value) {
