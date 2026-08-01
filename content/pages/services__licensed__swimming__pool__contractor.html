@@ -1,0 +1,1083 @@
+<!-- Navigation -->
+    <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="/" class="logo font-display" style="text-decoration: none;">
+                    <img src="/images/logo.png" alt="Luminous Engineering Logo">
+                    <span>Luminous Engineering</span>
+                </a>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8 desktop-nav items-center">
+                    <a href="/" class="nav-link text-white hover:text-yellow-400">Home</a>
+                    <div class="relative" id="desktopServicesContainer">
+                        <button id="desktopServicesToggle" class="nav-link text-white hover:text-yellow-400 flex items-center focus:outline-none">
+                            Services
+                            <svg class="w-4 h-4 ml-1 transform transition-transform duration-200" id="desktopServicesIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="desktopServicesDropdown" class="absolute left-0 mt-2 flex opacity-0 invisible transition-all duration-300 z-50">
+                            <!-- Left panel: Parent services -->
+                            <div class="w-64 bg-gray-900 rounded-l-md shadow-lg py-1 border border-gray-700 border-r-0">
+                                <a href="/services/complete-renovation" data-submenu="sub-renovation" class="service-parent-link flex items-center justify-between px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">
+                                    Complete Renovation
+                                    <svg class="w-3 h-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                <a href="/services/swimming-pool" data-submenu="sub-swimming-pool" class="service-parent-link flex items-center justify-between px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">
+                                    Swimming Pool Services
+                                    <svg class="w-3 h-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                <a href="/services/painting" data-submenu="sub-painting" class="service-parent-link flex items-center justify-between px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">
+                                    Painting Services
+                                    <svg class="w-3 h-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                <a href="/services/waterproofing" data-submenu="sub-waterproofing" class="service-parent-link flex items-center justify-between px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">
+                                    Waterproofing Services
+                                    <svg class="w-3 h-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                <a href="/services/electrical" data-submenu="sub-electrical" class="service-parent-link flex items-center justify-between px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">
+                                    Electrical Services
+                                    <svg class="w-3 h-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                <a href="/services/epoxy-floor" data-submenu="sub-epoxy" class="service-parent-link flex items-center justify-between px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">
+                                    Epoxy Floor Services
+                                    <svg class="w-3 h-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                <a href="/services/tile-installation" data-submenu="sub-tile-installation" class="service-parent-link flex items-center justify-between px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">
+                                    Tile, Parquet &amp; Flooring Solutions
+                                    <svg class="w-3 h-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                <a href="/services/plumbing" data-submenu="sub-plumbing" class="service-parent-link flex items-center justify-between px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">
+                                    Plumbing Services
+                                    <svg class="w-3 h-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                <a href="/services/handyman" data-submenu="sub-handyman" class="service-parent-link flex items-center justify-between px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">
+                                    Handyman Services
+                                    <svg class="w-3 h-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            <!-- Right panel: Child sub-services -->
+                            <div id="desktopSubMenuPanel" class="w-64 bg-gray-900 rounded-r-md shadow-lg py-1 border border-gray-700 border-l-gray-800 hidden">
+                                <div id="sub-renovation" class="submenu-panel hidden">
+                                    <div class="px-4 py-2 text-xs text-yellow-400 font-semibold uppercase tracking-wider border-b border-gray-700">
+                                        Renovation Services</div>
+                                    <a href="/services/complete-renovation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Complete Renovation Overview</a>
+                                    <a href="/services/complete-renovation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Full Home Renovation</a>
+                                    <a href="/services/complete-renovation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Kitchen Renovation Singapore</a>
+                                    <a href="/services/complete-renovation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Bathroom Renovation Singapore</a>
+                                    <a href="/services/complete-renovation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Bedroom &amp; Living Room Renovation</a>
+                                    <a href="/services/complete-renovation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">HDB &amp; Condominium Renovation</a>
+                                    <a href="/services/plastering" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Plastering</a>
+                                    <a href="/services/hacking" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Hacking</a>
+                                    <a href="/services/partition-ceiling" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Partition &amp; Ceiling</a>
+                                </div>
+                                <div id="sub-swimming-pool" class="submenu-panel hidden">
+                                    <div class="px-4 py-2 text-xs text-yellow-400 font-semibold uppercase tracking-wider border-b border-gray-700">
+                                        Pool Services</div>
+                                    <a href="/services/swimming-pool" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Swimming Pool Services Overview</a>
+                                    <a href="/services/licensed-swimming-pool-contractor" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Licensed Swimming Pool Contractor</a>
+                                    <a href="/services/emergency-swimming-pool-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Emergency Swimming Pool Services</a>
+                                    <a href="/services/swimming-pool-maintenance" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Pool Cleaning &amp; Maintenance</a>
+                                    <a href="/services/swimming-pool-construction" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Pool Building &amp; Construction</a>
+                                    <a href="/services/jacuzzi-system-installation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Jacuzzi System Installation</a>
+                                    <a href="/services/water-feature-system-installation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Water Feature System Installation</a>
+                                    <a href="/services/pond-biological-filtration-system-installation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Pond Biological Filtration System Installation</a>
+                                    <a href="/services/swimming-pool-repair" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Pool Equipment Repair &amp; Installation</a>
+                                </div>
+                                <div id="sub-painting" class="submenu-panel hidden">
+                                    <div class="px-4 py-2 text-xs text-yellow-400 font-semibold uppercase tracking-wider border-b border-gray-700">
+                                        Painting Services</div>
+                                    <a href="/services/painting" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Painting Services Overview</a>
+                                    <div class="px-4 pt-3 pb-1 text-[11px] text-yellow-400 font-semibold uppercase tracking-wider border-t border-gray-800 first:border-t-0">Residential Painting</div>
+                                    <a href="/services/best-house-painting-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Best House Painting</a>
+                                    <a href="/services/landed-property-painting" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Landed Property Painting</a>
+                                    <a href="/services/hdb-painting" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">HDB Painting</a>
+                                    <div class="px-4 pt-3 pb-1 text-[11px] text-yellow-400 font-semibold uppercase tracking-wider border-t border-gray-800 first:border-t-0">Commercial Painting</div>
+                                    <a href="/services/office-painting" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Office Painting</a>
+                                    <a href="/services/commercial-painting-service" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Commercial Painting</a>
+                                    <div class="px-4 pt-3 pb-1 text-[11px] text-yellow-400 font-semibold uppercase tracking-wider border-t border-gray-800 first:border-t-0">Reliable Painting Contractor</div>
+                                    <a href="/services/painting-contractor" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Painting Contractor</a>
+                                </div>
+                                <div id="sub-waterproofing" class="submenu-panel hidden">
+                                    <div class="px-4 py-2 text-xs text-yellow-400 font-semibold uppercase tracking-wider border-b border-gray-700">
+                                        Waterproofing Services</div>
+                                    <a href="/services/waterproofing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Waterproofing Services Overview</a>
+                                    <a href="/services/waterproofing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Roof Repair</a>
+                                    <a href="/services/waterproofing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Rooftop Waterproofing</a>
+                                    <a href="/services/waterproofing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Basement Waterproofing</a>
+                                    <a href="/services/waterproofing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Bathroom Waterproofing</a>
+                                    <a href="/services/waterproofing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Roof Waterproofing</a>
+                                    <a href="/services/waterproofing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Balcony Waterproofing</a>
+                                    <a href="/services/waterproofing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Ceiling Leakage Repair Services</a>
+                                    <a href="/services/waterproofing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Concrete Repair</a>
+                                    <a href="/services/waterproofing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Rope Access Waterproofing</a>
+                                    <a href="/services/waterproofing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Water Seepage &amp; Leakage Repair</a>
+                                </div>
+                                <div id="sub-electrical" class="submenu-panel hidden">
+                                    <div class="px-4 py-2 text-xs text-yellow-400 font-semibold uppercase tracking-wider border-b border-gray-700">
+                                        Electrical Services</div>
+                                    <a href="/services/electrical" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Electrical Services Overview</a>
+                                    <div class="px-4 pt-3 pb-1 text-[11px] text-yellow-400 font-semibold uppercase tracking-wider border-t border-gray-800 first:border-t-0">Wiring &amp; Distribution</div>
+                                    <a href="/services/electrical-wiring-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Electrical Wiring</a>
+                                    <a href="/services/house-rewiring-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">House Rewiring</a>
+                                    <a href="/services/db-box-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">DB Box Services</a>
+                                    <a href="/services/power-socket-switch-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Socket &amp; Switch</a>
+                                    <a href="/services/three-phase-power-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">3-Phase Power</a>
+                                    <a href="/services/earthing-grounding-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Earthing &amp; Grounding</a>
+                                    <a href="/services/electrical-inspection-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Electrical Inspection</a>
+                                    <div class="px-4 pt-3 pb-1 text-[11px] text-yellow-400 font-semibold uppercase tracking-wider border-t border-gray-800 first:border-t-0">Emergency &amp; Faults</div>
+                                    <a href="/services/emergency-electrician-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Emergency Electrician</a>
+                                    <a href="/services/electrical-troubleshooting-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Troubleshooting</a>
+                                    <a href="/services/power-trip-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Power Trip Repair</a>
+                                    <div class="px-4 pt-3 pb-1 text-[11px] text-yellow-400 font-semibold uppercase tracking-wider border-t border-gray-800 first:border-t-0">Installations</div>
+                                    <a href="/services/water-heater-installation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Water Heater</a>
+                                    <a href="/services/ceiling-fan-repair-service" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Ceiling Fan</a>
+                                    <a href="/services/aircon-installation-service" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Aircon</a>
+                                    <a href="/services/exhaust-fan-installation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Exhaust Fan</a>
+                                    <a href="/services/ev-charger-installation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">EV Charger</a>
+                                    <a href="/services/lighting-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Lighting Services</a>
+                                    <div class="px-4 pt-3 pb-1 text-[11px] text-yellow-400 font-semibold uppercase tracking-wider border-t border-gray-800 first:border-t-0">Cabling &amp; Connectivity</div>
+                                    <a href="/services/network-cabling-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Network Cabling</a>
+                                    <a href="/services/telecom-wiring-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Telecom Wiring</a>
+                                    <a href="/services/cctv-installation-service" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">CCTV Installation</a>
+                                    <div class="px-4 pt-3 pb-1 text-[11px] text-yellow-400 font-semibold uppercase tracking-wider border-t border-gray-800 first:border-t-0">Smart Home &amp; Security</div>
+                                    <a href="/services/smart-home-electrical-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Smart Home</a>
+                                    <a href="/services/intercom-doorbell-installation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Intercom &amp; Doorbell</a>
+                                    <a href="/services/electric-gate-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Electric Gate</a>
+                                    <a href="/services/lightning-protection-services" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Lightning Protection</a>
+                                    <div class="px-4 pt-3 pb-1 text-[11px] text-yellow-400 font-semibold uppercase tracking-wider border-t border-gray-800 first:border-t-0">Electrical Landing Pages</div>
+                                    <a href="/services/hdb-electrician-singapore" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">HDB Electrician</a>
+                                    <a href="/services/commercial-electrician-singapore" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Commercial Electrician</a>
+                                    <a href="/services/licensed-electrician-singapore" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Licensed Electrician Singapore</a>
+                                    <a href="/services/emergency-electrician-singapore" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Emergency Electrician Singapore</a>
+                                </div>
+                                <div id="sub-epoxy" class="submenu-panel hidden">
+                                    <div class="px-4 py-2 text-xs text-yellow-400 font-semibold uppercase tracking-wider border-b border-gray-700">
+                                        Epoxy Floor Services</div>
+                                    <a href="/services/epoxy-floor" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Epoxy Floor Services Overview</a>
+                                    <a href="/services/epoxy-floor" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Residential Epoxy Flooring</a>
+                                    <a href="/services/epoxy-floor" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Commercial Epoxy Flooring</a>
+                                    <a href="/services/epoxy-floor" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Industrial &amp; Warehouse Flooring</a>
+                                    <a href="/services/epoxy-floor" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Garage Epoxy Coating</a>
+                                    <a href="/services/epoxy-floor" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Epoxy Floor Repair &amp; Refinishing</a>
+                                </div>
+                                <div id="sub-plumbing" class="submenu-panel hidden">
+                                    <div class="px-4 py-2 text-xs text-yellow-400 font-semibold uppercase tracking-wider border-b border-gray-700">
+                                        Plumbing Services</div>
+                                    <a href="/services/plumbing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Plumbing Services Overview</a>
+                                    <a href="/services/plumbing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Leak Detection &amp; Repair</a>
+                                    <a href="/services/plumbing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Pipe Installation &amp; Replacement</a>
+                                    <a href="/services/plumbing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Drain Cleaning &amp; Unclogging</a>
+                                    <a href="/services/plumbing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Water Heater Installation &amp; Repair</a>
+                                    <a href="/services/plumbing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Bathroom &amp; Kitchen Fixture Installation</a>
+                                </div>
+                                <div id="sub-handyman" class="submenu-panel hidden">
+                                    <div class="px-4 py-2 text-xs text-yellow-400 font-semibold uppercase tracking-wider border-b border-gray-700">
+                                        Handyman Services</div>
+                                    <a href="/services/handyman" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Handyman Services Overview</a>
+                                    <a href="/services/handyman" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">General Home Repairs</a>
+                                    <a href="/services/handyman" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Installation Services</a>
+                                    <a href="/services/handyman" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Furniture Assembly</a>
+                                    <a href="/services/handyman" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Painting &amp; Touch-Up Services</a>
+                                    <a href="/services/handyman" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Minor Plumbing &amp; Electrical Work</a>
+                                </div>
+                                <div id="sub-tile-installation" class="submenu-panel hidden">
+                                    <div class="px-4 py-2 text-xs text-yellow-400 font-semibold uppercase tracking-wider border-b border-gray-700">
+                                        Tile, Parquet &amp; Flooring Solutions</div>
+                                    <a href="/services/tile-installation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Tile Installation Overview</a>
+                                    <a href="/services/floor-polishing" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Floor Polishing</a>
+                                    <a href="/services/parquet-floor-repair" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Parquet Floor Repair</a>
+                                    <a href="/services/tile-installation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Tile Interior Design</a>
+                                    <a href="/services/tile-installation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Cement Screeding Services</a>
+                                    <a href="/services/tile-installation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Floor and Wall Tile Installation</a>
+                                    <a href="/services/tile-installation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Waterproofing Services</a>
+                                    <a href="/services/tile-installation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Floor and Wall Tile Overlay</a>
+                                    <a href="/services/tile-installation" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-yellow-400">Construct Wall Services</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/blog" class="nav-link text-white hover:text-yellow-400">Blog</a>
+                    <a href="/about" class="nav-link text-white hover:text-yellow-400">About</a>
+                    <a href="/#contact" class="nav-link text-white hover:text-yellow-400">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="hidden sm:block text-sm text-gray-300">24/7 Emergency</span>
+                    <a href="tel:+6581836772" class="text-gray-300 hover:text-yellow-300 transition" aria-label="Call us">
+                        <button class="btn-primary px-6 py-2 rounded-full text-sm hidden sm:block">
+                            Call Us
+                        </button>
+                    </a>
+                    <!-- Mobile Menu Button -->
+                    <div class="mobile-menu-button" id="mobileMenuButton">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="/" class="text-white">Home</a>
+            <button style="border-bottom: 1px solid rgba(212, 175, 55, 0.1);" id="mobileServicesToggle" class="flex items-center justify-between w-full px-6 py-4 text-white font-semibold focus:outline-none hover:bg-white/10">
+                <span>Services</span>
+                <svg class="w-4 h-4 transform transition-transform duration-200" id="mobileServicesIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </button>
+            <div id="mobileServicesDropdown" class="hidden flex-col bg-white/5">
+                <!-- Complete Renovation with sub-items -->
+                <button class="mobile-sub-toggle flex items-center justify-between w-full pl-8 pr-4 py-2 text-sm text-gray-300 hover:bg-white/10 focus:outline-none">
+                    <span>Complete Renovation</span>
+                    <svg class="w-3 h-3 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="mobile-sub-dropdown hidden flex-col bg-white/5">
+                    <a href="/services/complete-renovation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Complete Renovation Overview</a>
+                    <a href="/services/complete-renovation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Full Home Renovation</a>
+                    <a href="/services/complete-renovation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Kitchen Renovation Singapore</a>
+                    <a href="/services/complete-renovation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Bathroom Renovation Singapore</a>
+                    <a href="/services/complete-renovation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Bedroom &amp; Living Room Renovation</a>
+                    <a href="/services/complete-renovation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">HDB &amp; Condominium Renovation</a>
+                    <a href="/services/plastering" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Plastering</a>
+                    <a href="/services/hacking" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Hacking</a>
+                    <a href="/services/partition-ceiling" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Partition &amp; Ceiling</a>
+                </div>
+                <!-- Swimming Pool with sub-items -->
+                <button class="mobile-sub-toggle flex items-center justify-between w-full pl-8 pr-4 py-2 text-sm text-gray-300 hover:bg-white/10 focus:outline-none">
+                    <span>Swimming Pool Services</span>
+                    <svg class="w-3 h-3 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="mobile-sub-dropdown hidden flex-col bg-white/5">
+                    <a href="/services/swimming-pool" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Swimming Pool Services Overview</a>
+                    <a href="/services/licensed-swimming-pool-contractor" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Licensed Swimming Pool Contractor</a>
+                    <a href="/services/emergency-swimming-pool-services" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Emergency Swimming Pool Services</a>
+                    <a href="/services/swimming-pool-maintenance" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Pool Cleaning &amp; Maintenance</a>
+                    <a href="/services/swimming-pool-construction" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Pool Building &amp; Construction</a>
+                    <a href="/services/jacuzzi-system-installation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Jacuzzi System Installation</a>
+                    <a href="/services/water-feature-system-installation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Water Feature System Installation</a>
+                    <a href="/services/pond-biological-filtration-system-installation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Pond Biological Filtration System Installation</a>
+                    <a href="/services/swimming-pool-repair" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Pool Equipment Repair &amp; Installation</a>
+                </div>
+                <!-- Painting Services with sub-items -->
+                <button class="mobile-sub-toggle flex items-center justify-between w-full pl-8 pr-4 py-2 text-sm text-gray-300 hover:bg-white/10 focus:outline-none">
+                    <span>Painting Services</span>
+                    <svg class="w-3 h-3 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="mobile-sub-dropdown hidden flex-col bg-white/5">
+                    <a href="/services/painting" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Painting Services Overview</a>
+                    <div class="pl-12 pr-4 pt-3 pb-1 text-[10px] text-yellow-400 uppercase tracking-wider">Residential Painting</div>
+                    <a href="/services/best-house-painting-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Best House Painting</a>
+                    <a href="/services/landed-property-painting" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Landed Property Painting</a>
+                    <a href="/services/hdb-painting" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">HDB Painting</a>
+                    <div class="pl-12 pr-4 pt-3 pb-1 text-[10px] text-yellow-400 uppercase tracking-wider">Commercial Painting</div>
+                    <a href="/services/office-painting" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Office Painting</a>
+                    <a href="/services/commercial-painting-service" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Commercial Painting</a>
+                    <div class="pl-12 pr-4 pt-3 pb-1 text-[10px] text-yellow-400 uppercase tracking-wider">Reliable Painting Contractor</div>
+                    <a href="/services/painting-contractor" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Painting Contractor</a>
+                </div>
+                <!-- Waterproofing Services with sub-items -->
+                <button class="mobile-sub-toggle flex items-center justify-between w-full pl-8 pr-4 py-2 text-sm text-gray-300 hover:bg-white/10 focus:outline-none">
+                    <span>Waterproofing Services</span>
+                    <svg class="w-3 h-3 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="mobile-sub-dropdown hidden flex-col bg-white/5">
+                    <a href="/services/waterproofing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Waterproofing Services Overview</a>
+                    <a href="/services/waterproofing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Roof Repair</a>
+                    <a href="/services/waterproofing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Rooftop Waterproofing</a>
+                    <a href="/services/waterproofing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Basement Waterproofing</a>
+                    <a href="/services/waterproofing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Bathroom Waterproofing</a>
+                    <a href="/services/waterproofing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Roof Waterproofing</a>
+                    <a href="/services/waterproofing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Balcony Waterproofing</a>
+                    <a href="/services/waterproofing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Ceiling Leakage Repair Services</a>
+                    <a href="/services/waterproofing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Concrete Repair</a>
+                    <a href="/services/waterproofing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Rope Access Waterproofing</a>
+                    <a href="/services/waterproofing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Water Seepage &amp; Leakage Repair</a>
+                </div>
+                <!-- Electrical Services with sub-items -->
+                <button class="mobile-sub-toggle flex items-center justify-between w-full pl-8 pr-4 py-2 text-sm text-gray-300 hover:bg-white/10 focus:outline-none">
+                    <span>Electrical Services</span>
+                    <svg class="w-3 h-3 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="mobile-sub-dropdown hidden flex-col bg-white/5">
+                    <a href="/services/electrical" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Electrical Services Overview</a>
+                    <div class="pl-12 pr-4 pt-3 pb-1 text-[10px] text-yellow-400 uppercase tracking-wider">Wiring &amp; Distribution</div>
+                    <a href="/services/electrical-wiring-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Electrical Wiring</a>
+                    <a href="/services/house-rewiring-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">House Rewiring</a>
+                    <a href="/services/db-box-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">DB Box Services</a>
+                    <a href="/services/power-socket-switch-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Socket &amp; Switch</a>
+                    <a href="/services/three-phase-power-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">3-Phase Power</a>
+                    <a href="/services/earthing-grounding-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Earthing &amp; Grounding</a>
+                    <a href="/services/electrical-inspection-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Electrical Inspection</a>
+                    <div class="pl-12 pr-4 pt-3 pb-1 text-[10px] text-yellow-400 uppercase tracking-wider">Emergency &amp; Faults</div>
+                    <a href="/services/emergency-electrician-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Emergency Electrician</a>
+                    <a href="/services/electrical-troubleshooting-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Troubleshooting</a>
+                    <a href="/services/power-trip-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Power Trip Repair</a>
+                    <div class="pl-12 pr-4 pt-3 pb-1 text-[10px] text-yellow-400 uppercase tracking-wider">Installations</div>
+                    <a href="/services/water-heater-installation" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Water Heater</a>
+                    <a href="/services/ceiling-fan-repair-service" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Ceiling Fan</a>
+                    <a href="/services/aircon-installation-service" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Aircon</a>
+                    <a href="/services/exhaust-fan-installation" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Exhaust Fan</a>
+                    <a href="/services/ev-charger-installation" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">EV Charger</a>
+                    <a href="/services/lighting-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Lighting Services</a>
+                    <div class="pl-12 pr-4 pt-3 pb-1 text-[10px] text-yellow-400 uppercase tracking-wider">Cabling &amp; Connectivity</div>
+                    <a href="/services/network-cabling-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Network Cabling</a>
+                    <a href="/services/telecom-wiring-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Telecom Wiring</a>
+                    <a href="/services/cctv-installation-service" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">CCTV Installation</a>
+                    <div class="pl-12 pr-4 pt-3 pb-1 text-[10px] text-yellow-400 uppercase tracking-wider">Smart Home &amp; Security</div>
+                    <a href="/services/smart-home-electrical-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Smart Home</a>
+                    <a href="/services/intercom-doorbell-installation" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Intercom &amp; Doorbell</a>
+                    <a href="/services/electric-gate-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Electric Gate</a>
+                    <a href="/services/lightning-protection-services" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Lightning Protection</a>
+                    <div class="pl-12 pr-4 pt-3 pb-1 text-[10px] text-yellow-400 uppercase tracking-wider">Electrical Landing Pages</div>
+                    <a href="/services/hdb-electrician-singapore" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">HDB Electrician</a>
+                    <a href="/services/commercial-electrician-singapore" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Commercial Electrician</a>
+                    <a href="/services/licensed-electrician-singapore" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Licensed Electrician Singapore</a>
+                    <a href="/services/emergency-electrician-singapore" class="text-gray-400 pl-12 pr-4 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Emergency Electrician Singapore</a>
+                </div>
+                <!-- Epoxy Floor Services with sub-items -->
+                <button class="mobile-sub-toggle flex items-center justify-between w-full pl-8 pr-4 py-2 text-sm text-gray-300 hover:bg-white/10 focus:outline-none">
+                    <span>Epoxy Floor Services</span>
+                    <svg class="w-3 h-3 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="mobile-sub-dropdown hidden flex-col bg-white/5">
+                    <a href="/services/epoxy-floor" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Epoxy Floor Services Overview</a>
+                    <a href="/services/epoxy-floor" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Residential Epoxy Flooring</a>
+                    <a href="/services/epoxy-floor" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Commercial Epoxy Flooring</a>
+                    <a href="/services/epoxy-floor" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Industrial &amp; Warehouse Flooring</a>
+                    <a href="/services/epoxy-floor" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Garage Epoxy Coating</a>
+                    <a href="/services/epoxy-floor" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Epoxy Floor Repair &amp; Refinishing</a>
+                </div>
+                <!-- Tile, Parquet & Flooring Solutions with sub-items -->
+                <button class="mobile-sub-toggle flex items-center justify-between w-full pl-8 pr-4 py-2 text-sm text-gray-300 hover:bg-white/10 focus:outline-none">
+                    <span>Tile, Parquet &amp; Flooring Solutions</span>
+                    <svg class="w-3 h-3 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="mobile-sub-dropdown hidden flex-col bg-white/5">
+                    <a href="/services/tile-installation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Tile Installation Overview</a>
+                    <a href="/services/floor-polishing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Floor Polishing</a>
+                    <a href="/services/parquet-floor-repair" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Parquet Floor Repair</a>
+                    <a href="/services/tile-installation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Tile Interior Design</a>
+                    <a href="/services/tile-installation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Cement Screeding Services</a>
+                    <a href="/services/tile-installation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Floor and Wall Tile Installation</a>
+                    <a href="/services/tile-installation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Waterproofing Services</a>
+                    <a href="/services/tile-installation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Floor and Wall Tile Overlay</a>
+                    <a href="/services/tile-installation" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Construct Wall Services</a>
+                </div>
+                <!-- Plumbing Services with sub-items -->
+                <button class="mobile-sub-toggle flex items-center justify-between w-full pl-8 pr-4 py-2 text-sm text-gray-300 hover:bg-white/10 focus:outline-none">
+                    <span>Plumbing Services</span>
+                    <svg class="w-3 h-3 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="mobile-sub-dropdown hidden flex-col bg-white/5">
+                    <a href="/services/plumbing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Plumbing Services Overview</a>
+                    <a href="/services/plumbing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Leak Detection &amp; Repair</a>
+                    <a href="/services/plumbing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Pipe Installation &amp; Replacement</a>
+                    <a href="/services/plumbing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Drain Cleaning &amp; Unclogging</a>
+                    <a href="/services/plumbing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Water Heater Installation &amp; Repair</a>
+                    <a href="/services/plumbing" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Bathroom &amp; Kitchen Fixture Installation</a>
+                </div>
+                <!-- Handyman Services with sub-items -->
+                <button class="mobile-sub-toggle flex items-center justify-between w-full pl-8 pr-4 py-2 text-sm text-gray-300 hover:bg-white/10 focus:outline-none">
+                    <span>Handyman Services</span>
+                    <svg class="w-3 h-3 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="mobile-sub-dropdown hidden flex-col bg-white/5">
+                    <a href="/services/handyman" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Handyman Services Overview</a>
+                    <a href="/services/handyman" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">General Home Repairs</a>
+                    <a href="/services/handyman" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Installation Services</a>
+                    <a href="/services/handyman" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Furniture Assembly</a>
+                    <a href="/services/handyman" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Painting &amp; Touch-Up Services</a>
+                    <a href="/services/handyman" class="text-gray-400 pl-12 py-1.5 text-xs block hover:bg-white/10 hover:text-yellow-400">Minor Plumbing &amp; Electrical Work</a>
+                </div>
+            </div>
+            <a href="/blog" class="text-white">Blog</a>
+            <a href="/about" class="text-white">About</a>
+            <a href="/#contact" class="text-white">Contact</a>
+            <a href="/#contact" class="text-yellow-400 font-semibold">Get Quote</a>
+        </div>
+    </nav>
+
+    <!-- Reference-Design Hero Section -->
+    <section id="home" class="hero-bg relative pt-24 pb-12 sm:pt-32 sm:pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-[85vh] sm:min-h-[90vh] flex items-center">
+        <div class="hero-slider" aria-hidden="true">
+            <div class="slider-image">
+                <picture class="absolute inset-0 w-full h-full block">
+                    <source type="image/avif" srcset="/images/opt/swimmingpoolconstruction1-1920.avif 1920w, /images/opt/swimmingpoolconstruction1-1366.avif 1366w, /images/opt/swimmingpoolconstruction1-1024.avif 1024w, /images/opt/swimmingpoolconstruction1-768.avif 768w" sizes="100vw">
+                    <source type="image/webp" srcset="/images/opt/swimmingpoolconstruction1-1920.webp 1920w, /images/opt/swimmingpoolconstruction1-1366.webp 1366w, /images/opt/swimmingpoolconstruction1-1024.webp 1024w, /images/opt/swimmingpoolconstruction1-768.webp 768w" sizes="100vw">
+                    <img src="/images/opt/swimmingpoolconstruction1-1024.jpg" alt="Swimming pool construction planning" class="w-full h-full object-cover" loading="eager" decoding="async" width="1920" height="1080">
+                </picture>
+            </div>
+            <div class="slider-image">
+                <picture class="absolute inset-0 w-full h-full block">
+                    <source type="image/avif" srcset="/images/opt/swimmingpool10-1920.avif 1920w, /images/opt/swimmingpool10-1366.avif 1366w, /images/opt/swimmingpool10-1024.avif 1024w, /images/opt/swimmingpool10-768.avif 768w" sizes="100vw">
+                    <source type="image/webp" srcset="/images/opt/swimmingpool10-1920.webp 1920w, /images/opt/swimmingpool10-1366.webp 1366w, /images/opt/swimmingpool10-1024.webp 1024w, /images/opt/swimmingpool10-768.webp 768w" sizes="100vw">
+                    <img src="/images/opt/swimmingpool10-1024.jpg" alt="Swimming pool contractor workmanship" class="w-full h-full object-cover" loading="lazy" decoding="async" width="1920" height="1080">
+                </picture>
+            </div>
+            <div class="slider-image">
+                <picture class="absolute inset-0 w-full h-full block">
+                    <source type="image/avif" srcset="/images/opt/swimmingpool7-1920.avif 1920w, /images/opt/swimmingpool7-1366.avif 1366w, /images/opt/swimmingpool7-1024.avif 1024w, /images/opt/swimmingpool7-768.avif 768w" sizes="100vw">
+                    <source type="image/webp" srcset="/images/opt/swimmingpool7-1920.webp 1920w, /images/opt/swimmingpool7-1366.webp 1366w, /images/opt/swimmingpool7-1024.webp 1024w, /images/opt/swimmingpool7-768.webp 768w" sizes="100vw">
+                    <img src="/images/opt/swimmingpool7-1024.jpg" alt="Completed residential swimming pool" class="w-full h-full object-cover" loading="lazy" decoding="async" width="1920" height="1080">
+                </picture>
+            </div>
+            <div class="slider-image">
+                <picture class="absolute inset-0 w-full h-full block">
+                    <source type="image/avif" srcset="/images/opt/swimmingpool4-1920.avif 1920w, /images/opt/swimmingpool4-1366.avif 1366w, /images/opt/swimmingpool4-1024.avif 1024w, /images/opt/swimmingpool4-768.avif 768w" sizes="100vw">
+                    <source type="image/webp" srcset="/images/opt/swimmingpool4-1920.webp 1920w, /images/opt/swimmingpool4-1366.webp 1366w, /images/opt/swimmingpool4-1024.webp 1024w, /images/opt/swimmingpool4-768.webp 768w" sizes="100vw">
+                    <img src="/images/opt/swimmingpool4-1024.jpg" alt="Swimming pool renovation project" class="w-full h-full object-cover" loading="lazy" decoding="async" width="1920" height="1080">
+                </picture>
+            </div>
+        </div>
+        <div class="pool-hero-overlay" aria-hidden="true"></div>
+        <div class="container mx-auto px-4 sm:px-6 relative z-10 text-center">
+            <div class="pool-hero-badge mb-6 sm:mb-8">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M2 4.25A2.25 2.25 0 014.25 2h11.5A2.25 2.25 0 0118 4.25v8.5A2.25 2.25 0 0115.75 15h-3.105a3.501 3.501 0 001.1 1.677A.75.75 0 0113.26 18H6.74a.75.75 0 01-.484-1.323A3.501 3.501 0 007.355 15H4.25A2.25 2.25 0 012 12.75v-8.5zm1.5 0a.75.75 0 01.75-.75h11.5a.75.75 0 01.75.75v7.5a.75.75 0 01-.75.75H4.25a.75.75 0 01-.75-.75v-7.5z" clip-rule="evenodd"></path></svg>
+                Licensed Pool Specialists Since 2015
+            </div>
+            <h1 class="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight font-display drop-shadow-2xl">
+                Licensed Swimming Pool<br>
+                <span class="text-cyan-100 drop-shadow-lg">Contractor Singapore</span>
+            </h1>
+            <p class="text-base sm:text-xl md:text-2xl text-white/95 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed font-light drop-shadow-lg px-2">Plan, repair, renovate or build your pool with a coordinated contractor team that understands pool structure, equipment, water systems and clean project handover.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 px-4 sm:px-0">
+                <a href="#scope" class="pool-hero-primary">Explore Our Scope<span aria-hidden="true">→</span></a>
+                <a href="mailto:info@luminousengineering.com.sg" class="pool-hero-secondary">Get a Free Quote<span aria-hidden="true">→</span></a>
+            </div>
+            <div class="flex justify-center mt-8">
+                <a href="https://www.google.com/maps/place/Luminous+Engineering+Pte.+Ltd./@1.3109063,103.8533834,17z/" target="_blank" rel="noopener noreferrer" class="google-review-badge" aria-label="View Luminous Engineering Google reviews">
+                    <div class="google-review-top">
+                        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"></path>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+                        </svg>
+                        <span class="google-review-title">Excellent on Google</span>
+                    </div>
+                    <div class="google-review-bottom">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="#FBBC05" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                        <span class="google-review-score">5.0 out of 5</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <main id="main" class="bg-gradient-to-b from-cyan-50/50 via-blue-50/30 to-cyan-50/50">
+        <section class="bg-white border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+                <nav class="service-breadcrumb text-sm text-slate-500" aria-label="Breadcrumb">
+                    <a href="/" class="hover:text-cyan-600">Home</a>
+                    <span class="mx-2">/</span>
+                    <a href="/services/swimming-pool" class="hover:text-cyan-600">Swimming Pool Services</a>
+                    <span class="mx-2">/</span>
+                    <span class="text-slate-700">Licensed Swimming Pool Contractor</span>
+                </nav>
+            </div>
+        </section>
+
+        <section id="scope" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-12 items-start">
+                    <div>
+                        <span class="pool-kicker text-cyan-700 text-xs font-bold uppercase">What we coordinate</span>
+                        <h2 class="font-display text-3xl sm:text-5xl font-bold text-slate-950 mt-4 mb-6">One accountable contractor for pool works</h2>
+                        <p class="text-lg text-slate-600 leading-relaxed">Swimming pool work often crosses multiple trades: structure, waterproofing, pumps, filters, valves, lighting, drainage and finishing. We help you define the scope, coordinate the right people and keep the project practical from site visit to handover.</p>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <article class="pool-card rounded-xl p-6">
+                            <h3 class="font-display text-xl font-bold text-slate-950 mb-3">Pool construction</h3>
+                            <p class="text-slate-600">New pool planning, build coordination, equipment planning and project scheduling for residential and commercial spaces.</p>
+                        </article>
+                        <article class="pool-card rounded-xl p-6">
+                            <h3 class="font-display text-xl font-bold text-slate-950 mb-3">Pool renovation</h3>
+                            <p class="text-slate-600">Tile, coping, waterproofing, resurfacing, plumbing and system upgrade coordination for older pools.</p>
+                        </article>
+                        <article class="pool-card rounded-xl p-6">
+                            <h3 class="font-display text-xl font-bold text-slate-950 mb-3">Equipment works</h3>
+                            <p class="text-slate-600">Pump, filter, heater, valve, chlorinator and automation replacement or repair planning.</p>
+                        </article>
+                        <article class="pool-card rounded-xl p-6">
+                            <h3 class="font-display text-xl font-bold text-slate-950 mb-3">Defect response</h3>
+                            <p class="text-slate-600">Leak checks, water loss investigation, pump-room review and practical repair recommendations.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-20 bg-slate-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <picture class="block overflow-hidden rounded-2xl">
+                        <source type="image/avif" srcset="/images/opt/swimmingpool10-1920.avif 1920w, /images/opt/swimmingpool10-1024.avif 1024w" sizes="(max-width: 1024px) 100vw, 50vw">
+                        <source type="image/webp" srcset="/images/opt/swimmingpool10-1920.webp 1920w, /images/opt/swimmingpool10-1024.webp 1024w" sizes="(max-width: 1024px) 100vw, 50vw">
+                        <img src="/images/opt/swimmingpool10-1024.jpg" alt="Swimming pool contractor workmanship" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                    </picture>
+                    <div>
+                        <span class="pool-kicker text-cyan-300 text-xs font-bold uppercase">Our process</span>
+                        <h2 class="font-display text-3xl sm:text-5xl font-bold mt-4 mb-8">Clear, practical and documented</h2>
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cyan-400 text-slate-950 font-bold">1</span>
+                                <div><h3 class="font-bold text-xl mb-1">Site review</h3><p class="text-slate-300">We review access, current pool condition, equipment setup, defects and your desired outcome.</p></div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cyan-400 text-slate-950 font-bold">2</span>
+                                <div><h3 class="font-bold text-xl mb-1">Scope and quote</h3><p class="text-slate-300">You receive a clear scope with options, priorities, exclusions and practical timing.</p></div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cyan-400 text-slate-950 font-bold">3</span>
+                                <div><h3 class="font-bold text-xl mb-1">Coordinated delivery</h3><p class="text-slate-300">We coordinate pool works, related trade support, site protection and clean handover.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="pool-kicker text-cyan-700 text-xs font-bold uppercase">Property types</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-bold text-slate-950 mt-4">Pool contractor support across Singapore</h2>
+                </div>
+                <div class="grid md:grid-cols-4 gap-5">
+                    <div class="rounded-xl bg-cyan-50 p-6 text-center"><h3 class="font-bold text-slate-950 mb-2">Landed homes</h3><p class="text-sm text-slate-600">Private pool upgrades, repairs and new works.</p></div>
+                    <div class="rounded-xl bg-cyan-50 p-6 text-center"><h3 class="font-bold text-slate-950 mb-2">Condos and MCSTs</h3><p class="text-sm text-slate-600">Planned maintenance, defects and upgrades.</p></div>
+                    <div class="rounded-xl bg-cyan-50 p-6 text-center"><h3 class="font-bold text-slate-950 mb-2">Hotels and clubs</h3><p class="text-sm text-slate-600">Operational pools needing careful scheduling.</p></div>
+                    <div class="rounded-xl bg-cyan-50 p-6 text-center"><h3 class="font-bold text-slate-950 mb-2">Commercial facilities</h3><p class="text-sm text-slate-600">Equipment, safety and water-system works.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-choose-us" class="py-20 bg-gradient-to-br from-slate-50 to-cyan-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="pool-kicker text-cyan-700 text-xs font-bold uppercase">Why choose us</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-bold text-slate-950 mt-4">A contractor focused on the whole pool system</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <article class="pool-card rounded-xl p-7"><h3 class="font-display text-xl font-bold text-slate-950 mb-3">10+ years of experience</h3><p class="text-slate-600">Practical experience across pool construction, refurbishment, waterproofing, filtration and equipment works.</p></article>
+                    <article class="pool-card rounded-xl p-7"><h3 class="font-display text-xl font-bold text-slate-950 mb-3">Coordinated trades</h3><p class="text-slate-600">One project lead coordinates pool, plumbing, electrical and finishing interfaces for a clearer delivery path.</p></article>
+                    <article class="pool-card rounded-xl p-7"><h3 class="font-display text-xl font-bold text-slate-950 mb-3">Documented handover</h3><p class="text-slate-600">Scope, equipment information, testing results and maintenance advice are explained before completion.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section id="maintenance-pricing" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-4xl mx-auto mb-12">
+                    <span class="pool-kicker text-cyan-700 text-xs font-bold uppercase">Planning and pricing</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-bold text-slate-950 mt-4 mb-5">What shapes a pool contractor quotation</h2>
+                    <p class="text-lg text-slate-600">Every pool and site is different. We inspect the existing condition and prepare a scope around the work actually required.</p>
+                </div>
+                <div class="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+                    <table class="w-full min-w-[720px] text-left">
+                        <thead class="bg-slate-900 text-white"><tr><th class="p-4">Cost factor</th><th class="p-4">What we assess</th><th class="p-4">Why it matters</th></tr></thead>
+                        <tbody class="divide-y divide-slate-200 text-slate-700">
+                            <tr><td class="p-4 font-semibold">Pool condition</td><td class="p-4">Leaks, cracks, finishes and water loss</td><td class="p-4">Defines repair depth and preparation</td></tr>
+                            <tr><td class="p-4 font-semibold">Equipment</td><td class="p-4">Pump, filter, valves and controls</td><td class="p-4">Determines repair or replacement needs</td></tr>
+                            <tr><td class="p-4 font-semibold">Access</td><td class="p-4">Plant room, delivery and work-area access</td><td class="p-4">Affects labour, protection and logistics</td></tr>
+                            <tr><td class="p-4 font-semibold">Finishes</td><td class="p-4">Tiles, coping, waterproofing and fittings</td><td class="p-4">Changes material and installation scope</td></tr>
+                            <tr><td class="p-4 font-semibold">Programme</td><td class="p-4">Operating hours and completion target</td><td class="p-4">Guides sequencing and manpower</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-12 grid lg:grid-cols-2 gap-8 items-start">
+                    <div>
+                        <h3 class="font-display text-2xl sm:text-3xl font-bold text-slate-950 mb-5">Site and compliance review</h3>
+                        <p class="text-slate-600 mb-6">Before work begins, the project scope can include checks of the following interfaces where applicable.</p>
+                        <ul class="space-y-3 text-slate-700">
+                            <li class="flex gap-3"><span class="text-cyan-600 font-bold">01</span><span>Pool shell, waterproofing and visible structural defects</span></li>
+                            <li class="flex gap-3"><span class="text-cyan-600 font-bold">02</span><span>Circulation, filtration, drainage and make-up water</span></li>
+                            <li class="flex gap-3"><span class="text-cyan-600 font-bold">03</span><span>Electrical isolation, bonding, lighting and equipment controls</span></li>
+                            <li class="flex gap-3"><span class="text-cyan-600 font-bold">04</span><span>Safe access, edge finishes and surrounding work areas</span></li>
+                            <li class="flex gap-3"><span class="text-cyan-600 font-bold">05</span><span>Water testing, commissioning and operator handover</span></li>
+                        </ul>
+                    </div>
+                    <div class="rounded-xl bg-cyan-50 border border-cyan-100 p-7">
+                        <h3 class="font-display text-2xl font-bold text-slate-950 mb-5">Typical upgrade options</h3>
+                        <div class="grid sm:grid-cols-2 gap-4 text-sm">
+                            <div class="bg-white p-4 rounded-lg"><strong class="text-slate-900">Energy-efficient pump</strong><p class="text-slate-600 mt-1">Improve circulation control and operating efficiency.</p></div>
+                            <div class="bg-white p-4 rounded-lg"><strong class="text-slate-900">Filtration upgrade</strong><p class="text-slate-600 mt-1">Match filter capacity to pool use and loading.</p></div>
+                            <div class="bg-white p-4 rounded-lg"><strong class="text-slate-900">LED pool lighting</strong><p class="text-slate-600 mt-1">Refresh visibility and night-time presentation.</p></div>
+                            <div class="bg-white p-4 rounded-lg"><strong class="text-slate-900">Automation</strong><p class="text-slate-600 mt-1">Simplify schedules, dosing and equipment control.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="our-clients" class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="pool-kicker text-cyan-700 text-xs font-bold uppercase">Our clients</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold text-slate-950 mt-4 mb-5">Pool works for residential and commercial properties</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-10">We adapt planning, access control and handover to the way each property operates.</p>
+                <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
+                    <div class="bg-white border border-slate-200 rounded-lg p-5 font-semibold">Landed homes</div><div class="bg-white border border-slate-200 rounded-lg p-5 font-semibold">Condominiums</div><div class="bg-white border border-slate-200 rounded-lg p-5 font-semibold">MCSTs</div><div class="bg-white border border-slate-200 rounded-lg p-5 font-semibold">Hotels and clubs</div><div class="bg-white border border-slate-200 rounded-lg p-5 font-semibold col-span-2 lg:col-span-1">Commercial sites</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="recent-works" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12"><span class="pool-kicker text-cyan-700 text-xs font-bold uppercase">Recent works</span><h2 class="font-display text-3xl sm:text-5xl font-bold text-slate-950 mt-4">Pool contractor project gallery</h2></div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <figure class="overflow-hidden rounded-xl bg-slate-900"><img src="/images/swimmingpoolconstruction1.jpeg" alt="Swimming pool construction site assessment" class="w-full aspect-[4/3] object-cover" loading="lazy"><figcaption class="p-4 text-white font-semibold">Construction and planning</figcaption></figure>
+                    <figure class="overflow-hidden rounded-xl bg-slate-900"><img src="/images/swimmingpool4.jpeg" alt="Completed pool renovation works" class="w-full aspect-[4/3] object-cover" loading="lazy"><figcaption class="p-4 text-white font-semibold">Pool refurbishment</figcaption></figure>
+                    <figure class="overflow-hidden rounded-xl bg-slate-900"><img src="/images/swimmingpool8.jpeg" alt="Pool equipment and circulation works" class="w-full aspect-[4/3] object-cover" loading="lazy"><figcaption class="p-4 text-white font-semibold">Equipment coordination</figcaption></figure>
+                    <figure class="overflow-hidden rounded-xl bg-slate-900"><img src="/images/swimmingpool11.jpg" alt="Completed swimming pool handover" class="w-full aspect-[4/3] object-cover" loading="lazy"><figcaption class="p-4 text-white font-semibold">Testing and handover</figcaption></figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-gradient-to-br from-slate-950 via-cyan-950 to-blue-950 text-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="pool-kicker text-cyan-300 text-xs font-bold uppercase">Project enquiry</span><h2 class="font-display text-3xl sm:text-5xl font-bold mt-4 mb-5">Get a clear pool project quotation</h2><p class="text-lg text-cyan-50/80 mb-8">Tell us the property type, pool condition and work you are considering. Photos help us prepare for the site review.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center"><a href="tel:+6581836772" class="px-8 py-4 rounded-lg bg-cyan-400 text-slate-950 font-bold hover:bg-cyan-300 transition">Call +65 8183 6772</a><a href="https://wa.me/+6581836772" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-lg border border-white/40 font-bold hover:bg-white/10 transition">WhatsApp Project Details</a></div>
+            </div>
+        </section>
+
+        <section id="maintenance-packages" class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-4xl mx-auto mb-12"><span class="pool-kicker text-cyan-700 text-xs font-bold uppercase">Contractor services</span><h2 class="font-display text-3xl sm:text-5xl font-bold text-slate-950 mt-4 mb-5">Pool project service packages</h2><p class="text-lg text-slate-600">Choose the starting point that fits your pool. Final scope is confirmed after assessment.</p></div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <article class="pool-card rounded-xl p-7"><h3 class="font-display text-xl font-bold mb-3">Site Assessment</h3><p class="text-slate-600">Condition review, defect observations, equipment check and recommended next steps.</p></article><article class="pool-card rounded-xl p-7"><h3 class="font-display text-xl font-bold mb-3">Repair and Rectification</h3><p class="text-slate-600">Targeted repair of leaks, finishes, plumbing, circulation and equipment faults.</p></article><article class="pool-card rounded-xl p-7"><h3 class="font-display text-xl font-bold mb-3">Pool Renovation</h3><p class="text-slate-600">Coordinated resurfacing, waterproofing, fittings, lighting and plant upgrades.</p></article><article class="pool-card rounded-xl p-7"><h3 class="font-display text-xl font-bold mb-3">New Pool Works</h3><p class="text-slate-600">Planning and construction support from site preparation through commissioning.</p></article><article class="pool-card rounded-xl p-7"><h3 class="font-display text-xl font-bold mb-3">Equipment Upgrade</h3><p class="text-slate-600">Pump, filter, dosing, heating, lighting and control-system improvements.</p></article><article class="pool-card rounded-xl p-7"><h3 class="font-display text-xl font-bold mb-3">Ongoing Support</h3><p class="text-slate-600">Maintenance planning, inspections and responsive repair support after handover.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="pool-kicker text-cyan-700 text-xs font-bold uppercase">FAQ</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-bold text-slate-950 mt-4">Licensed Swimming Pool Contractor FAQ</h2>
+                </div>
+                <div class="space-y-4">
+                    <details class="rounded-xl bg-white p-6 border border-slate-200">
+                        <summary class="cursor-pointer font-bold text-slate-950">What pool contractor work do you handle?</summary>
+                        <p class="mt-3 text-slate-600">We support pool construction, renovation, repair, equipment upgrades, leak rectification, maintenance planning and project coordination.</p>
+                    </details>
+                    <details class="rounded-xl bg-white p-6 border border-slate-200">
+                        <summary class="cursor-pointer font-bold text-slate-950">Can you coordinate electrical and plumbing interfaces?</summary>
+                        <p class="mt-3 text-slate-600">Yes. Where the pool scope involves pumps, lighting, heaters, water supply, drainage or other interfaces, we coordinate the right specialist support.</p>
+                    </details>
+                    <details class="rounded-xl bg-white p-6 border border-slate-200">
+                        <summary class="cursor-pointer font-bold text-slate-950">How do I get a quote?</summary>
+                        <p class="mt-3 text-slate-600">Call or WhatsApp +65 8183 6772 with photos, your location, the property type and what you need done. We will advise the next step.</p>
+                    </details>
+                    <details class="rounded-xl bg-white p-6 border border-slate-200"><summary class="cursor-pointer font-bold text-slate-950">Can you inspect an existing pool before quoting?</summary><p class="mt-3 text-slate-600">Yes. A site assessment helps us confirm visible defects, access, equipment condition and the practical scope before a quotation is finalised.</p></details>
+                    <details class="rounded-xl bg-white p-6 border border-slate-200"><summary class="cursor-pointer font-bold text-slate-950">Can you renovate a pool without rebuilding everything?</summary><p class="mt-3 text-slate-600">Often, yes. Depending on the shell and systems, targeted waterproofing, resurfacing, fitting and equipment upgrades may be sufficient.</p></details>
+                    <details class="rounded-xl bg-white p-6 border border-slate-200"><summary class="cursor-pointer font-bold text-slate-950">Do you provide support after handover?</summary><p class="mt-3 text-slate-600">Yes. We can advise on operation, maintenance planning and follow-up repair or equipment needs.</p></details>
+                </div>
+            </div>
+        </section>
+
+        <section id="our-guarantee" class="py-20 bg-gradient-to-br from-cyan-50 via-blue-50 to-cyan-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12"><span class="pool-kicker text-cyan-700 text-xs font-bold uppercase">Our guarantees</span><h2 class="font-display text-3xl sm:text-5xl font-bold text-slate-950 mt-4">Clear commitments from survey to handover</h2></div>
+                <div class="grid md:grid-cols-4 gap-5 text-center"><div class="bg-white rounded-xl p-6"><h3 class="font-bold mb-2">Clear scope</h3><p class="text-sm text-slate-600">Defined inclusions and exclusions.</p></div><div class="bg-white rounded-xl p-6"><h3 class="font-bold mb-2">Quality materials</h3><p class="text-sm text-slate-600">Products selected for pool conditions.</p></div><div class="bg-white rounded-xl p-6"><h3 class="font-bold mb-2">Site protection</h3><p class="text-sm text-slate-600">Careful planning around occupied properties.</p></div><div class="bg-white rounded-xl p-6"><h3 class="font-bold mb-2">Clean handover</h3><p class="text-sm text-slate-600">Testing and practical operating advice.</p></div></div>
+            </div>
+        </section>
+
+        <section id="awards" class="py-20 bg-slate-950 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><span class="pool-kicker text-cyan-300 text-xs font-bold uppercase">Recognition</span><h2 class="font-display text-3xl sm:text-5xl font-bold mt-4 mb-5">Awards and recognitions</h2><p class="text-slate-300 max-w-3xl mx-auto mb-10">Independent recognition reflects the service standards we bring to pool projects and property works.</p><div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"><div class="border border-cyan-400/25 rounded-xl p-6 bg-white/5 font-semibold">Best Singapore Award</div><div class="border border-cyan-400/25 rounded-xl p-6 bg-white/5 font-semibold">Singapore's Finest Services</div><div class="border border-cyan-400/25 rounded-xl p-6 bg-white/5 font-semibold">Best in Singapore Merlion Award</div><div class="border border-cyan-400/25 rounded-xl p-6 bg-white/5 font-semibold">The Fun Empire Best in Singapore</div></div></div>
+        </section>
+
+        <section id="client-testimonials" class="py-20 bg-gradient-to-b from-slate-950 to-cyan-950 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center mb-12"><span class="pool-kicker text-cyan-300 text-xs font-bold uppercase">Testimonials</span><h2 class="font-display text-3xl sm:text-5xl font-bold mt-4">What our clients say</h2></div><div class="grid md:grid-cols-3 gap-6"><article class="border border-cyan-400/25 rounded-xl p-7 bg-white/5"><p class="text-slate-300 mb-5">“The pool scope was explained clearly and the different trades were coordinated without us chasing separate contractors.”</p><strong>Residential client, Bukit Timah</strong></article><article class="border border-cyan-400/25 rounded-xl p-7 bg-white/5"><p class="text-slate-300 mb-5">“The team identified the equipment issue, proposed practical options and kept the work area organised.”</p><strong>MCST representative, Novena</strong></article><article class="border border-cyan-400/25 rounded-xl p-7 bg-white/5"><p class="text-slate-300 mb-5">“Communication was straightforward from the site review through testing and handover.”</p><strong>Facility manager, Singapore</strong></article></div></div>
+        </section>
+
+        <section id="completed-project-photos" class="py-20 bg-slate-950 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center mb-12"><span class="pool-kicker text-cyan-300 text-xs font-bold uppercase">Project stages</span><h2 class="font-display text-3xl sm:text-5xl font-bold mt-4">How a coordinated pool project progresses</h2></div><div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"><div class="border border-cyan-400/25 rounded-xl overflow-hidden"><img src="/images/swimmingpoolconstruction1.jpeg" alt="Pool site assessment" class="w-full aspect-[4/3] object-cover" loading="lazy"><div class="p-5"><h3 class="font-bold text-cyan-300">1. Site assessment</h3></div></div><div class="border border-cyan-400/25 rounded-xl overflow-hidden"><img src="/images/swimmingpool4.jpeg" alt="Pool work preparation" class="w-full aspect-[4/3] object-cover" loading="lazy"><div class="p-5"><h3 class="font-bold text-cyan-300">2. Preparation</h3></div></div><div class="border border-cyan-400/25 rounded-xl overflow-hidden"><img src="/images/swimmingpool8.jpeg" alt="Swimming pool work in progress" class="w-full aspect-[4/3] object-cover" loading="lazy"><div class="p-5"><h3 class="font-bold text-cyan-300">3. Coordinated works</h3></div></div><div class="border border-cyan-400/25 rounded-xl overflow-hidden"><img src="/images/swimmingpool11.jpg" alt="Swimming pool completed handover" class="w-full aspect-[4/3] object-cover" loading="lazy"><div class="p-5"><h3 class="font-bold text-cyan-300">4. Handover</h3></div></div></div></div>
+        </section>
+
+        <section id="free-consultation" class="py-20 bg-cyan-950 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center mb-12"><span class="pool-kicker text-cyan-300 text-xs font-bold uppercase">Free consultation</span><h2 class="font-display text-3xl sm:text-5xl font-bold mt-4 mb-5">Discuss your swimming pool project</h2><p class="text-slate-300 max-w-3xl mx-auto">Share the condition, desired result and property details. We will help identify the right next step.</p></div><div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-8"><div class="space-y-5"><div class="bg-white/5 border border-cyan-400/20 rounded-xl p-6"><h3 class="font-display text-2xl font-bold text-cyan-300 mb-3">Contact information</h3><p class="text-slate-300 mb-2">Phone: <a class="text-cyan-300" href="tel:+6581836772">+65 8183 6772</a></p><p class="text-slate-300">Email: <a class="text-cyan-300" href="mailto:info@luminousengineering.com.sg">info@luminousengineering.com.sg</a></p></div><div class="bg-white/5 border border-cyan-400/20 rounded-xl p-6"><h3 class="font-display text-2xl font-bold text-cyan-300 mb-3">Business hours</h3><p class="text-slate-300">Daily, 7:00 AM to 10:00 PM</p></div></div><form id="contactForm" class="space-y-5 bg-white/5 border border-cyan-400/20 rounded-xl p-7" novalidate><input type="hidden" name="access_key" value="0385ff11-de21-4e4b-8b82-94575a021492"><input type="hidden" name="subject" value="Licensed Pool Contractor Enquiry"><div><label for="fullName" class="block mb-2 font-semibold">Full Name</label><input id="fullName" name="fullName" required class="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-600" type="text"></div><div class="grid sm:grid-cols-2 gap-5"><div><label for="email" class="block mb-2 font-semibold">Email</label><input id="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-600" type="email"></div><div><label for="phone" class="block mb-2 font-semibold">Phone</label><input id="phone" name="phone" required class="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-600" type="tel"></div></div><div><label for="projectDetails" class="block mb-2 font-semibold">Project Details</label><textarea id="projectDetails" name="projectDetails" required rows="5" class="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-600 resize-none" placeholder="Pool type, current condition and work required"></textarea></div><button type="submit" class="w-full px-8 py-4 rounded-lg bg-cyan-400 text-slate-950 font-bold hover:bg-cyan-300 transition">Request Consultation</button><div id="formMessage" class="hidden text-center p-4 rounded-lg"></div></form></div></div>
+        </section>
+
+        <section class="py-20 bg-gradient-to-br from-cyan-600 to-blue-700 text-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-display text-3xl sm:text-5xl font-bold mb-5">Need a swimming pool contractor?</h2>
+                <p class="text-lg text-cyan-50 mb-8">Send us your pool photos and project details. We will help you confirm the practical next step.</p>
+                <a href="https://wa.me/+6581836772" class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-white text-cyan-700 font-bold hover:bg-cyan-50 transition" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="site-footer bg-gradient-to-b from-gray-900 to-black text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section class="footer-coverage text-center" aria-labelledby="footer-coverage-title">
+                <span class="footer-coverage__eyebrow">Coverage</span>
+                <h2 id="footer-coverage-title" class="footer-coverage__title">Island-wide Service Across Singapore</h2>
+                <p class="footer-coverage__copy">We support residential and commercial requests across Singapore. Choose your area to browse location-specific service coverage.</p>
+                <div class="footer-coverage__chips">
+                    <a class="footer-coverage__chip" href="/locations/ang-mo-kio">Ang Mo Kio</a>
+                    <a class="footer-coverage__chip" href="/locations/bedok">Bedok</a>
+                    <a class="footer-coverage__chip" href="/locations/bishan">Bishan</a>
+                    <a class="footer-coverage__chip" href="/locations/bukit-batok">Bukit Batok</a>
+                    <a class="footer-coverage__chip" href="/locations/bukit-merah">Bukit Merah</a>
+                    <a class="footer-coverage__chip" href="/locations/bukit-timah">Bukit Timah</a>
+                    <a class="footer-coverage__chip" href="/locations/clementi">Clementi</a>
+                    <a class="footer-coverage__chip" href="/locations/geylang">Geylang</a>
+                    <a class="footer-coverage__chip" href="/locations/hougang">Hougang</a>
+                    <a class="footer-coverage__chip" href="/locations/jurong-east">Jurong East</a>
+                    <a class="footer-coverage__chip" href="/locations/jurong-west">Jurong West</a>
+                    <a class="footer-coverage__chip" href="/locations/kallang">Kallang</a>
+                    <a class="footer-coverage__chip" href="/locations/marine-parade">Marine Parade</a>
+                    <a class="footer-coverage__chip" href="/locations/novena">Novena</a>
+                    <a class="footer-coverage__chip" href="/locations/orchard">Orchard</a>
+                    <a class="footer-coverage__chip" href="/locations/pasir-ris">Pasir Ris</a>
+                    <a class="footer-coverage__chip" href="/locations/punggol">Punggol</a>
+                    <a class="footer-coverage__chip" href="/locations/queenstown">Queenstown</a>
+                    <a class="footer-coverage__chip" href="/locations/sengkang">Sengkang</a>
+                    <a class="footer-coverage__chip" href="/locations/serangoon">Serangoon</a>
+                    <a class="footer-coverage__chip" href="/locations/tampines">Tampines</a>
+                    <a class="footer-coverage__chip" href="/locations/toa-payoh">Toa Payoh</a>
+                    <a class="footer-coverage__chip" href="/locations/woodlands">Woodlands</a>
+                    <a class="footer-coverage__chip" href="/locations/yishun">Yishun</a>
+                    <a class="footer-coverage__chip" href="/locations/cbd">CBD</a>
+                </div>
+            </section>
+            
+            
+            <div class="mb-12">
+                <div class="font-display text-4xl font-bold text-cyan-400 tracking-wider mb-2">Luminous Engineering
+                </div>
+                <p class="text-gray-300 max-w-md">
+                    Singapore's premier home-renovation &amp; handyman specialist.
+                </p>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-800 mb-10"></div>
+            <!-- Footer Services Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10 mb-12 text-sm">
+                <!-- Complete Renovation -->
+                <div>
+                    <a href="/services/complete-renovation" class="font-semibold text-cyan-400 mb-3 block hover:text-cyan-300 transition uppercase tracking-wider text-xs">Complete
+                        Renovation</a>
+                    <ul class="space-y-1.5 text-gray-400">
+                        <li><a href="/services/complete-renovation" class="hover:text-cyan-300 transition">Full Home
+                                Renovation</a></li>
+                        <li><a href="/services/plastering" class="hover:text-cyan-300 transition">Plastering</a></li>
+                        <li><a href="/services/hacking" class="hover:text-cyan-300 transition">Hacking</a></li>
+                        <li><a href="/services/partition-ceiling" class="hover:text-cyan-300 transition">Partition &amp;
+                                Ceiling</a></li>
+                        <li><a href="/services/complete-renovation" class="hover:text-cyan-300 transition">Kitchen
+                                Renovation</a></li>
+                        <li><a href="/services/complete-renovation" class="hover:text-cyan-300 transition">Bathroom
+                                Renovation</a></li>
+                        <li><a href="/services/complete-renovation" class="hover:text-cyan-300 transition">Bedroom &amp;
+                                Living Room</a></li>
+                        <li><a href="/services/complete-renovation" class="hover:text-cyan-300 transition">HDB &amp; Condo
+                                Renovation</a></li>
+                    </ul>
+                </div>
+                <!-- Swimming Pool Services -->
+                <div>
+                    <a href="/services/swimming-pool" class="font-semibold text-cyan-400 mb-3 block hover:text-cyan-300 transition uppercase tracking-wider text-xs">Swimming
+                        Pool Services</a>
+                    <ul class="space-y-1.5 text-gray-400">
+                        <li><a href="/services/licensed-swimming-pool-contractor" class="hover:text-cyan-300 transition">Licensed Contractor</a></li>
+                        <li><a href="/services/emergency-swimming-pool-services" class="hover:text-cyan-300 transition">Emergency Pool Services</a></li>
+                        <li><a href="/services/swimming-pool-repair" class="hover:text-cyan-300 transition">Pool
+                                Repair</a></li>
+                        <li><a href="/services/swimming-pool-maintenance" class="hover:text-cyan-300 transition">Pool
+                                Maintenance</a></li>
+                        <li><a href="/services/swimming-pool-filter-repair" class="hover:text-cyan-300 transition">Filter Repair</a></li>
+                        <li><a href="/services/swimming-pool-pump-repair" class="hover:text-cyan-300 transition">Pump
+                                Repair</a></li>
+                        <li><a href="/services/swimming-pool-construction" class="hover:text-cyan-300 transition">Pool
+                                Construction</a></li>
+                        <li><a href="/services/jacuzzi-system-installation" class="hover:text-cyan-300 transition">Jacuzzi Installation</a></li>
+                        <li><a href="/services/water-feature-system-installation" class="hover:text-cyan-300 transition">Water Feature Installation</a></li>
+                        <li><a href="/services/pond-biological-filtration-system-installation" class="hover:text-cyan-300 transition">Pond Filtration System</a></li>
+                    </ul>
+                </div>
+                <!-- Painting Services -->
+                <div>
+                    <a href="/services/painting" class="font-semibold text-cyan-400 mb-3 block hover:text-cyan-300 transition uppercase tracking-wider text-xs">Painting
+                        Services</a>
+                    <ul class="space-y-1.5 text-gray-400">
+                        <li><a href="/services/best-house-painting-services" class="hover:text-cyan-300 transition">Best House Painting</a></li>
+                        <li><a href="/services/painting-contractor" class="hover:text-cyan-300 transition">Painting Contractor</a></li>
+                        <li><a href="/services/office-painting" class="hover:text-cyan-300 transition">Office Painting</a></li>
+                        <li><a href="/services/landed-property-painting" class="hover:text-cyan-300 transition">Landed Property Painting</a></li>
+                        <li><a href="/services/commercial-painting-service" class="hover:text-cyan-300 transition">Commercial Painting</a></li>
+                        <li><a href="/services/hdb-painting" class="hover:text-cyan-300 transition">HDB Painting</a></li>
+                    </ul>
+                </div>
+                <!-- Waterproofing Services -->
+                <div>
+                    <a href="/services/waterproofing" class="font-semibold text-cyan-400 mb-3 block hover:text-cyan-300 transition uppercase tracking-wider text-xs">Waterproofing
+                        Services</a>
+                    <ul class="space-y-1.5 text-gray-400">
+                        <li><a href="/services/waterproofing" class="hover:text-cyan-300 transition">Roof
+                                Waterproofing</a></li>
+                        <li><a href="/services/waterproofing" class="hover:text-cyan-300 transition">Bathroom
+                                Waterproofing</a></li>
+                        <li><a href="/services/waterproofing" class="hover:text-cyan-300 transition">Basement
+                                Waterproofing</a></li>
+                        <li><a href="/services/waterproofing" class="hover:text-cyan-300 transition">Balcony
+                                Waterproofing</a></li>
+                        <li><a href="/services/waterproofing" class="hover:text-cyan-300 transition">External Wall
+                                Waterproofing</a></li>
+                        <li><a href="/services/waterproofing" class="hover:text-cyan-300 transition">Rope Access</a>
+                        </li>
+                        <li><a href="/services/waterproofing" class="hover:text-cyan-300 transition">Leakage &amp; Seepage
+                                Repair</a></li>
+                    </ul>
+                </div>
+                <!-- Electrical Services -->
+                <div>
+                    <a href="/services/electrical" class="font-semibold text-cyan-400 mb-3 block hover:text-cyan-300 transition uppercase tracking-wider text-xs">Electrical
+                        Services</a>
+                    <ul class="space-y-1.5 text-gray-400">
+                        <li><a href="/services/electrical-wiring-services" class="hover:text-cyan-300 transition">Electrical Wiring</a></li>
+                        <li><a href="/services/house-rewiring-services" class="hover:text-cyan-300 transition">House Rewiring</a></li>
+                        <li><a href="/services/db-box-services" class="hover:text-cyan-300 transition">DB Box Services</a></li>
+                        <li><a href="/services/power-socket-switch-services" class="hover:text-cyan-300 transition">Socket &amp; Switch</a></li>
+                        <li><a href="/services/three-phase-power-services" class="hover:text-cyan-300 transition">3-Phase Power</a></li>
+                        <li><a href="/services/earthing-grounding-services" class="hover:text-cyan-300 transition">Earthing &amp; Grounding</a></li>
+                        <li><a href="/services/electrical-inspection-services" class="hover:text-cyan-300 transition">Electrical Inspection</a></li>
+                        <li><a href="/services/electrical" class="inline-flex pt-2 font-semibold text-cyan-400 hover:text-cyan-300 transition">View All Services</a></li>
+                    </ul>
+                </div>
+                <!-- Epoxy Floor Services -->
+                <div>
+                    <a href="/services/epoxy-floor" class="font-semibold text-cyan-400 mb-3 block hover:text-cyan-300 transition uppercase tracking-wider text-xs">Epoxy
+                        Floor Services</a>
+                    <ul class="space-y-1.5 text-gray-400">
+                        <li><a href="/services/epoxy-floor" class="hover:text-cyan-300 transition">Residential
+                                Epoxy</a></li>
+                        <li><a href="/services/epoxy-floor" class="hover:text-cyan-300 transition">Commercial &amp;
+                                Industrial</a></li>
+                        <li><a href="/services/epoxy-floor" class="hover:text-cyan-300 transition">Warehouse
+                                Flooring</a></li>
+                        <li><a href="/services/epoxy-floor" class="hover:text-cyan-300 transition">Garage Epoxy
+                                Coating</a></li>
+                        <li><a href="/services/epoxy-floor" class="hover:text-cyan-300 transition">Epoxy Repair &amp;
+                                Refinishing</a></li>
+                    </ul>
+                </div>
+                <!-- Tile, Parquet & Flooring Solutions -->
+                <div>
+                    <a href="/services/tile-installation" class="font-semibold text-cyan-400 mb-3 block hover:text-cyan-300 transition uppercase tracking-wider text-xs">Tile, Parquet &amp; Flooring Solutions</a>
+                    <ul class="space-y-1.5 text-gray-400">
+                        <li><a href="/services/floor-polishing" class="hover:text-cyan-300 transition">Floor Polishing</a></li>
+                        <li><a href="/services/parquet-floor-repair" class="hover:text-cyan-300 transition">Parquet Floor Repair</a></li>
+                        <li><a href="/services/tile-installation" class="hover:text-cyan-300 transition">Tile Interior
+                                Design</a></li>
+                        <li><a href="/services/tile-installation" class="hover:text-cyan-300 transition">Cement
+                                Screeding Services</a></li>
+                        <li><a href="/services/tile-installation" class="hover:text-cyan-300 transition">Floor &amp; Wall
+                                Tile Installation</a></li>
+                        <li><a href="/services/tile-installation" class="hover:text-cyan-300 transition">Waterproofing
+                                Services</a></li>
+                        <li><a href="/services/tile-installation" class="hover:text-cyan-300 transition">Floor &amp; Wall
+                                Tile Overlay</a></li>
+                        <li><a href="/services/tile-installation" class="hover:text-cyan-300 transition">Construct Wall
+                                Services</a></li>
+                    </ul>
+                </div>
+                <!-- Plumbing Services -->
+                <div>
+                    <a href="/services/plumbing" class="font-semibold text-cyan-400 mb-3 block hover:text-cyan-300 transition uppercase tracking-wider text-xs">Plumbing
+                        Services</a>
+                    <ul class="space-y-1.5 text-gray-400">
+                        <li><a href="/services/plumbing" class="hover:text-cyan-300 transition">Leak Detection &amp;
+                                Repair</a></li>
+                        <li><a href="/services/plumbing" class="hover:text-cyan-300 transition">Pipe Installation</a>
+                        </li>
+                        <li><a href="/services/plumbing" class="hover:text-cyan-300 transition">Drain Cleaning</a>
+                        </li>
+                        <li><a href="/services/plumbing" class="hover:text-cyan-300 transition">Water Heater
+                                Installation</a></li>
+                        <li><a href="/services/plumbing" class="hover:text-cyan-300 transition">Fixture
+                                Installation</a></li>
+                    </ul>
+                </div>
+                <!-- Handyman Services -->
+                <div>
+                    <a href="/services/handyman" class="font-semibold text-cyan-400 mb-3 block hover:text-cyan-300 transition uppercase tracking-wider text-xs">Handyman
+                        Services</a>
+                    <ul class="space-y-1.5 text-gray-400">
+                        <li><a href="/services/handyman" class="hover:text-cyan-300 transition">General Home
+                                Repairs</a></li>
+                        <li><a href="/services/handyman" class="hover:text-cyan-300 transition">Installation
+                                Services</a></li>
+                        <li><a href="/services/handyman" class="hover:text-cyan-300 transition">Furniture Assembly</a>
+                        </li>
+                        <li><a href="/services/painting" class="hover:text-cyan-300 transition">Painting &amp;
+                                Touch-Up</a></li>
+                        <li><a href="/services/plumbing" class="hover:text-cyan-300 transition">Minor Plumbing</a>
+                        </li>
+                        <li><a href="/services/electrical" class="hover:text-cyan-300 transition">Electrical Work</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-800 mb-10"></div>
+
+            <!-- Bottom Layout: Company, Support, Contact, Map -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 text-sm">
+                <!-- Company -->
+                <div>
+                    <div class="font-semibold text-cyan-400 mb-3 uppercase tracking-wider text-xs">Company</div>
+                    <ul class="space-y-1.5 text-gray-400">
+                        <li><a href="/about" class="hover:text-cyan-300 transition block">About Us</a></li>
+                        <li><a href="/about" class="hover:text-cyan-300 transition block">Our Team</a></li>
+                        <li><a href="/services" class="hover:text-cyan-300 transition block">Portfolio</a></li>
+                        <li><a href="/#contact" class="hover:text-cyan-300 transition block">Contact</a></li>
+                        <li><a href="/blog" class="hover:text-cyan-300 transition block">Blog</a></li>
+                    </ul>
+                </div>
+                <!-- Support -->
+                <div>
+                    <div class="font-semibold text-cyan-400 mb-3 uppercase tracking-wider text-xs">Support</div>
+                    <ul class="space-y-1.5 text-gray-400">
+                        <li><a href="/services" class="hover:text-cyan-300 transition block">FAQ</a></li>
+                        <li><a href="/#contact" class="hover:text-cyan-300 transition block">Warranty</a></li>
+                        <li><a href="/#contact" class="hover:text-cyan-300 transition block">Terms &amp; Conditions</a></li>
+                        <li><a href="/#contact" class="hover:text-cyan-300 transition block">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <div class="font-semibold text-cyan-400 mb-3 uppercase tracking-wider text-xs">Contact Info</div>
+                    <div class="space-y-3">
+                        <div>
+                            <h5 class="font-medium text-gray-300 mb-0.5 text-sm">Address</h5>
+                            <p class="text-gray-400">30 Roberts Lane, #02-01<br>Singapore 218309</p>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-300 mb-0.5 text-sm">Call Us</h5>
+                            <p class="text-gray-400">+65 8183 6772</p>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-300 mb-0.5 text-sm leading-snug">Opening Hours</h5>
+                            <p class="text-gray-400">10am–5pm<br><span class="text-xs text-gray-500">(Sunday, Saturday
+                                    Closed)</span>
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-300 mb-0.5 text-sm">Email Us</h5>
+                            <p class="text-gray-400"><a href="mailto:info@luminousengineering.com.sg" class="hover:text-cyan-300 transition break-all">info@luminousengineering.com.sg</a>
+                            </p>
+                        </div>
+                        <div class="flex gap-3 pt-2">
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-cyan-400 transition" aria-label="Facebook">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-cyan-400 transition" aria-label="Instagram">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.645.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"></path>
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/+6581836772" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-cyan-400 transition" aria-label="WhatsApp">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Map -->
+                <div class="flex flex-col h-full min-h-[250px] relative mt-4 md:mt-0">
+                    <div class="w-full h-full flex-grow bg-gray-800 rounded-lg overflow-hidden shadow-lg border border-gray-700 relative group">
+                        <!-- Custom Google Profile Overlay inside Map -->
+                        <a href="https://www.google.com/maps/place/Luminous+Engineering+Pte.+Ltd./@1.3109117,103.8508085,17z/data=!3m1!4b1!4m6!3m5!1s0x2527d4914833582b:0x4f377e9267003f56!8m2!3d1.3109063!4d103.8533834!16s%2Fg%2F11yv_7p0r0?hl=en&amp;entry=ttu" target="_blank" rel="noopener noreferrer" class="absolute top-3 left-3 z-10 bg-white shadow-md rounded-[2px] p-2.5 flex flex-col hover:bg-gray-50 transition max-w-[200px]" aria-label="View Luminous Engineering on Google Maps">
+                            <div class="font-bold text-gray-900 text-[13px] leading-tight truncate">Luminous Engineering
+                            </div>
+                            <div class="text-[11px] text-gray-600 mt-1 truncate">30 Roberts Lane, #02-01</div>
+                            <div class="flex items-center mt-1">
+                                <span class="text-orange-500 text-[12px] font-medium mr-1">5.0</span>
+                                <div class="flex text-orange-400">
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                    <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <span class="text-[11px] text-[#1a73e8] ml-1 hover:underline">Reviews</span>
+                            </div>
+                        </a>
+                        <iframe src="https://maps.google.com/maps?q=Luminous+Engineering+Pte.+Ltd.,+30+Roberts+Lane,+%2302-01,+Singapore+218309&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" class="absolute inset-0 w-full h-full border-0 transition duration-500" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-meta flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800">
+                <div class="footer-meta-text text-gray-400 text-sm mb-4 md:mb-0">
+                    ©
+                    <span data-footer-year=""></span>
+                    Luminous Engineering PTE Ltd. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/+6581836772" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+        </svg>
+    </a>

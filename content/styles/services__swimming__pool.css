@@ -1,0 +1,677 @@
+/* Generated per-page CSS for Luminous_html-2/services/swimming-pool.html. */
+
+@keyframes floatParticle {
+
+  0%, 100% { transform: translateY(0) translateX(0); }
+
+  25% { transform: translateY(-100px) translateX(50px); }
+
+  50% { transform: translateY(-200px) translateX(-50px); }
+
+  75% { transform: translateY(-100px) translateX(100px); }
+
+}
+
+/* /assets/css/swimming-pool-repair.css */
+:root{--primary-aqua:#06b6d4;--primary-blue:#0891b2;--deep-blue:#164e63;--bg-light:#fff;--bg-off-white:#f0fdfa;--text-main:#1e293b;--text-muted:#475569;--accent-gold:#d4af37}body{background:var(--bg-light);color:var(--text-main);font-family:Inter,sans-serif;overflow-x:hidden}.font-display{font-family:Playfair Display,serif}.hero-bg{align-items:center;display:flex;min-height:80vh;overflow:hidden;position:relative}.background-slider{inset:0;position:absolute;z-index:0}.background-slide{animation:slideBackground 20s ease-in-out infinite;background-position:50%;background-size:cover;inset:0;opacity:0;position:absolute}.background-slide:after{background:linear-gradient(90deg,hsla(0,0%,100%,.9) 0,hsla(0,0%,100%,.7) 50%,hsla(0,0%,100%,.2));content:"";inset:0;position:absolute}.background-slide:first-child{animation-delay:0s}.background-slide:nth-child(2){animation-delay:5s}.background-slide:nth-child(3){animation-delay:10s}@keyframes slideBackground{0%,20%{opacity:1;transform:scale(1)}25%,95%{opacity:0;transform:scale(1.05)}to{opacity:0;transform:scale(1)}}.hero-content{position:relative;width:100%;z-index:10}.hero-title{color:var(--deep-blue);font-size:3.5rem;font-weight:700;line-height:1.2;margin-bottom:1.5rem}.text-gradient{background:linear-gradient(135deg,var(--deep-blue),var(--primary-aqua));-webkit-background-clip:text;-webkit-text-fill-color:transparent}.hero-description{color:var(--text-muted);font-size:1.25rem;line-height:1.7;margin-bottom:2rem;max-width:600px}.service-card{background:#fff;border:1px solid rgba(6,182,212,.1);border-radius:16px;box-shadow:0 4px 6px -1px rgba(0,0,0,.05);padding:2.5rem;transition:all .3s ease}.service-card:hover{border-color:var(--primary-aqua);box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.04);transform:translateY(-5px)}.service-card h3{color:var(--deep-blue)}.service-card p{color:var(--text-muted)}.testimonial-card{background:var(--bg-off-white);border:1px solid rgba(6,182,212,.1);border-radius:16px;padding:2rem}.testimonial-card h4{color:var(--primary-blue)}.testimonial-card p{color:var(--text-muted)}input,select,textarea{background:#fff!important;border:1px solid #e2e8f0!important;color:var(--text-main)!important;transition:all .3s ease}input:focus,select:focus,textarea:focus{border-color:var(--primary-aqua)!important;box-shadow:0 0 0 3px rgba(6,182,212,.1)!important;outline:none}details.wp-block-accordion{background:#fff;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:1rem}details.wp-block-accordion summary{color:var(--deep-blue);padding:1rem}details.wp-block-accordion summary:after{color:var(--primary-aqua)}.wp-block-accordion__content{border-top:1px solid #f1f5f9;color:var(--text-muted);padding:0 1rem 1rem}footer{background:var(--deep-blue);color:#fff}footer .text-gray-300{color:#cbd5e1}footer .text-yellow-400{color:var(--primary-aqua)}.pool-pricing-shell{background:#fff;border:1px solid rgba(6,182,212,.2);border-radius:20px;box-shadow:0 20px 25px -5px rgba(0,0,0,.1);padding:2rem}.pool-pricing-shell:before{display:none}.pool-pricing-table{color:var(--text-main)}.pool-pricing-table tbody tr:first-child td{background:var(--bg-off-white);color:var(--deep-blue)}.pool-pricing-table td{border-bottom:1px solid #e2e8f0}.pool-pricing-table tr:not(:first-child):hover td{background:var(--bg-off-white)}.pool-pricing-badge{background:linear-gradient(135deg,var(--primary-blue),var(--primary-aqua));color:#fff}.whatsapp-float{align-items:center;background-color:#25d366;border-radius:50px;bottom:40px;box-shadow:2px 2px 3px #999;color:#fff;display:flex;font-size:30px;height:60px;justify-content:center;position:fixed;right:40px;text-align:center;transition:all .3s ease;width:60px;z-index:100}.whatsapp-float:hover{transform:scale(1.1)}@media (max-width:768px){.hero-title{font-size:2.5rem}.pool-pricing-table tr{background:#fff;border:1px solid #e2e8f0}.pool-pricing-table td{border-bottom:1px solid #f1f5f9}}.service-card{overflow:hidden;position:relative}.service-card:before{background:linear-gradient(90deg,transparent,rgba(6,182,212,.1),transparent);content:"";height:100%;left:-100%;position:absolute;top:0;transition:left .5s ease;width:100%}.service-card:hover:before{left:100%}a{transition:all .3s ease}@media (prefers-reduced-motion:no-preference){.service-card,.testimonial-card{animation:fadeInUp .6s ease forwards;opacity:0}.service-card:first-child{animation-delay:.1s}.service-card:nth-child(2){animation-delay:.2s}.service-card:nth-child(3){animation-delay:.3s}.service-card:nth-child(4){animation-delay:.4s}.service-card:nth-child(5){animation-delay:.5s}.service-card:nth-child(6){animation-delay:.6s}}@keyframes fadeInUp{0%{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}.glass-card{backdrop-filter:blur(10px);background:hsla(0,0%,100%,.7);border:1px solid hsla(0,0%,100%,.3)}button:focus,input:focus,select:focus,textarea:focus{outline:2px solid var(--primary-aqua);outline-offset:2px}::selection{background:var(--primary-aqua);color:#fff}::-moz-selection{background:var(--primary-aqua);color:#fff}*{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* /assets/css/footer.css */
+.site-footer{isolation:isolate;overflow:hidden;position:relative}.site-footer:before{background:radial-gradient(circle at top right,hsla(0,0%,100%,.08),transparent 45%),radial-gradient(circle at bottom left,hsla(0,0%,100%,.04),transparent 55%);content:"";inset:0;pointer-events:none;position:absolute;z-index:-1}.site-footer .footer-subscribe-form{align-items:stretch;display:flex;gap:.5rem}.site-footer .footer-subscribe-form input[type=email]{background-color:rgba(17,24,39,.85);border:1px solid rgba(253,224,71,.35);border-radius:999px;color:#f3f4f6;flex:1;min-height:3rem;transition:border-color .3s ease,box-shadow .3s ease}.site-footer .footer-subscribe-form input[type=email]:focus{border-color:#facc15;box-shadow:0 0 0 3px rgba(250,204,21,.25);outline:none}.site-footer .footer-subscribe-form button{border-radius:999px;font-weight:600;min-height:3rem;padding:0 1.75rem;transition:transform .3s ease,box-shadow .3s ease}.site-footer .footer-subscribe-form button:focus-visible{outline:3px solid rgba(250,204,21,.6);outline-offset:2px}.site-footer .footer-contact p{color:#d1d5db;margin-bottom:.4rem}.site-footer .footer-contact p strong{color:#facc15}.site-footer .text-container,.text-container{word-break:break-word}.site-footer .footer-social-links{display:flex;flex-wrap:wrap;gap:.75rem}.site-footer .footer-social-links a{align-items:center;background:hsla(0,0%,100%,.05);border:1px solid transparent;border-radius:999px;color:#d1d5db;display:inline-flex;height:44px;justify-content:center;transition:transform .2s ease,color .2s ease,border-color .2s ease,background .2s ease;width:44px}.site-footer .footer-social-links a:focus-visible,.site-footer .footer-social-links a:hover{background:rgba(250,204,21,.1);border-color:rgba(250,204,21,.6);color:#facc15;outline:none;transform:translateY(-2px) scale(1.03)}.site-footer .footer-social-links svg{height:22px;width:22px}.site-footer .footer-meta{border-top:1px solid rgba(75,85,99,.6);margin-top:2rem;padding-top:2rem}.site-footer .footer-meta .footer-meta-text{color:#9ca3af;font-size:.9rem}.site-footer .footer-coverage{border-bottom:1px solid rgba(75,85,99,.6);margin-bottom:2.5rem;padding-bottom:2.75rem}.site-footer .footer-coverage__eyebrow{color:#facc15;display:inline-block;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.site-footer .footer-coverage__title{color:#f8f6f0;font-family:Playfair Display,serif;font-size:clamp(2rem,4vw,3.4rem);font-weight:800;line-height:1.08;margin:.7rem auto .95rem;max-width:54rem}.site-footer .footer-coverage__copy{color:#cbd5e1;font-size:1rem;line-height:1.7;margin:0 auto;max-width:48rem}.site-footer .footer-coverage__chips{display:flex;flex-wrap:wrap;gap:.65rem;justify-content:center;margin-top:1.85rem}.site-footer .footer-coverage__chip{align-items:center;background:hsla(0,0%,100%,.06);border:1px solid rgba(212,175,55,.2);border-radius:999px;color:#f5f1df;display:inline-flex;font-size:.85rem;font-weight:700;line-height:1.2;min-height:2.45rem;padding:.5rem .9rem;text-decoration:none;transition:color .2s ease,border-color .2s ease,background .2s ease,transform .2s ease}.site-footer .footer-coverage__chip:focus-visible,.site-footer .footer-coverage__chip:hover{background:rgba(250,204,21,.12);border-color:rgba(250,204,21,.65);color:#fde68a;outline:none;transform:translateY(-2px)}.whatsapp-float{align-items:center;background:#25d366;border-radius:999px;bottom:32px;box-shadow:0 20px 40px rgba(0,0,0,.3);color:#fff;display:flex;height:58px;justify-content:center;position:fixed;right:32px;transition:transform .3s ease;width:58px;z-index:60}.whatsapp-float:hover{transform:translateY(-4px)}[data-footer-year]{font-variant-numeric:tabular-nums}@media (max-width:640px){.site-footer .footer-subscribe-form{flex-direction:column}.site-footer .footer-subscribe-form button,.site-footer .footer-subscribe-form input[type=email]{border-radius:999px;width:100%}.site-footer .footer-coverage{margin-bottom:2.2rem;padding-bottom:2.2rem}.site-footer .footer-coverage__copy{font-size:.96rem}.site-footer .footer-coverage__chips{gap:.55rem}.site-footer .footer-coverage__chip{justify-content:center;max-width:100%;width:auto}.whatsapp-float{bottom:20px;right:20px}}
+
+/* inline style from services/swimming-pool.html */
+
+            /* Water-Themed Color Palette */
+            :root {
+                --pool-aqua: #00CED1;
+                --pool-cyan: #00BFFF;
+                --pool-blue: #1E90FF;
+                --pool-deep: #0066CC;
+                --pool-light: #E0F7FA;
+                --water-shimmer: #87CEEB;
+            }
+            
+            /* Pool Water Background */
+            .pool-water-bg {
+                background: linear-gradient(135deg, 
+                    rgba(0, 206, 209, 0.1) 0%, 
+                    rgba(0, 191, 255, 0.15) 50%, 
+                    rgba(30, 144, 255, 0.1) 100%);
+            }
+            
+            /* Water Ripple Effect */
+            @keyframes ripple {
+                0% { transform: scale(1); opacity: 0.6; }
+                100% { transform: scale(1.5); opacity: 0; }
+            }
+            
+            .water-ripple {
+                animation: ripple 3s ease-out infinite;
+            }
+            
+            /* Pool Image Overlay */
+            .pool-image-overlay {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .pool-image-overlay::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(0, 206, 209, 0.3), transparent);
+                transition: left 0.7s ease;
+            }
+            
+            .pool-image-overlay:hover::before {
+                left: 100%;
+            }
+            
+            @keyframes shimmer {
+                0%, 100% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+            }
+            
+            @keyframes float {
+                0%, 100% {
+                    transform: translateY(0) translateX(0);
+                }
+                25% {
+                    transform: translateY(-20px) translateX(10px);
+                }
+                50% {
+                    transform: translateY(-40px) translateX(-10px);
+                }
+                75% {
+                    transform: translateY(-20px) translateX(10px);
+                }
+            }
+            
+            /* Image Slider Styles */
+            .hero-slider {
+                position: absolute;
+                inset: 0;
+                overflow: hidden;
+            }
+            
+            .slider-image {
+                position: absolute;
+                inset: 0;
+                background-size: cover;
+                background-position: center;
+                opacity: 0;
+                animation: slideShow 24s infinite;
+            }
+            
+            .slider-image:nth-child(1) { animation-delay: 0s; }
+            .slider-image:nth-child(2) { animation-delay: 6s; }
+            .slider-image:nth-child(3) { animation-delay: 12s; }
+            .slider-image:nth-child(4) { animation-delay: 18s; }
+            
+            @keyframes slideShow {
+                0% { opacity: 0; transform: scale(1); }
+                4% { opacity: 1; transform: scale(1); }
+                29% { opacity: 1; transform: scale(1.1); }
+                33% { opacity: 0; transform: scale(1.1); }
+                100% { opacity: 0; transform: scale(1); }
+            }
+            
+            /* FAQ Accordion Styles */
+            details.wp-block-accordion {
+                background: #ffffff;
+                border: 1px solid #e2e8f0; /* slate-200 */
+                border-radius: 8px;
+                padding: 1.25rem;
+                margin-bottom: 0.75rem;
+                transition: all 0.3s ease;
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            }
+
+            details.wp-block-accordion:hover {
+                background: #f8fafc; /* slate-50 */
+                border-color: #06b6d4; /* cyan-500 */
+            }
+
+            details.wp-block-accordion summary {
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 1.05rem;
+                color: #1e293b; /* slate-800 */
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            details.wp-block-accordion summary::-webkit-details-marker {
+                display: none;
+            }
+
+            details.wp-block-accordion summary::after {
+                content: '+';
+                font-size: 1.5rem;
+                color: #06b6d4; /* cyan-500 */
+                font-weight: 700;
+                transition: transform 0.3s ease;
+            }
+
+            details.wp-block-accordion[open] summary::after {
+                transform: rotate(45deg);
+            }
+
+            .wp-block-accordion__content {
+                margin-top: 1rem;
+                padding-top: 1rem;
+                border-top: 1px solid #e2e8f0; /* slate-200 */
+                color: #475569; /* slate-600 */
+                line-height: 1.7;
+            }
+
+            .hero-bg {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .background-slider {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            .background-slide {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                transform: none !important;
+                box-sizing: border-box;
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 2;
+            }
+
+            .hero-content-inner {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 4rem 1rem;
+                box-sizing: border-box;
+            }
+
+            /* Service Card Styles */
+            .service-card {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 12px;
+                padding: 2rem;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .service-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                border-color: rgba(232, 185, 35, 0.3);
+            }
+
+            .service-icon {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+                color: #e8b923;
+            }
+
+            /* Testimonial Styles */
+            .testimonial-card {
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 12px;
+                padding: 2rem;
+                height: 100%;
+            }
+            
+            /* Mobile Responsive Styles */
+            @media (max-width: 640px) {
+                /* Hero Section Mobile */
+                .hero-bg {
+                    min-height: auto;
+                }
+                
+                .hero-bg .container {
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                }
+                
+                .hero-bg h1 {
+                    font-size: 2rem !important;
+                    line-height: 1.2;
+                }
+                
+                .hero-bg p {
+                    font-size: 1rem !important;
+                    margin-bottom: 2rem;
+                }
+                
+                /* Hero Badge Mobile */
+                .hero-bg .inline-block.px-8 {
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                    padding-top: 0.5rem;
+                    padding-bottom: 0.5rem;
+                }
+                
+                .hero-bg .inline-block span {
+                    font-size: 0.75rem;
+                }
+                
+                .hero-bg .inline-block svg {
+                    width: 1rem;
+                    height: 1rem;
+                }
+                
+                /* CTA Buttons Mobile */
+                .hero-bg .flex.flex-col a {
+                    padding: 1rem 1.5rem !important;
+                    font-size: 1rem !important;
+                }
+                
+                .hero-bg .flex.flex-col a svg {
+                    width: 1.25rem;
+                    height: 1.25rem;
+                }
+                
+                /* Section Headings Mobile */
+                section h2 {
+                    font-size: 1.75rem !important;
+                }
+                
+                section > div > p {
+                    font-size: 1rem !important;
+                }
+                
+                /* Service Cards Mobile */
+                .service-card {
+                    padding: 1.5rem !important;
+                }
+                
+                /* Why Choose Us Section Mobile */
+                .mb-32.bg-gradient-to-br {
+                    padding: 1.5rem !important;
+                    margin-left: -1rem;
+                    margin-right: -1rem;
+                    border-radius: 0 !important;
+                }
+                
+                .mb-32.bg-gradient-to-br .group.p-10 {
+                    padding: 1.5rem !important;
+                }
+                
+                .mb-32.bg-gradient-to-br h3 {
+                    font-size: 1.25rem;
+                }
+                
+                .mb-32.bg-gradient-to-br .w-20.h-20 {
+                    width: 4rem;
+                    height: 4rem;
+                }
+                
+                /* Contact Form Section Mobile */
+                #contact {
+                    padding: 1.5rem !important;
+                    margin-left: -1rem;
+                    margin-right: -1rem;
+                    border-radius: 0 !important;
+                }
+                
+                #contact .max-w-3xl {
+                    padding: 1.5rem !important;
+                }
+                
+                #contact h2 {
+                    font-size: 1.5rem !important;
+                }
+                
+                #contact input,
+                #contact select,
+                #contact textarea {
+                    padding: 0.875rem 1rem !important;
+                    font-size: 1rem;
+                }
+                
+                #contact button[type="submit"] {
+                    padding: 1rem !important;
+                    font-size: 1rem !important;
+                }
+                
+                /* FAQ Section Mobile */
+                #faqs {
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                    padding-left: 1rem !important;
+                    padding-right: 1rem !important;
+                }
+                
+                #faqs h2 {
+                    font-size: 1.5rem !important;
+                }
+                
+                details.wp-block-accordion {
+                    padding: 1rem;
+                }
+                
+                details.wp-block-accordion summary {
+                    font-size: 0.95rem;
+                }
+                
+                /* Footer Mobile */
+                footer .text-container {
+                    word-break: break-all;
+                }
+                
+                footer .font-display.text-3xl {
+                    font-size: 1.5rem;
+                }
+                
+                footer .flex.flex-wrap.gap-4 {
+                    gap: 0.75rem;
+                }
+                
+                /* Main Content Container Mobile */
+                .max-w-7xl.mx-auto.px-4 {
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                }
+                
+                /* Clients Section Mobile */
+                .grid.md\:grid-cols-2.lg\:grid-cols-3 .bg-white.p-8 {
+                    padding: 1.25rem;
+                }
+                
+                .grid.md\:grid-cols-2.lg\:grid-cols-3 h4 {
+                    font-size: 1.1rem;
+                }
+            }
+            
+            /* Tablet Responsive (md breakpoint) */
+            @media (min-width: 641px) and (max-width: 768px) {
+                .hero-bg h1 {
+                    font-size: 3rem !important;
+                }
+                
+                .hero-bg .flex.flex-col a {
+                    padding: 1rem 2rem !important;
+                    font-size: 1.1rem !important;
+                }
+                
+                section h2 {
+                    font-size: 2.25rem !important;
+                }
+                
+                #contact {
+                    padding: 2rem !important;
+                }
+                
+                #faqs {
+                    margin-left: -0.5rem !important;
+                    margin-right: -0.5rem !important;
+                }
+            }
+            
+            /* ═══ Google Review Badge ═══ */
+            .google-review-badge {
+                display: inline-flex;
+                flex-direction: column;
+                gap: 0.35rem;
+                background: rgba(15, 30, 40, 0.85);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 0.75rem;
+                padding: 0.75rem 1.25rem;
+                text-decoration: none;
+                color: inherit;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+                backdrop-filter: blur(8px);
+            }
+
+            .google-review-badge:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+            }
+
+            .google-review-top {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .google-g-icon {
+                flex-shrink: 0;
+            }
+
+            .google-review-title {
+                font-family: 'Inter', sans-serif;
+                font-size: 0.95rem;
+                font-weight: 600;
+                color: #ffffff;
+                letter-spacing: 0.01em;
+            }
+
+            .google-review-bottom {
+                display: flex;
+                align-items: center;
+                gap: 0.4rem;
+                padding-left: 0.15rem;
+            }
+
+            .google-review-score {
+                font-family: 'Inter', sans-serif;
+                font-size: 0.85rem;
+                font-weight: 500;
+                color: rgba(255, 255, 255, 0.7);
+            }
+
+            /* ═══ Recent Works Video ═══ */
+            .recent-work-video {
+                width: 100%;
+                max-width: 360px;
+                aspect-ratio: 9 / 16;
+                border-radius: 1rem;
+                overflow: hidden;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 206, 209, 0.15);
+                background: #000;
+            }
+
+            .recent-work-video iframe {
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+
+            @media (max-width: 640px) {
+                .recent-work-video {
+                    max-width: 300px;
+                }
+            }
+
+            /* WhatsApp Float Button Mobile */
+            .whatsapp-float {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 56px;
+                height: 56px;
+                background: #25D366;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                z-index: 1000;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            
+            .whatsapp-float:hover {
+                transform: scale(1.1);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            }
+            
+            @media (max-width: 640px) {
+                .whatsapp-float {
+                    bottom: 16px;
+                    right: 16px;
+                    width: 50px;
+                    height: 50px;
+                }
+                
+                .whatsapp-float svg {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+
+            /* Pool Pricing Table Styles (matching maintenance page) */
+            .pool-pricing-shell {
+                position: relative;
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 30px;
+                padding: 2.75rem 2rem 2rem;
+                box-shadow: 0 25px 60px rgba(0, 0, 0, 0.05);
+                overflow: hidden;
+            }
+
+            .pool-pricing-shell::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                padding: 1px;
+                background: linear-gradient(135deg, rgba(6, 182, 212, 0.5), rgba(255, 255, 255, 0));
+                -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+                mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+            }
+
+            .pool-pricing-shell::after {
+                content: '';
+                position: absolute;
+                width: 320px;
+                height: 320px;
+                background: radial-gradient(circle, rgba(6, 182, 212, 0.1), transparent 60%);
+                filter: blur(60px);
+                top: -150px;
+                right: -120px;
+            }
+
+            .pool-pricing-badge {
+                position: absolute;
+                top: 1.2rem;
+                right: 1.6rem;
+                padding: 0.4rem 1.3rem;
+                border-radius: 999px;
+                background: linear-gradient(135deg, #06b6d4, #3b82f6);
+                color: #ffffff;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                font-weight: 700;
+                z-index: 2;
+            }
+
+            .pool-pricing-table {
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 0;
+                position: relative;
+                z-index: 1;
+                color: #475569;
+            }
+
+            .pool-pricing-table tbody tr:first-child td {
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                font-size: 0.8rem;
+                font-weight: 700;
+                color: #0f172a;
+                background: #f8fafc;
+            }
+
+            .pool-pricing-table td {
+                padding: 1.15rem 1rem;
+                border-bottom: 1px solid #e2e8f0;
+                vertical-align: middle;
+            }
+
+            .pool-pricing-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            /* Mobile Responsive Table */
+            @media (max-width: 640px) {
+                .pool-pricing-table thead {
+                    display: none;
+                }
+                .pool-pricing-table tr {
+                    display: block;
+                    margin-bottom: 1.5rem;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 12px;
+                    overflow: hidden;
+                }
+                .pool-pricing-table td {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    text-align: right;
+                    padding: 1rem;
+                    border-bottom: 1px solid #e2e8f0;
+                }
+                .pool-pricing-table td::before {
+                    content: attr(data-label);
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    font-size: 0.75rem;
+                    color: #94a3b8;
+                    margin-right: 1rem;
+                    text-align: left;
+                }
+            }
+        
+
+/* /assets/css/nav.css */
+:root{--nav-gold:#d4af37;--nav-dark:#1a1a1a}.font-display{font-family:Playfair Display,serif}.glass-nav{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);background:rgba(7,10,22,.92);border-bottom:1px solid rgba(212,175,55,.18);padding:.5rem 0;transition:all .3s ease}.glass-nav.scrolled{backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);background:rgba(7,10,22,.96)}.glass-nav .h-20{height:70px}.logo{align-items:center;color:var(--nav-gold);display:flex;font-size:1.5rem;font-weight:700;gap:.5rem}.logo img{height:50px;-o-object-fit:contain;object-fit:contain;width:auto}.logo span{font-size:1.25rem}.nav-link{position:relative;transition:color .3s ease}.nav-link:hover{color:var(--nav-gold)}.nav-link:after{background:var(--nav-gold);bottom:-5px;content:"";height:2px;left:0;position:absolute;transition:width .3s ease;width:0}.nav-link:hover:after{width:100%}.nav-link.active,.nav-link[aria-current=page]{color:var(--nav-gold)}.nav-link.active:after,.nav-link[aria-current=page]:after{width:100%}.glass-nav a.active,.glass-nav a[aria-current=page]{color:var(--nav-gold)}#desktopServicesDropdown{max-height:calc(100vh - 86px)}#desktopSubMenuPanel,.submenu-panel{max-height:calc(100vh - 92px)}.submenu-panel{overflow-y:auto;overscroll-behavior:contain}.submenu-panel a{line-height:1.35;white-space:normal}.submenu-panel::-webkit-scrollbar{width:8px}.submenu-panel::-webkit-scrollbar-track{background:hsla(0,0%,100%,.04)}.submenu-panel::-webkit-scrollbar-thumb{background:rgba(212,175,55,.42);border-radius:999px}.btn-primary{background:linear-gradient(135deg,var(--nav-gold),#b8941f);color:var(--nav-dark);font-weight:600;overflow:hidden;position:relative;transition:all .3s ease}.btn-primary:hover{box-shadow:0 10px 25px rgba(212,175,55,.3);transform:translateY(-2px)}.btn-primary:before{background:linear-gradient(90deg,transparent,hsla(0,0%,100%,.2),transparent);content:"";height:100%;left:-100%;position:absolute;top:0;transition:left .5s;width:100%}.btn-primary:hover:before{left:100%}.mobile-menu-button{cursor:pointer;display:none;flex-direction:column;padding:8px}.mobile-menu-button span{background:var(--nav-gold);border-radius:3px;height:3px;margin:3px 0;transition:all .3s ease;width:25px}.mobile-menu-button.active span:first-child{transform:rotate(45deg) translate(8px,8px)}.mobile-menu-button.active span:nth-child(2){opacity:0}.mobile-menu-button.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}.mobile-menu{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(26,26,26,.98);border-bottom:1px solid rgba(212,175,55,.2);display:none;left:0;max-height:0;overflow:hidden;pointer-events:none;position:fixed;right:0;top:80px;transition:max-height .4s ease;z-index:40}.mobile-menu.active{max-height:calc(100vh - 80px);overflow-y:auto;pointer-events:auto}.mobile-menu a{border-bottom:1px solid rgba(212,175,55,.1);display:block;padding:16px 24px;transition:all .3s ease}.mobile-menu a:hover{background:rgba(212,175,55,.1);padding-left:32px}@media (max-width:768px){.mobile-menu-button{display:flex}.desktop-nav{display:none!important}.mobile-menu{display:block}.logo{font-size:1.2rem}}@media (min-width:769px) and (max-width:1440px){.glass-nav .h-20{height:60px!important}.logo{gap:.375rem}.logo img{height:38px!important}.logo span{font-size:1rem!important}nav .space-x-8>*+*{margin-left:1.25rem!important}.nav-link{font-size:.95rem!important}.btn-primary{padding:.625rem 1.25rem!important}.btn-primary,nav .hidden.sm\:block span{font-size:.875rem!important}}@media (min-width:1024px) and (max-width:1366px){.logo img{height:35px!important}.logo span{font-size:.95rem!important}nav .space-x-8>*+*{margin-left:1rem!important}.nav-link{font-size:.9rem!important}.btn-primary{font-size:.8rem!important;padding:.5rem 1rem!important}}
+
+/* inline style from services/swimming-pool.html */
+
+        @keyframes blob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(20px, -50px) scale(1.1); }
+            50% { transform: translate(-20px, 20px) scale(0.9); }
+            75% { transform: translate(50px, 50px) scale(1.05); }
+        }
+        
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .animate-gradient {
+            background-size: 200% auto;
+            animation: gradient 3s ease infinite;
+        }
+        
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+    

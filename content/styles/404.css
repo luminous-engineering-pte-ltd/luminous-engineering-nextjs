@@ -1,0 +1,243 @@
+/* Generated per-page CSS for Luminous_html-2/404.html. */
+
+@keyframes floatParticle {
+
+  0%, 100% { transform: translateY(0) translateX(0); }
+
+  25% { transform: translateY(-100px) translateX(50px); }
+
+  50% { transform: translateY(-200px) translateX(-50px); }
+
+  75% { transform: translateY(-100px) translateX(100px); }
+
+}
+
+/* inline style from 404.html */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.8s ease;
+            position: relative;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .icon-container {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .construction-icon {
+            font-size: 120px;
+            animation: swing 2s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes swing {
+            0%, 100% {
+                transform: rotate(-10deg);
+            }
+            50% {
+                transform: rotate(10deg);
+            }
+        }
+
+        .error-code {
+            font-size: 120px;
+            font-weight: 800;
+            background: linear-gradient(to right, #fef9c3, #fde047, #f59e0b, #fbbf24, #fb923c, #fef08a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: none;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            background: linear-gradient(to right, #fde047, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 16px;
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #fef9c3, #fde047, #f59e0b, #fbbf24, #fb923c, #fef08a);
+            color: #1e293b;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+            font-weight: 700;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.6);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #f59e0b;
+            border: 2px solid transparent;
+            border-image: linear-gradient(to right, #fef9c3, #fde047, #f59e0b, #fbbf24, #fb923c, #fef08a) 1;
+            font-weight: 700;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(to right, #fef9c3, #fde047, #f59e0b, #fbbf24, #fb923c, #fef08a);
+            color: #1e293b;
+            transform: translateY(-2px);
+        }
+
+        .tools {
+            position: absolute;
+            font-size: 40px;
+            opacity: 0.1;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .tool1 {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .tool2 {
+            top: 15%;
+            right: 8%;
+            animation-delay: 0.5s;
+        }
+
+        .tool3 {
+            bottom: 20%;
+            left: 8%;
+            animation-delay: 1s;
+        }
+
+        .tool4 {
+            bottom: 15%;
+            right: 5%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            background: linear-gradient(to right, #fde047, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 25px;
+            }
+
+            .error-code {
+                font-size: 80px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .tools {
+                font-size: 30px;
+            }
+        }
+    
