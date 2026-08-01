@@ -50,7 +50,7 @@ SEO verification passed: 130 canonical pages, 130 legacy redirects, 129 internal
 10. Converted historical `.html` URLs to permanent 308 redirects that preserve their signals and lead to direct 200 canonical pages.
 11. Aligned canonical, sitemap, internal-link, and trailing-slash formats around extensionless, non-trailing-slash URLs.
 12. Removed the crawlable `/legacy/...` duplicate route and fixed `/not-found` to return 404.
-13. Restored Google Tag Manager container `GTM-MZZZFB66`.
+13. Installed Google Tag Manager container `GTM-TJ9758RG` globally, with its loader high in the shared head and its noscript iframe immediately after the opening body tag.
 14. Restored root favicon and manifest URLs and corrected the manifest configuration.
 15. Added descriptive alt text to 49 service images; the five remaining empty alts are intentional decorative carousel images.
 16. Corrected the duplicate H1 on the swimming-pool maintenance page.

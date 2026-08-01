@@ -62,9 +62,17 @@ async function inspect(route) {
   const description = normalizeText(meta(metaTags, "name", "description"));
   const canonical = linkTags.find((tag) => (tag.rel || "").toLowerCase().split(/\s+/).includes("canonical"))?.href || "";
   const robots = meta(metaTags, "name", "robots");
+  const head = html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1] || "";
+  const bodyStart = html.match(/<body\b[^>]*>([\s\S]{0,1000})/i)?.[1] || "";
+  const gtmScripts = [...head.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)]
+    .filter((script) => script[1].includes("GTM-TJ9758RG"));
+  const gtmFrames = tags(html, "iframe").filter((frame) => frame.src === "https://www.googletagmanager.com/ns.html?id=GTM-TJ9758RG");
 
   if (title !== seo.title) fail(route, "title does not match the production SEO snapshot");
   if (description !== seo.description) fail(route, "description does not match the production SEO snapshot");
+  if (gtmScripts.length !== 1) fail(route, "GTM-TJ9758RG loader is not present exactly once in the head");
+  if (gtmFrames.length !== 1 || !bodyStart.includes("GTM-TJ9758RG")) fail(route, "GTM-TJ9758RG noscript iframe is not immediately after the body opening");
+  if (html.includes("GTM-MZZZFB66")) fail(route, "obsolete GTM-MZZZFB66 container is still present");
   if (normalizeUrl(canonical) !== normalizeUrl(canonicalForRoute(route))) fail(route, `canonical mismatch (${canonical})`);
   for (const directive of ["index", "follow", "max-snippet:-1", "max-video-preview:-1", "max-image-preview:large"]) {
     if (!robots.includes(directive)) fail(route, `missing robots directive ${directive}`);
