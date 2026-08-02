@@ -92,3 +92,92 @@ a {
 .legacy-page-content {
   display: contents;
 }
+
+@keyframes adminFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.admin-page-transition {
+  animation: adminFadeUp 0.35s ease both;
+}
+
+.global-google-review-badge-slot {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 55;
+  max-width: calc(100vw - 48px);
+}
+
+.global-google-review-badge-slot .google-review-badge {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0;
+  padding: 0.75rem 1.25rem;
+  color: inherit;
+  text-decoration: none;
+  background: rgba(30, 42, 35, 0.92);
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.global-google-review-badge-slot .google-review-badge:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+.global-google-review-badge-slot .google-review-top,
+.global-google-review-badge-slot .google-review-bottom {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.global-google-review-badge-slot .google-g-icon {
+  flex-shrink: 0;
+}
+
+.global-google-review-badge-slot .google-review-title {
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.global-google-review-badge-slot .google-review-score {
+  color: hsla(0, 0%, 100%, 0.7);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .global-google-review-badge-slot {
+    left: 16px;
+    bottom: 16px;
+    max-width: calc(100vw - 32px);
+  }
+
+  .global-google-review-badge-slot .google-review-badge {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .global-google-review-badge-slot .google-review-title {
+    font-size: 0.85rem;
+  }
+
+  .global-google-review-badge-slot .google-review-score {
+    font-size: 0.78rem;
+  }
+}

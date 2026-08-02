@@ -12,6 +12,9 @@
     "seo:verify": "node scripts/verify-seo.mjs"
   },
   "dependencies": {
+    "@better-auth/mongo-adapter": "^1.6.25",
+    "better-auth": "^1.6.25",
+    "mongodb": "^7.5.0",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"

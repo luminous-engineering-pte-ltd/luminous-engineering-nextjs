@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import BodyClass from "../../components/BodyClass";
+import GoogleReviewBadge from "../../components/GoogleReviewBadge";
 import JsonLd from "../../components/JsonLd";
 import PageEnhancements from "../../components/PageEnhancements";
 import PageStyle from "../../components/PageStyle";
@@ -70,6 +71,7 @@ export default async function SitePage({ params }) {
         legacyShim={legacyShim}
       />
       <StaticContent html={content} />
+      {!content.includes("google-review-badge") ? <GoogleReviewBadge /> : null}
       <JsonLd data={getSeoByRoute(route)?.jsonLd || []} />
       <PageEnhancements route={route} />
 
