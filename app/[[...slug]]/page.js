@@ -44,8 +44,10 @@ export default async function SitePage({ params }) {
     route === "/about.html" ||
     route === "/blog" ||
     route === "/blog.html" ||
+    route.startsWith("/blog/") ||
     route === "/services.html" ||
     route.startsWith("/services/");
+  const blogDetailCascade = route.startsWith("/blog/");
   const serviceCascade = route === "/services.html" || route.startsWith("/services/");
   const legacyShim =
     route === "/about" ||
@@ -66,6 +68,7 @@ export default async function SitePage({ params }) {
       <PageStyle
         css={css}
         legacyCascade={legacyCascade}
+        blogDetailCascade={blogDetailCascade}
         legacyBaseShim={serviceCascade}
         legacyServiceUtilityShim={serviceCascade}
         legacyShim={legacyShim}
