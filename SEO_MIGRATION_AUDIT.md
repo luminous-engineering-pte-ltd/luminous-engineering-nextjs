@@ -85,7 +85,7 @@ All eight pages return 200 on the legacy site at both the clean canonical URL an
 | `/blog/best-pool-maintenance-companies-singapore-2026` | 10 Best Pool Maintenance Companies in Singapore [2026] \| Luminous Engineering |
 | `/blog/electrician-price-list-singapore-2026` | Electrician Price List Singapore [2026] \| Luminous Engineering |
 | `/blog/install-power-socket-singapore-price-2026` | Install Power Socket Singapore Price [2026] \| Luminous Engineering |
-| `/blog/light-installation-singapore-price-2026` | Light Installation Singapore Price [2026] \| Luminous Engineering |
+| `/blog/light-installation-singapore-price-2026` | Light Installation cost in Singapore \| Luminous Engineering |
 | `/blog/painting-service-singapore-price-list-2026` | Painting Service Singapore PRICE LIST [2026] \| Luminous Engineering |
 | `/blog/pool-maintenance-cost-singapore-2026` | Pool Maintenance Cost Singapore [2026] \| Luminous Engineering |
 | `/blog/power-trip-repair-cost-singapore-2026` | Power Trip Repair Cost Singapore [2026] \| Luminous Engineering |
