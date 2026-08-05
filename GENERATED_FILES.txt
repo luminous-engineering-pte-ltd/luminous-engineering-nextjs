@@ -1,4 +1,5 @@
-﻿Generated file inventory for luminous-nextjs
+﻿// trigger deployment
+Generated file inventory for luminous-nextjs
 Excludes node_modules and .next build output.
 
 app/[[...slug]]/page.js
