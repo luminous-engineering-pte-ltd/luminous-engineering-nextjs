@@ -5,6 +5,7 @@ import { canonicalForRoute, getCanonicalRoutes } from "../lib/seo.js";
 const origin = process.env.SEO_VERIFY_ORIGIN || "http://127.0.0.1:3001";
 const routes = getCanonicalRoutes();
 const failures = [];
+const obsoleteCanonicalDomain = /luminousengineeringsg\.com|poolexpertssg\.com/i;
 
 function decode(value = "") {
   const named = { amp: "&", apos: "'", gt: ">", lt: "<", nbsp: " ", quot: '"' };
@@ -89,7 +90,7 @@ async function inspect(route) {
     try {
       const parsed = JSON.parse(script[1]);
       const serialized = JSON.stringify(parsed);
-      if (/luminousengineeringsg\.com|poolexpertssg\.com/i.test(serialized)) fail(route, "JSON-LD contains an obsolete canonical domain");
+      if (obsoleteCanonicalDomain.test(serialized)) fail(route, "JSON-LD contains an obsolete canonical domain");
     } catch {
       fail(route, "invalid JSON-LD");
     }
@@ -194,6 +195,23 @@ await mapConcurrent(internalAssets, 12, async (asset) => {
 
 if (Object.keys(SEO_DATA).length !== routes.length) fail("SEO_DATA", `${Object.keys(SEO_DATA).length} records for ${routes.length} canonical routes`);
 if (Object.values(PAGES).filter((page) => !page.aliasOf).length < routes.length) fail("PAGES", "canonical page registry is incomplete");
+for (const route of routes) {
+  const expectedCanonical = canonicalForRoute(route);
+  if (PAGES[route]?.canonical !== expectedCanonical) {
+    fail(route, `page registry canonical mismatch (${PAGES[route]?.canonical || "missing"})`);
+  }
+  if (obsoleteCanonicalDomain.test(PAGES[route]?.canonical || "")) {
+    fail(route, "page registry canonical contains an obsolete domain");
+  }
+}
+for (const [route, page] of Object.entries(PAGES)) {
+  if (obsoleteCanonicalDomain.test(page.canonical || "")) {
+    fail(route, "page registry canonical contains an obsolete domain");
+  }
+  if (page.aliasOf && page.aliasOf !== "/404" && page.canonical !== canonicalForRoute(page.aliasOf)) {
+    fail(route, `alias canonical mismatch (${page.canonical || "missing"})`);
+  }
+}
 
 if (failures.length) {
   console.error(`SEO verification failed with ${failures.length} issue(s):`);

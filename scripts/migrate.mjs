@@ -107,7 +107,8 @@ async function generatePages() {
     const metadata = {
       title: textFromMatch(html.match(/<title>([\s\S]*?)<\/title>/i)),
       description: attrFromMeta(html, "description"),
-      canonical: attrFromCanonical(html),
+      // Do not inherit legacy cross-domain, .html, or trailing-slash canonicals.
+      canonical: canonicalForRoute(route),
       bodyClass: attrFromBody(bodyAttrs, "class"),
       content: contentFile,
       css: cssFile,
@@ -221,6 +222,14 @@ function aliasesFor(relative, route) {
   if (relative === "404.html") aliases.add("/not-found");
   aliases.delete(route);
   return [...aliases];
+}
+
+function canonicalForRoute(route) {
+  if (route === "/404" || route === "/404.html" || route === "/not-found") return "";
+  const cleanRoute = route === "/services.html" ? "/services" : route.replace(/\.html$/i, "");
+  return cleanRoute === "/"
+    ? "https://luminousengineering.com.sg/"
+    : `https://luminousengineering.com.sg${cleanRoute}`;
 }
 
 function rewriteHtml(input) {
