@@ -438,68 +438,43 @@
     </nav>
     <!-- Hero Section -->
     <section id="home" class="hero-bg relative">
-        <div class="background-slider">
-            <div class="background-slide">
-                <picture class="absolute inset-0 w-full h-full block">
-                    <source type="image/avif" srcset="/images/opt/hero-bg-1-1920.avif 1920w, /images/opt/hero-bg-1-1366.avif 1366w, /images/opt/hero-bg-1-1024.avif 1024w" sizes="100vw">
-                    <source type="image/webp" srcset="/images/opt/hero-bg-1-1920.webp 1920w, /images/opt/hero-bg-1-1366.webp 1366w, /images/opt/hero-bg-1-1024.webp 1024w" sizes="100vw">
-                    <img src="/images/opt/hero-bg-1-1024.jpg" alt="Renovation hero image" class="w-full h-full object-cover" loading="eager" decoding="async" width="1920" height="1080">
-                </picture>
-            </div>
-            <div class="background-slide">
-                <picture class="absolute inset-0 w-full h-full block">
-                    <source type="image/avif" srcset="/images/opt/hero-bg-5-1920.avif 1920w, /images/opt/hero-bg-5-1366.avif 1366w, /images/opt/hero-bg-5-1024.avif 1024w" sizes="100vw">
-                    <source type="image/webp" srcset="/images/opt/hero-bg-5-1920.webp 1920w, /images/opt/hero-bg-5-1366.webp 1366w, /images/opt/hero-bg-5-1024.webp 1024w" sizes="100vw">
-                    <img src="/images/opt/hero-bg-5-1024.jpg" alt="Renovation hero image" class="w-full h-full object-cover" loading="eager" decoding="async" width="1920" height="1080">
-                </picture>
-            </div>
-            <div class="background-slide">
-                <picture class="absolute inset-0 w-full h-full block">
-                    <source type="image/avif" srcset="/images/opt/hero-bg-4-1920.avif 1920w, /images/opt/hero-bg-4-1366.avif 1366w, /images/opt/hero-bg-4-1024.avif 1024w" sizes="100vw">
-                    <source type="image/webp" srcset="/images/opt/hero-bg-4-1920.webp 1920w, /images/opt/hero-bg-4-1366.webp 1366w, /images/opt/hero-bg-4-1024.webp 1024w" sizes="100vw">
-                    <img src="/images/opt/hero-bg-4-1024.jpg" alt="Renovation hero image" class="w-full h-full object-cover" loading="eager" decoding="async" width="1920" height="1080">
-                </picture>
-            </div>
-            <div class="background-slide">
-                <picture class="absolute inset-0 w-full h-full block">
-                    <source type="image/avif" srcset="/images/opt/hero-bg-2-1920.avif 1920w, /images/opt/hero-bg-2-1366.avif 1366w, /images/opt/hero-bg-2-1024.avif 1024w" sizes="100vw">
-                    <source type="image/webp" srcset="/images/opt/hero-bg-2-1920.webp 1920w, /images/opt/hero-bg-2-1366.webp 1366w, /images/opt/hero-bg-2-1024.webp 1024w" sizes="100vw">
-                    <img src="/images/opt/hero-bg-2-1024.jpg" alt="Renovation hero image" class="w-full h-full object-cover" loading="eager" decoding="async" width="1920" height="1080">
-                </picture>
-            </div>
-            <div class="background-slide">
-                <picture class="absolute inset-0 w-full h-full block">
-                    <source type="image/avif" srcset="/images/opt/hero-bg-3-1920.avif 1920w, /images/opt/hero-bg-3-1366.avif 1366w, /images/opt/hero-bg-3-1024.avif 1024w" sizes="100vw">
-                    <source type="image/webp" srcset="/images/opt/hero-bg-3-1920.webp 1920w, /images/opt/hero-bg-3-1366.webp 1366w, /images/opt/hero-bg-3-1024.webp 1024w" sizes="100vw">
-                    <img src="/images/opt/hero-bg-3-1024.jpg" alt="Renovation hero image" class="w-full h-full object-cover" loading="eager" decoding="async" width="1920" height="1080">
-                </picture>
-            </div>
-        </div>
         <div class="floating-particles" id="particles"></div>
-        <div class="hero-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
-                <div class="space-y-8 px-8 py-24 rounded-3xl shadow-none border-none">
-                    <div class="space-y-6">
-                        <h1 class="hero-title font-display font-bold leading-tight 
-                        bg-gradient-to-r from-yellow-100 via-yellow-300 via-yellow-500 via-amber-400 via-orange-400 to-yellow-200 
-                        bg-clip-text text-transparent" id="header-title">
-                            Luminous Engineering Pte Ltd.
+        <div class="hero-content home-hero-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="home-hero-grid">
+                <div class="home-hero-copy">
+                    <div class="home-hero-text">
+                        <h4 class="home-hero-kicker">Luminous Engineering</h4>
+                        <h1 class="hero-title home-hero-title font-display font-bold leading-tight" id="header-title">
+                            BCA-Licensed Contractor Singapore
                         </h1>
-                        <!-- <p class="hero-slogan font-display font-bold leading-tight 
-                        bg-gradient-to-r from-yellow-100 via-yellow-300 via-yellow-500 via-amber-400 via-orange-400 to-yellow-200 
-                        bg-clip-text text-transparent">
-                            Brighter Solutions, Built Better
-                        </p> -->
-                        <p class="text-xl leading-relaxed max-w-2xl" style="color:#fff8e7;">
-                            <strong>Leading Home Renovation &amp; Handyman Specialist in Singapore</strong><br>
-                            Our Complete Renovation, Swimming pool services, Painting Services, Waterproofing Services,
-                            Electrical Services, Epoxy Floor Services, Tile, Parquet &amp; Flooring Solutions, Plumbing
-                            Services, Handyman Services are loved by more than 500+ homeowners. How can we help you
-                            today with your home maintenance needs? Message us!
+                        <p class="home-hero-description">
+                            Looking for a professional and BCA-licensed contractor in Singapore? Our experienced team provides reliable Swimming Pool Services, Electrical Services, Complete Renovation, Painting Services, Waterproofing Services, Epoxy Floor Services, Tile, Parquet &amp; Flooring Solutions, Plumbing Services, and Handyman Services for HDB flats, condominiums, landed properties, and commercial offices across Singapore.
                         </p>
                     </div>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@luminousengineering.com.sg" target="_blank" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold text-center">
+                    <div class="home-hero-badges" aria-label="Service highlights">
+                        <span class="home-hero-chip">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 7.5v9L12 21l9-4.5v-9L12 3Zm0 2.25 5.7 2.85L12 10.95 6.3 8.1 12 5.25Zm-6.75 4.7 5.625 2.813v5.662L5.25 15.612V9.95Zm7.875 8.475v-5.662L18.75 9.95v5.662l-5.625 2.813Z"></path></svg>
+                            Affordable Pricing
+                        </span>
+                        <span class="home-hero-chip">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.2 16.6-4.1-4.1 1.4-1.4 2.7 2.7 8.3-8.3 1.4 1.4-9.7 9.7Z"></path><path d="M12 22a10 10 0 1 1 7.07-2.93A9.93 9.93 0 0 1 12 22Zm0-18a8 8 0 1 0 5.66 2.34A7.95 7.95 0 0 0 12 4Z"></path></svg>
+                            100% Satisfaction
+                        </span>
+                        <span class="home-hero-chip">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 7.5a5.5 5.5 0 0 1-7.12 5.25l-7.1 7.1a2.5 2.5 0 0 1-3.54-3.54l7.1-7.1A5.5 5.5 0 0 1 17.5 2L14 5.5 18.5 10 22 6.5c0 .34-.03.67-.1 1Z"></path></svg>
+                            Expert Services
+                        </span>
+                        <span class="home-hero-chip">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"></path></svg>
+                            Fast Response
+                        </span>
+                    </div>
+                    <div class="home-hero-trust-label">
+                        <span></span>
+                        LICENSED &bull; INSURED &bull; VERIFIED.
+                    </div>
+                    <div class="home-hero-actions">
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@luminousengineering.com.sg" target="_blank" class="btn-primary home-hero-cta px-8 py-4 rounded-full text-lg font-semibold text-center">
                             <span class="flex items-center justify-center gap-3">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z">
@@ -509,12 +484,20 @@
                                 Get a FREE Quote
                             </span>
                         </a>
+                        <a href="tel:+6581836772" class="home-hero-call px-8 py-4 rounded-full text-lg font-semibold text-center" aria-label="Call Luminous Engineering">
+                            <span class="flex items-center justify-center gap-3">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"></path>
+                                </svg>
+                                Call Us
+                            </span>
+                        </a>
                         <!-- <a href="https://www.carousell.sg/u/luminousengineeringlimited/" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold text-center">
                                 <span class="mr-2">🛒</span>
                                 Carousell Store
                             </a> -->
                     </div>
-                    <!-- Google Review Badge -->
+                    <div class="home-hero-trust-row">
                     <a href="https://www.google.com/maps/place/Luminous+Engineering+Pte.+Ltd./@1.3109063,103.8533834,17z/data=!3m1!4b1!4m6!3m5!1s0x2527d4914833582b:0x4f377e9267003f56!8m2!3d1.3109063!4d103.8533834!16s%2Fg%2F11yv_7p0r0" target="_blank" rel="noopener noreferrer" class="google-review-badge">
                         <div class="google-review-top">
                             <svg viewBox="0 0 24 24" width="24" height="24" class="google-g-icon">
@@ -539,20 +522,24 @@
                             </span>
                         </div>
                     </a>
-                    <div class="grid grid-cols-3 gap-8 pt-8">
-                        <div class="text-center">
-                            <div class="stats-counter" data-count="500">0</div>
-                            <p class="text-gray-300 text-sm">Projects Completed</p>
+                    <div class="home-hero-stats">
+                        <div class="home-hero-stat">
+                            <div class="stats-counter" data-count="500" data-suffix="+">0</div>
+                            <p>Projects Completed</p>
                         </div>
-                        <div class="text-center">
-                            <div class="stats-counter" data-count="98">0</div>
-                            <p class="text-gray-300 text-sm">% Satisfaction Rate</p>
+                        <div class="home-hero-stat">
+                            <div class="stats-counter" data-count="98" data-suffix="%">0</div>
+                            <p>Satisfaction Rate</p>
                         </div>
-                        <div class="text-center">
+                        <div class="home-hero-stat">
                             <div class="stats-counter" data-count="10">0</div>
-                            <p class="text-gray-300 text-sm">Years Experience</p>
+                            <p>Years Experience</p>
                         </div>
                     </div>
+                    </div>
+                </div>
+                <div class="home-hero-media" aria-label="Luminous Engineering contractor team at work">
+                    <img src="/images/renovation1.jpeg" alt="Luminous Engineering contractor team working on a renovation project in Singapore" loading="eager" decoding="async" width="896" height="896">
                 </div>
             </div>
         </div>
