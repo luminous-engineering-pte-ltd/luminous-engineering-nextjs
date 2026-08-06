@@ -341,7 +341,7 @@
 #our-guarantee .home-guarantee-badge-copy strong{background:linear-gradient(180deg,#fff6bf 0,#d4af37 45%,#8d640f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:Inter,sans-serif;font-size:clamp(3rem,5vw,4.9rem);font-weight:900;letter-spacing:-.02em;line-height:.84;-webkit-text-fill-color:transparent}
 #our-guarantee .home-guarantee-badge-copy small{background:linear-gradient(180deg,#fff6bf 0,#d4af37 52%,#9b7218 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:Inter,sans-serif;font-size:clamp(1rem,1.65vw,1.48rem);font-weight:900;letter-spacing:.06em;line-height:1;-webkit-text-fill-color:transparent}
 #our-guarantee .home-guarantee-quote-btn{gap:10px}
-#our-guarantee .home-guarantee-quote-icon{display:block;fill:currentColor;flex:0 0 20px;height:20px;width:20px}
+#our-guarantee .home-guarantee-quote-icon{display:block;fill:currentColor;flex:0 0 24px;height:24px;width:24px}
 @media (max-width:700px){#our-guarantee .home-guarantee-badge-mark{height:178px;width:204px}#our-guarantee .home-guarantee-badge-copy strong{font-size:3.2rem}#our-guarantee .home-guarantee-badge-copy small{font-size:1.03rem}}
 
 /* /assets/css/footer.css */
