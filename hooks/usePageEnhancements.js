@@ -431,8 +431,10 @@ function initScrollReveal() {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add("revealed", "active", "visible");
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
+        if (!entry.target.closest(".home-google-reviews-section")) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        }
         observer.unobserve(entry.target);
       });
     },
