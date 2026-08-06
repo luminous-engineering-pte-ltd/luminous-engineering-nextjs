@@ -22,6 +22,7 @@ export function usePageEnhancements(route) {
       initScrollReveal(),
       initSmoothScroll(),
       initProjectSliders(),
+      initServiceFeatureExpanders(),
       initReviewExpanders(),
       initFaqs(),
       initContactForms(),
@@ -624,6 +625,138 @@ function initFaqs() {
   });
 
   return () => handlers.forEach((cleanup) => cleanup());
+}
+
+function initServiceFeatureExpanders() {
+  const lists = [...document.querySelectorAll(".home-services-grid-section .service-feature-list")]
+    .filter((list) => !list.dataset.serviceFeatureExpanderReady);
+
+  if (!lists.length) return null;
+
+  const cards = [...new Set(lists.map((list) => list.closest(".service-card")).filter(Boolean))];
+  const setups = [];
+  let resizeTimer = null;
+
+  const setInitialCardHeights = () => {
+    cards.forEach((card) => {
+      if (!card.classList.contains("service-card-features-expanded")) {
+        card.style.minHeight = "";
+      }
+    });
+
+    const tallest = Math.ceil(Math.max(...cards.map((card) => card.getBoundingClientRect().height), 0));
+    if (!tallest) return;
+    cards.forEach((card) => {
+      card.style.minHeight = `${tallest}px`;
+    });
+  };
+
+  lists.forEach((list, index) => {
+    const items = [...list.children].filter((item) => item.matches("li"));
+    list.dataset.serviceFeatureExpanderReady = "true";
+    list.id = list.id || `service-feature-list-${Date.now()}-${index}`;
+    list.classList.add("service-feature-list-collapsible");
+
+    const card = list.closest(".service-card");
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "service-feature-toggle";
+    button.innerHTML = '<span>See More...</span><span class="service-feature-toggle-arrow" aria-hidden="true">+</span>';
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-controls", list.id);
+    button.hidden = items.length <= 5;
+    list.insertAdjacentElement("afterend", button);
+
+    const collapsedHeight = () => {
+      if (items.length <= 5) return list.scrollHeight;
+      const fifth = items[4];
+      const listRect = list.getBoundingClientRect();
+      const itemRect = fifth.getBoundingClientRect();
+      const styles = window.getComputedStyle(list);
+      const paddingBottom = parseFloat(styles.paddingBottom) || 0;
+      return Math.ceil(itemRect.bottom - listRect.top + paddingBottom);
+    };
+
+    const fullHeight = () => {
+      const previousMaxHeight = list.style.maxHeight;
+      list.style.maxHeight = "none";
+      const height = list.scrollHeight;
+      list.style.maxHeight = previousMaxHeight;
+      return height;
+    };
+
+    const setHeight = () => {
+      const expanded = list.classList.contains("service-feature-list-expanded");
+      list.style.maxHeight = `${expanded ? fullHeight() : collapsedHeight()}px`;
+    };
+
+    const sync = () => {
+      const shouldToggle = items.length > 5;
+      button.hidden = !shouldToggle;
+      list.classList.toggle("service-feature-list-has-more", shouldToggle);
+      setHeight();
+    };
+
+    const toggle = () => {
+      const shouldExpand = !list.classList.contains("service-feature-list-expanded");
+
+      if (shouldExpand) {
+        list.style.maxHeight = `${collapsedHeight()}px`;
+        list.classList.add("service-feature-list-expanded");
+        card?.classList.add("service-card-features-expanded");
+        requestAnimationFrame(() => {
+          list.style.maxHeight = `${fullHeight()}px`;
+        });
+      } else {
+        list.style.maxHeight = `${fullHeight()}px`;
+        requestAnimationFrame(() => {
+          list.classList.remove("service-feature-list-expanded");
+          card?.classList.remove("service-card-features-expanded");
+          list.style.maxHeight = `${collapsedHeight()}px`;
+        });
+      }
+
+      button.querySelector("span").textContent = shouldExpand ? "See Less" : "See More...";
+      button.setAttribute("aria-expanded", String(shouldExpand));
+    };
+
+    button.addEventListener("click", toggle);
+    sync();
+
+    setups.push({
+      cleanup: () => {
+        button.removeEventListener("click", toggle);
+        button.remove();
+        list.classList.remove("service-feature-list-collapsible", "service-feature-list-expanded", "service-feature-list-has-more");
+        list.style.maxHeight = "";
+        card?.classList.remove("service-card-features-expanded");
+        delete list.dataset.serviceFeatureExpanderReady;
+      },
+      sync
+    });
+  });
+
+  requestAnimationFrame(setInitialCardHeights);
+
+  const onResize = () => {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(() => {
+      setups.forEach((setup) => setup.sync());
+      setInitialCardHeights();
+    }, 120);
+  };
+
+  window.addEventListener("resize", onResize);
+
+  return () => {
+    window.clearTimeout(resizeTimer);
+    window.removeEventListener("resize", onResize);
+    cards.forEach((card) => {
+      card.style.minHeight = "";
+      card.classList.remove("service-card-features-expanded");
+    });
+    setups.forEach((setup) => setup.cleanup());
+  };
 }
 
 function initReviewExpanders() {
