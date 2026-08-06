@@ -22,6 +22,7 @@ export function usePageEnhancements(route) {
       initScrollReveal(),
       initSmoothScroll(),
       initProjectSliders(),
+      initReviewExpanders(),
       initFaqs(),
       initContactForms(),
       initFormFieldEffects(),
@@ -49,6 +50,7 @@ function initOriginalAboutPage() {
     initOriginalAboutActiveNavLink(),
     initOriginalAboutStaggeredCards(),
     initOriginalAboutBodyFade(),
+    initReviewExpanders(),
     initWhatsappPulse(),
     setFooterYear(),
     initContactForms(),
@@ -65,6 +67,7 @@ function initOriginalBlogPage() {
     initNavbarScroll(),
     initOriginalBlogScrollReveal(),
     initSmoothScroll(),
+    initReviewExpanders(),
     initWhatsappPulse(),
     setFooterYear(),
     initContactForms(),
@@ -621,6 +624,165 @@ function initFaqs() {
   });
 
   return () => handlers.forEach((cleanup) => cleanup());
+}
+
+function initReviewExpanders() {
+  const reviewTexts = [
+    ...document.querySelectorAll(".home-google-review-text, .testimonial-card p")
+  ].filter((text) => !text.dataset.reviewExpanderReady && text.textContent.trim().length);
+
+  if (!reviewTexts.length) return null;
+
+  const cards = [...new Set(reviewTexts.map((text) => text.closest(".home-google-review-card, .testimonial-card")).filter(Boolean))];
+  const cleanups = [];
+  let resizeTimer = null;
+
+  const setInitialCardHeights = () => {
+    cards.forEach((card) => {
+      if (!card.classList.contains("review-card-expanded")) {
+        card.style.minHeight = "";
+      }
+    });
+
+    const tallest = Math.ceil(Math.max(...cards.map((card) => card.getBoundingClientRect().height), 0));
+    if (!tallest) return;
+    cards.forEach((card) => {
+      card.style.minHeight = `${tallest}px`;
+    });
+  };
+
+  const setups = reviewTexts.map((text, index) => {
+    text.dataset.reviewExpanderReady = "true";
+    text.classList.add("review-expand-text", "line-clamp-6");
+    text.id = text.id || `review-text-${Date.now()}-${index}`;
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "review-expand-toggle";
+    button.textContent = "See More...";
+    button.hidden = true;
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-controls", text.id);
+    text.insertAdjacentElement("afterend", button);
+
+    const card = text.closest(".home-google-review-card, .testimonial-card");
+
+    const collapsedHeight = () => {
+      const styles = window.getComputedStyle(text);
+      const lineHeight = parseFloat(styles.lineHeight) || parseFloat(styles.fontSize) * 1.6 || 24;
+      return Math.ceil(lineHeight * 6);
+    };
+
+    const fullHeight = () => {
+      const width = text.getBoundingClientRect().width;
+      if (!width) return text.scrollHeight;
+
+      const clone = text.cloneNode(true);
+      clone.classList.remove("line-clamp-6", "review-expanded");
+      clone.removeAttribute("id");
+      clone.style.position = "absolute";
+      clone.style.visibility = "hidden";
+      clone.style.pointerEvents = "none";
+      clone.style.maxHeight = "none";
+      clone.style.height = "auto";
+      clone.style.overflow = "visible";
+      clone.style.display = "block";
+      clone.style.width = `${width}px`;
+      text.insertAdjacentElement("afterend", clone);
+      const height = clone.scrollHeight;
+      clone.remove();
+      return height;
+    };
+
+    const updateTextHeight = () => {
+      const expanded = text.classList.contains("review-expanded");
+      text.style.maxHeight = expanded ? `${fullHeight()}px` : `${collapsedHeight()}px`;
+    };
+
+    const syncVisibility = () => {
+      const expanded = text.classList.contains("review-expanded");
+      text.classList.toggle("line-clamp-6", !expanded);
+      card?.classList.toggle("review-card-expanded", expanded);
+      button.textContent = expanded ? "See Less" : "See More...";
+      button.setAttribute("aria-expanded", String(expanded));
+
+      const limit = collapsedHeight();
+      text.style.maxHeight = `${limit}px`;
+      const isOverflowing = fullHeight() > limit + 2;
+      button.hidden = !isOverflowing;
+      text.classList.toggle("review-has-overflow", isOverflowing);
+
+      if (expanded) {
+        text.style.maxHeight = `${fullHeight()}px`;
+      }
+    };
+
+    const toggle = () => {
+      const shouldExpand = !text.classList.contains("review-expanded");
+
+      if (shouldExpand) {
+        text.style.maxHeight = `${collapsedHeight()}px`;
+        text.classList.remove("line-clamp-6");
+        text.classList.add("review-expanded");
+        card?.classList.add("review-card-expanded");
+        requestAnimationFrame(() => {
+          text.style.maxHeight = `${fullHeight()}px`;
+        });
+      } else {
+        text.style.maxHeight = `${fullHeight()}px`;
+        requestAnimationFrame(() => {
+          text.classList.add("line-clamp-6");
+          text.classList.remove("review-expanded");
+          card?.classList.remove("review-card-expanded");
+          text.style.maxHeight = `${collapsedHeight()}px`;
+        });
+      }
+
+      button.textContent = shouldExpand ? "See Less" : "See More...";
+      button.setAttribute("aria-expanded", String(shouldExpand));
+    };
+
+    button.addEventListener("click", toggle);
+    syncVisibility();
+
+    return {
+      cleanup: () => {
+        button.removeEventListener("click", toggle);
+        button.remove();
+        text.classList.remove("review-expand-text", "line-clamp-6", "review-expanded", "review-has-overflow");
+        text.style.maxHeight = "";
+        delete text.dataset.reviewExpanderReady;
+      },
+      syncVisibility,
+      updateTextHeight
+    };
+  });
+
+  requestAnimationFrame(setInitialCardHeights);
+
+  const onResize = () => {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(() => {
+      setups.forEach((setup) => {
+        setup.syncVisibility();
+        setup.updateTextHeight();
+      });
+      setInitialCardHeights();
+    }, 120);
+  };
+
+  window.addEventListener("resize", onResize);
+  cleanups.push(() => {
+    window.clearTimeout(resizeTimer);
+    window.removeEventListener("resize", onResize);
+    cards.forEach((card) => {
+      card.style.minHeight = "";
+      card.classList.remove("review-card-expanded");
+    });
+    setups.forEach((setup) => setup.cleanup());
+  });
+
+  return () => cleanups.forEach((cleanup) => cleanup());
 }
 
 function initContactForms() {
