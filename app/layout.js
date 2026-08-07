@@ -1,4 +1,5 @@
 import "./globals.css";
+import FloatingWhatsAppButton from "../components/FloatingWhatsAppButton";
 
 export const metadata = {
   metadataBase: new URL("https://luminousengineering.com.sg"),
@@ -54,6 +55,7 @@ export default function RootLayout({ children }) {
         </noscript>
         {/* End Google Tag Manager (noscript) */}
         {children}
+        <FloatingWhatsAppButton />
       </body>
     </html>
   );

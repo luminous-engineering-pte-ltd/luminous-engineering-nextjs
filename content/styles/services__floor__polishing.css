@@ -26,6 +26,8 @@
 
 /* inline style from services/floor-polishing.html */
 
+.national-day-offer{animation:nationalDayOfferIn .65s cubic-bezier(.22,1,.36,1) both;color:#121212;filter:drop-shadow(0 18px 22px rgba(0,0,0,.28));height:118px;isolation:isolate;position:fixed;right:clamp(16px,4vw,56px);top:92px;transition:filter .28s ease,transform .28s ease;width:310px;z-index:45}.national-day-offer:hover{filter:drop-shadow(0 23px 28px rgba(0,0,0,.34));transform:translateY(-3px)}.national-day-offer:after{background:radial-gradient(ellipse at center,rgba(0,0,0,.28) 0,rgba(0,0,0,.12) 42%,transparent 70%);bottom:-13px;content:"";height:22px;left:82px;position:absolute;width:155px;z-index:-2}.national-day-offer__top{align-items:center;background:#242424;box-shadow:0 8px 16px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.12);clip-path:polygon(10% 0,100% 0,91% 100%,0 100%);display:flex;height:44px;left:0;position:absolute;right:0;top:0;z-index:3}.national-day-offer__deal{align-items:center;background:linear-gradient(135deg,#e30613,#b70009);box-shadow:8px 0 0 rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.22);clip-path:polygon(21% 0,100% 0,78% 100%,0 100%);color:#ffd23f;display:flex;font-family:Impact,Arial Black,Inter,sans-serif;font-size:1.45rem;font-weight:900;height:100%;justify-content:center;letter-spacing:.03em;line-height:1;padding:0 30px 0 22px;text-shadow:0 2px 0 rgba(0,0,0,.18);white-space:nowrap}.national-day-offer__event{color:#f0eee7;flex:1;font-family:Inter,sans-serif;font-size:.82rem;font-weight:800;letter-spacing:.03em;line-height:1.15;overflow:hidden;padding:0 26px 0 13px;text-overflow:ellipsis;text-transform:uppercase;white-space:nowrap}.national-day-offer__event:before,.national-day-offer__event:after{color:#d4af37;content:"•";font-size:.95em;margin-right:8px}.national-day-offer__event:after{margin-left:8px;margin-right:0}.national-day-offer__main{align-items:center;background:linear-gradient(135deg,#ffc20a 0,#ff9f0a 76%,#f18400 100%);box-shadow:0 12px 20px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.28);clip-path:polygon(12% 0,100% 0,83% 100%,12% 100%);color:#101010;display:flex;font-family:Impact,Arial Black,Inter,sans-serif;font-size:2.35rem;font-weight:900;height:70px;justify-content:center;letter-spacing:.04em;line-height:1;margin-left:30px;padding:24px 42px 12px 26px;position:absolute;right:31px;text-shadow:0 2px 0 rgba(255,255,255,.24);top:34px;z-index:2}.national-day-offer__fold{background:linear-gradient(145deg,#ca5c00,#6f2800);clip-path:polygon(0 0,100% 0,64% 100%);height:42px;left:90px;position:absolute;top:91px;width:94px;z-index:1}@keyframes nationalDayOfferIn{0%{opacity:0;transform:translateY(-12px) translateX(18px) scale(.94) rotate(-1deg)}to{opacity:1;transform:translateY(0) translateX(0) scale(1) rotate(0)}}@media (min-width:769px) and (max-width:1440px){.national-day-offer{top:82px;transform-origin:top right;width:286px;height:110px}.national-day-offer:hover{transform:translateY(-3px)}}@media (max-width:768px){.national-day-offer{height:96px;right:10px;top:86px;width:248px}.national-day-offer__top{height:36px}.national-day-offer__deal{font-size:1.05rem;padding-left:18px;padding-right:24px}.national-day-offer__event{font-size:.62rem;padding-left:8px;padding-right:20px}.national-day-offer__main{font-size:1.72rem;height:58px;margin-left:24px;padding:20px 34px 9px 20px;right:24px;top:27px}.national-day-offer__fold{height:33px;left:72px;top:75px;width:74px}}@media (max-width:420px){.national-day-offer{height:84px;right:8px;top:84px;width:210px}.national-day-offer__top{height:32px}.national-day-offer__deal{font-size:.9rem;padding-left:15px;padding-right:20px}.national-day-offer__event{font-size:.54rem;padding-left:6px;padding-right:17px}.national-day-offer__event:before,.national-day-offer__event:after{margin-left:4px;margin-right:4px}.national-day-offer__main{font-size:1.45rem;height:50px;margin-left:20px;padding:17px 28px 8px 17px;right:20px;top:24px}.national-day-offer__fold{height:28px;left:61px;top:66px;width:63px}}@media (prefers-reduced-motion:reduce){.national-day-offer{animation:none;transition:none}.national-day-offer:hover{transform:none}}
+
         /* Additional service page styles */
         .wp-block-table {
             width: 100%;
@@ -474,3 +476,181 @@
 
 /* /assets/css/nav.css */
 :root{--nav-gold:#d4af37;--nav-dark:#1a1a1a}.font-display{font-family:Playfair Display,serif}.glass-nav{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);background:rgba(7,10,22,.92);border-bottom:1px solid rgba(212,175,55,.18);padding:.5rem 0;transition:all .3s ease}.glass-nav.scrolled{backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);background:rgba(7,10,22,.96)}.glass-nav .h-20{height:70px}.logo{align-items:center;color:var(--nav-gold);display:flex;font-size:1.5rem;font-weight:700;gap:.5rem}.logo img{height:50px;-o-object-fit:contain;object-fit:contain;width:auto}.logo span{font-size:1.25rem}.nav-link{position:relative;transition:color .3s ease}.nav-link:hover{color:var(--nav-gold)}.nav-link:after{background:var(--nav-gold);bottom:-5px;content:"";height:2px;left:0;position:absolute;transition:width .3s ease;width:0}.nav-link:hover:after{width:100%}.nav-link.active,.nav-link[aria-current=page]{color:var(--nav-gold)}.nav-link.active:after,.nav-link[aria-current=page]:after{width:100%}.glass-nav a.active,.glass-nav a[aria-current=page]{color:var(--nav-gold)}#desktopServicesDropdown{max-height:calc(100vh - 86px)}#desktopSubMenuPanel,.submenu-panel{max-height:calc(100vh - 92px)}.submenu-panel{overflow-y:auto;overscroll-behavior:contain}.submenu-panel a{line-height:1.35;white-space:normal}.submenu-panel::-webkit-scrollbar{width:8px}.submenu-panel::-webkit-scrollbar-track{background:hsla(0,0%,100%,.04)}.submenu-panel::-webkit-scrollbar-thumb{background:rgba(212,175,55,.42);border-radius:999px}.btn-primary{background:linear-gradient(135deg,var(--nav-gold),#b8941f);color:var(--nav-dark);font-weight:600;overflow:hidden;position:relative;transition:all .3s ease}.btn-primary:hover{box-shadow:0 10px 25px rgba(212,175,55,.3);transform:translateY(-2px)}.btn-primary:before{background:linear-gradient(90deg,transparent,hsla(0,0%,100%,.2),transparent);content:"";height:100%;left:-100%;position:absolute;top:0;transition:left .5s;width:100%}.btn-primary:hover:before{left:100%}.mobile-menu-button{cursor:pointer;display:none;flex-direction:column;padding:8px}.mobile-menu-button span{background:var(--nav-gold);border-radius:3px;height:3px;margin:3px 0;transition:all .3s ease;width:25px}.mobile-menu-button.active span:first-child{transform:rotate(45deg) translate(8px,8px)}.mobile-menu-button.active span:nth-child(2){opacity:0}.mobile-menu-button.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}.mobile-menu{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(26,26,26,.98);border-bottom:1px solid rgba(212,175,55,.2);display:none;left:0;max-height:0;overflow:hidden;pointer-events:none;position:fixed;right:0;top:80px;transition:max-height .4s ease;z-index:40}.mobile-menu.active{max-height:calc(100vh - 80px);overflow-y:auto;pointer-events:auto}.mobile-menu a{border-bottom:1px solid rgba(212,175,55,.1);display:block;padding:16px 24px;transition:all .3s ease}.mobile-menu a:hover{background:rgba(212,175,55,.1);padding-left:32px}@media (max-width:768px){.mobile-menu-button{display:flex}.desktop-nav{display:none!important}.mobile-menu{display:block}.logo{font-size:1.2rem}}@media (min-width:769px) and (max-width:1440px){.glass-nav .h-20{height:60px!important}.logo{gap:.375rem}.logo img{height:38px!important}.logo span{font-size:1rem!important}nav .space-x-8>*+*{margin-left:1.25rem!important}.nav-link{font-size:.95rem!important}.btn-primary{padding:.625rem 1.25rem!important}.btn-primary,nav .hidden.sm\:block span{font-size:.875rem!important}}@media (min-width:1024px) and (max-width:1366px){.logo img{height:35px!important}.logo span{font-size:.95rem!important}nav .space-x-8>*+*{margin-left:1rem!important}.nav-link{font-size:.9rem!important}.btn-primary{font-size:.8rem!important;padding:.5rem 1rem!important}}
+/* Singapore National Day promotional sticker */
+.national-day-offer {
+  --nav-height: 70px;
+  --sticker-size: clamp(136px, 12.4vw, 176px);
+  align-items: center;
+  animation: nationalDayOfferIn .65s cubic-bezier(.22, 1, .36, 1) both;
+  aspect-ratio: 1;
+  background:
+    radial-gradient(circle at 33% 28%, rgba(255, 255, 255, .58) 0 8%, transparent 28%),
+    linear-gradient(128deg, #9a6812 0%, #f7ca3d 18%, #fff08a 34%, #d9a52a 54%, #a56b12 72%, #ffe469 100%);
+  filter: none;
+  box-shadow:
+    0 22px 34px rgba(0, 0, 0, .34),
+    0 7px 16px rgba(212, 175, 55, .18),
+    inset 0 2px 5px rgba(255, 255, 255, .46),
+    inset 0 -12px 20px rgba(91, 53, 5, .22);
+  clip-path: polygon(50% 0%, 56% 5%, 63% 2%, 69% 8%, 77% 7%, 81% 14%, 89% 17%, 91% 25%, 97% 31%, 94% 39%, 100% 47%, 96% 54%, 98% 62%, 91% 68%, 89% 76%, 81% 79%, 77% 87%, 69% 86%, 63% 94%, 56% 91%, 50% 100%, 44% 91%, 37% 94%, 31% 86%, 23% 87%, 19% 79%, 11% 76%, 9% 68%, 2% 62%, 4% 54%, 0% 47%, 6% 39%, 3% 31%, 9% 25%, 11% 17%, 19% 14%, 23% 7%, 31% 8%, 37% 2%, 44% 5%);
+  color: #070a22;
+  display: flex;
+  flex-direction: column;
+  height: var(--sticker-size);
+  justify-content: center;
+  overflow: hidden;
+  padding: calc(var(--sticker-size) * .18);
+  position: fixed;
+  right: clamp(16px, 3.6vw, 54px);
+  text-align: center;
+  text-transform: uppercase;
+  top: calc(var(--nav-height) + 14px);
+  transition: filter .28s ease, transform .28s ease;
+  width: var(--sticker-size);
+  z-index: 45;
+}
+
+.national-day-offer::before {
+  background:
+    linear-gradient(122deg, transparent 7%, rgba(255, 255, 255, .48) 29%, rgba(255, 255, 255, .08) 43%, transparent 58%),
+    radial-gradient(circle, transparent 56%, rgba(105, 64, 8, .18) 70%, rgba(255, 255, 255, .24) 72%, transparent 74%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.national-day-offer::after {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, .28), rgba(0, 0, 0, .1) 48%, transparent 72%);
+  bottom: -18px;
+  content: "";
+  height: 28px;
+  left: 21%;
+  position: absolute;
+  width: 58%;
+  z-index: -1;
+}
+
+.national-day-offer:hover {
+  filter: saturate(1.05);
+  transform: translateY(-3px) rotate(-1deg);
+}
+
+.national-day-offer__event {
+  color: #1f1930;
+  display: block;
+  font-family: Inter, sans-serif;
+  font-size: clamp(.54rem, .62vw, .68rem);
+  font-weight: 900;
+  flex: none;
+  letter-spacing: .04em;
+  line-height: 1.08;
+  margin-bottom: .18rem;
+  max-width: 86%;
+  overflow: visible;
+  padding: 0;
+  position: relative;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .35);
+  text-overflow: clip;
+  white-space: normal;
+  z-index: 1;
+}
+
+.national-day-offer__event::before,
+.national-day-offer__event::after {
+  content: none;
+}
+
+.national-day-offer__main {
+  align-items: center;
+  background: transparent;
+  box-shadow: none;
+  clip-path: none;
+  color: #060822;
+  display: flex;
+  flex-direction: column;
+  font-family: Impact, "Arial Black", Inter, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  height: auto;
+  justify-content: center;
+  line-height: .9;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  right: auto;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, .3);
+  top: auto;
+  z-index: 1;
+}
+
+.national-day-offer__percent {
+  font-size: clamp(2.95rem, 4.6vw, 4.25rem);
+  letter-spacing: 0;
+}
+
+.national-day-offer__off {
+  font-size: clamp(1rem, 1.55vw, 1.42rem);
+  letter-spacing: .03em;
+  margin-top: .2rem;
+}
+
+.national-day-offer__top,
+.national-day-offer__deal,
+.national-day-offer__fold {
+  display: none;
+}
+
+@media (min-width: 769px) and (max-width: 1440px) {
+  .national-day-offer {
+    --nav-height: 60px;
+    --sticker-size: clamp(124px, 11vw, 152px);
+    right: clamp(14px, 2.6vw, 38px);
+    top: calc(var(--nav-height) + 12px);
+  }
+}
+
+@media (max-width: 768px) {
+  .national-day-offer {
+    --nav-height: 80px;
+    --sticker-size: clamp(92px, 28vw, 116px);
+    padding: calc(var(--sticker-size) * .16);
+    right: max(8px, env(safe-area-inset-right));
+    top: calc(var(--nav-height) + 8px);
+  }
+
+  .national-day-offer__event {
+    font-size: clamp(.42rem, 1.8vw, .52rem);
+    line-height: 1.02;
+    margin-bottom: .1rem;
+    max-width: 90%;
+  }
+
+  .national-day-offer__percent {
+    font-size: clamp(2rem, 10vw, 2.75rem);
+  }
+
+  .national-day-offer__off {
+    font-size: clamp(.7rem, 3.4vw, .9rem);
+    margin-top: .08rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .national-day-offer {
+    --sticker-size: 88px;
+    right: 6px;
+    top: calc(var(--nav-height) + 6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .national-day-offer {
+    animation: none;
+    transition: none;
+  }
+
+  .national-day-offer:hover {
+    transform: none;
+  }
+}
