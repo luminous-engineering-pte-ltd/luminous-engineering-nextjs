@@ -197,10 +197,6 @@ export default function ServiceLocationPage({ data }) {
         </div>
       </section>
 
-      <div className="service-location-mobile-cta" aria-label="Quick contact">
-        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"><Icon name="message" /> WhatsApp</a>
-        <Link href={quoteUrl}><Icon name="quote" /> Free Quote</Link>
-      </div>
     </main>
   );
 }
