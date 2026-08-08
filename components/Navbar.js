@@ -36,8 +36,16 @@ export default function Navbar() {
     <nav className={`glass-nav fixed top-0 left-0 right-0 z-50 ${scrolled ? "scrolled" : ""}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link href="/" className="logo font-display">
-            <Image src="/images/luminous-logo.png" width={186} height={50} alt="Luminous Engineering" priority />
+          <Link href="/" className="navbar-brand font-display" aria-label="Luminous Engineering home">
+            <Image
+              className="navbar-brand__icon"
+              src="/images/logo.png"
+              width={50}
+              height={50}
+              alt="Luminous Engineering Logo"
+              priority
+            />
+            <span className="navbar-brand__text">Luminous Engineering</span>
           </Link>
 
           <div className="hidden md:flex space-x-8 desktop-nav items-center">
