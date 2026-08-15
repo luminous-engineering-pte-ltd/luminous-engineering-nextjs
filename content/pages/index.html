@@ -6,7 +6,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="/" class="logo font-display" style="text-decoration: none;">
-                    <img src="/images/logo.png" alt="Luminous Engineering Logo">
+                    <img src="/images/logo-64.avif" alt="Luminous Engineering Logo" width="64" height="64" decoding="async">
                     <span>Luminous Engineering</span>
                 </a>
                 <!-- Desktop Navigation -->
@@ -437,6 +437,7 @@
         </div>
     </nav>
     <!-- Hero Section -->
+    <main id="main-content">
     <section id="home" class="hero-bg relative">
         <div class="floating-particles" id="particles"></div>
         <div class="hero-content home-hero-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -484,7 +485,7 @@
                                 Get a FREE Quote
                             </span>
                         </a>
-                        <a href="tel:+6581836772" class="home-hero-call px-8 py-4 rounded-full text-lg font-semibold text-center" aria-label="Call Luminous Engineering">
+                        <a href="tel:+6581836772" class="home-hero-call px-8 py-4 rounded-full text-lg font-semibold text-center" aria-label="Call Us at Luminous Engineering">
                             <span class="flex items-center justify-center gap-3">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                     <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"></path>
@@ -539,7 +540,12 @@
                     </div>
                 </div>
                 <div class="home-hero-media" aria-label="Luminous Engineering contractor team at work">
-                    <img src="/images/renovation1.jpeg" alt="Luminous Engineering contractor team working on a renovation project in Singapore" loading="eager" decoding="async" width="896" height="896">
+                    <picture>
+                        <source type="image/avif" media="(max-width: 640px)" srcset="/images/opt/renovation1-320.avif">
+                        <source type="image/avif" srcset="/images/opt/renovation1-480.avif 480w, /images/opt/renovation1-768.avif 768w" sizes="(max-width: 1023px) calc(100vw - 54px), 42vw">
+                        <source type="image/webp" srcset="/images/opt/renovation1-320.webp 320w, /images/opt/renovation1-480.webp 480w, /images/opt/renovation1-768.webp 768w" sizes="(max-width: 1023px) calc(100vw - 54px), 42vw">
+                        <img src="/images/opt/renovation1-480.jpg" alt="Luminous Engineering contractor team working on a renovation project in Singapore" fetchpriority="high" loading="eager" decoding="async" width="480" height="544">
+                    </picture>
                 </div>
             </div>
         </div>
@@ -701,7 +707,7 @@
                     </ul>
                     <div class="flex justify-end items-center">
                         <a href="/services/complete-renovation" class="text-yellow-400 hover:text-yellow-300 transition-colors">
-                            See More
+                            See More Renovation Services
                         </a>
                         <a href="https://wa.me/6581836772" target="_blank" rel="noopener noreferrer" class="service-whatsapp-btn" aria-label="Chat on WhatsApp about Complete Renovation">
                             WhatsApp Us
@@ -734,7 +740,7 @@
                     </ul>
                     <div class="flex justify-end items-center">
                         <a href="/services/swimming-pool" class="text-yellow-400 hover:text-yellow-300 transition-colors">
-                            See More
+                            See More Pool Services
                         </a>
                         <a href="https://wa.me/6581836772" target="_blank" rel="noopener noreferrer" class="service-whatsapp-btn" aria-label="Chat on WhatsApp about Swimming Pool Services">
                             WhatsApp Us
@@ -744,7 +750,7 @@
                 <!-- Premium Painting Services  -->
                 <div class="service-card p-8 rounded-2xl scroll-reveal">
                     <a href="/services/painting" class="block aspect-video rounded-xl overflow-hidden mb-6">
-                        <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600" alt="Premium Painting Services" class="w-full h-full object-cover">
+                        <img src="/images/opt/service-painting-480.avif" alt="Premium Painting Services" class="w-full h-full object-cover" loading="lazy" decoding="async" width="480" height="300">
                     </a>
                     <h3 class="font-display text-2xl font-semibold mb-4 text-yellow-400"><a href="/services/painting" class="text-yellow-400 hover:text-yellow-300 transition-colors">Premium Painting
                             Services</a></h3>
@@ -757,7 +763,7 @@
                     </ul>
                     <div class="flex justify-end items-center">
                         <a href="/services/painting" class="text-yellow-400 hover:text-yellow-300 transition-colors">
-                            See More
+                            See More Painting Services
                         </a>
                         <a href="https://wa.me/6581836772" target="_blank" rel="noopener noreferrer" class="service-whatsapp-btn" aria-label="Chat on WhatsApp about Painting Services">
                             WhatsApp Us
@@ -787,7 +793,7 @@
                     </ul>
                     <div class="flex justify-end items-center">
                         <a href="/services/waterproofing" class="text-yellow-400 hover:text-yellow-300 transition-colors">
-                            See More
+                            See More Waterproofing Services
                         </a>
                         <a href="https://wa.me/6581836772" target="_blank" rel="noopener noreferrer" class="service-whatsapp-btn" aria-label="Chat on WhatsApp about Waterproofing Services">
                             WhatsApp Us
@@ -814,7 +820,7 @@
                     </ul>
                     <div class="flex justify-end items-center">
                         <a href="/services/electrical" class="text-yellow-400 hover:text-yellow-300 transition-colors">
-                            See More
+                            See More Electrical Services
                         </a>
                         <a href="https://wa.me/6581836772" target="_blank" rel="noopener noreferrer" class="service-whatsapp-btn" aria-label="Chat on WhatsApp about Electrical Services">
                             WhatsApp Us
@@ -841,7 +847,7 @@
                     </ul>
                     <div class="flex justify-end items-center">
                         <a href="/services/epoxy-floor" class="text-yellow-400 hover:text-yellow-300 transition-colors">
-                            See More
+                            See More Epoxy Services
                         </a>
                         <a href="https://wa.me/6581836772" target="_blank" rel="noopener noreferrer" class="service-whatsapp-btn" aria-label="Chat on WhatsApp about Epoxy Floor Services">
                             WhatsApp Us
@@ -870,7 +876,7 @@
                     </ul>
                     <div class="flex justify-end items-center">
                         <a href="/services/tile-installation" class="text-yellow-400 hover:text-yellow-300 transition-colors">
-                            See More
+                            See More Flooring Services
                         </a>
                         <a href="https://wa.me/6581836772" target="_blank" rel="noopener noreferrer" class="service-whatsapp-btn" aria-label="Chat on WhatsApp about Tile, Parquet and Flooring Solutions">
                             WhatsApp Us
@@ -897,7 +903,7 @@
                     </ul>
                     <div class="flex justify-end items-center">
                         <a href="/services/plumbing" class="text-yellow-400 hover:text-yellow-300 transition-colors">
-                            See More
+                            See More Plumbing Services
                         </a>
                         <a href="https://wa.me/6581836772" target="_blank" rel="noopener noreferrer" class="service-whatsapp-btn" aria-label="Chat on WhatsApp about Plumbing Services">
                             WhatsApp Us
@@ -924,7 +930,7 @@
                     </ul>
                     <div class="flex justify-end items-center">
                         <a href="/services/handyman" class="text-yellow-400 hover:text-yellow-300 transition-colors">
-                            See More
+                            See More Handyman Services
                         </a>
                         <a href="https://wa.me/6581836772" target="_blank" rel="noopener noreferrer" class="service-whatsapp-btn" aria-label="Chat on WhatsApp about Handyman Services">
                             WhatsApp Us
@@ -1228,7 +1234,7 @@
                     <div class="project-photo-card">
                         <a href="/services/complete-renovation" class="project-photo-link">
                             <div class="project-photo-img">
-                                <img src="/images/renovation1.jpeg" alt="Complete home renovation project by Luminous Engineering" loading="lazy">
+                                <img src="/images/opt/renovation1-480.avif" alt="Complete home renovation project by Luminous Engineering" loading="lazy" decoding="async" width="480" height="544">
                             </div>
                             <div class="project-photo-overlay">
                                 <h3 class="project-photo-title">Complete Renovation</h3>
@@ -1240,7 +1246,7 @@
                     <div class="project-photo-card">
                         <a href="/services/swimming-pool" class="project-photo-link">
                             <div class="project-photo-img">
-                                <img src="/images/swimmingpoolconstruction1.jpeg" alt="Swimming pool construction by Luminous Engineering" loading="lazy">
+                                <img src="/images/opt/swimmingpoolconstruction1-480.avif" alt="Swimming pool construction by Luminous Engineering" loading="lazy" decoding="async" width="480" height="360">
                             </div>
                             <div class="project-photo-overlay">
                                 <h3 class="project-photo-title">Swimming Pool</h3>
@@ -1252,7 +1258,7 @@
                     <div class="project-photo-card">
                         <a href="/services/painting" class="project-photo-link">
                             <div class="project-photo-img">
-                                <img src="/images/painting1.jpeg" alt="Professional painting project by Luminous Engineering" loading="lazy">
+                                <img src="/images/opt/painting1-480.avif" alt="Professional painting project by Luminous Engineering" loading="lazy" decoding="async" width="480" height="360">
                             </div>
                             <div class="project-photo-overlay">
                                 <h3 class="project-photo-title">Painting Services</h3>
@@ -1264,7 +1270,7 @@
                     <div class="project-photo-card">
                         <a href="/services/waterproofing" class="project-photo-link">
                             <div class="project-photo-img">
-                                <img src="/images/waterproofing1.jpeg" alt="Waterproofing project by Luminous Engineering" loading="lazy">
+                                <img src="/images/opt/waterproofing1-480.avif" alt="Waterproofing project by Luminous Engineering" loading="lazy" decoding="async" width="480" height="360">
                             </div>
                             <div class="project-photo-overlay">
                                 <h3 class="project-photo-title">Waterproofing</h3>
@@ -1276,7 +1282,7 @@
                     <div class="project-photo-card">
                         <a href="/services/electrical" class="project-photo-link">
                             <div class="project-photo-img">
-                                <img src="/images/electrical2.jpeg" alt="Electrical installation by Luminous Engineering" loading="lazy">
+                                <img src="/images/opt/electrical2-480.avif" alt="Electrical installation by Luminous Engineering" loading="lazy" decoding="async" width="480" height="360">
                             </div>
                             <div class="project-photo-overlay">
                                 <h3 class="project-photo-title">Electrical Works</h3>
@@ -1288,7 +1294,7 @@
                     <div class="project-photo-card">
                         <a href="/services/epoxy-floor" class="project-photo-link">
                             <div class="project-photo-img">
-                                <img src="/images/Epoxy-Services.png" alt="Epoxy flooring project by Luminous Engineering" loading="lazy">
+                                <img src="/images/opt/Epoxy-Services-480.avif" alt="Epoxy flooring project by Luminous Engineering" loading="lazy" decoding="async" width="480" height="360">
                             </div>
                             <div class="project-photo-overlay">
                                 <h3 class="project-photo-title">Epoxy Floor</h3>
@@ -1300,7 +1306,7 @@
                     <div class="project-photo-card">
                         <a href="/services/tile-installation" class="project-photo-link">
                             <div class="project-photo-img">
-                                <img src="/images/Floor-and-wall-tile-installation.jpg" alt="Tile installation by Luminous Engineering" loading="lazy">
+                                <img src="/images/opt/Floor-and-wall-tile-installation-480.avif" alt="Tile installation by Luminous Engineering" loading="lazy" decoding="async" width="480" height="360">
                             </div>
                             <div class="project-photo-overlay">
                                 <h3 class="project-photo-title">Tile Installation</h3>
@@ -1312,7 +1318,7 @@
                     <div class="project-photo-card">
                         <a href="/services/plumbing" class="project-photo-link">
                             <div class="project-photo-img">
-                                <img src="/images/plumbing4.jpeg" alt="Plumbing services by Luminous Engineering" loading="lazy">
+                                <img src="/images/opt/plumbing4-480.avif" alt="Plumbing services by Luminous Engineering" loading="lazy" decoding="async" width="480" height="360">
                             </div>
                             <div class="project-photo-overlay">
                                 <h3 class="project-photo-title">Plumbing Services</h3>
@@ -1324,7 +1330,7 @@
                     <div class="project-photo-card">
                         <a href="/services/handyman" class="project-photo-link">
                             <div class="project-photo-img">
-                                <img src="/images/handy-man-service.jpg" alt="Handyman services by Luminous Engineering" loading="lazy">
+                                <img src="/images/opt/handy-man-service-480.avif" alt="Handyman services by Luminous Engineering" loading="lazy" decoding="async" width="480" height="360">
                             </div>
                             <div class="project-photo-overlay">
                                 <h3 class="project-photo-title">Handyman Services</h3>
@@ -1568,19 +1574,19 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 scroll-reveal">
                 <!-- Award 1 -->
                 <div class="flex items-center justify-center p-6 bg-gray-900/50 rounded-2xl border border-yellow-400/10 hover:border-yellow-400/30 transition-all hover:-translate-y-2">
-                    <img src="https://z-cdn-media.chatglm.cn/files/b9111579-67b3-4bb0-80a2-cb2db899a11a.png?auth_key=1869946027-d512bd70feaf4d459029f67044831099-0-3aedcaace7e219224e397f4a7703120b" alt="Best Singapore Award" class="max-h-32 w-auto object-contain">
+                    <img src="/images/awards/best-singapore.avif" alt="Best Singapore Award" class="max-h-32 w-auto object-contain" width="256" height="73" loading="lazy" decoding="async">
                 </div>
                 <!-- Award 2 -->
                 <div class="flex items-center justify-center p-6 bg-gray-900/50 rounded-2xl border border-yellow-400/10 hover:border-yellow-400/30 transition-all hover:-translate-y-2">
-                    <img src="https://z-cdn-media.chatglm.cn/files/7d0f3aef-ffa2-4ced-b38e-e705a3cf9311.png?auth_key=1869946027-8231654883aa454eae46c8b268758265-0-dd6be0d5ca54c451c39d280427eb4a1d" alt="Singapore's Finest Services Badge" class="max-h-32 w-auto object-contain">
+                    <img src="/images/awards/singapore-finest.avif" alt="Singapore's Finest Services Badge" class="max-h-32 w-auto object-contain" width="256" height="206" loading="lazy" decoding="async">
                 </div>
                 <!-- Award 3 -->
                 <div class="flex items-center justify-center p-6 bg-gray-900/50 rounded-2xl border border-yellow-400/10 hover:border-yellow-400/30 transition-all hover:-translate-y-2">
-                    <img src="https://z-cdn-media.chatglm.cn/files/032228a5-b8be-4744-8ab5-b20fbe2ceed0.png?auth_key=1869946027-a37f6d97db6148168bec1bbf38d80d6a-0-6b40581bd2bda777564f591f6f979873" alt="Best in Singapore Merlion Award" class="max-h-32 w-auto object-contain">
+                    <img src="/images/awards/merlion.avif" alt="Best in Singapore Merlion Award" class="max-h-32 w-auto object-contain" width="256" height="212" loading="lazy" decoding="async">
                 </div>
                 <!-- Award 4 -->
                 <div class="flex items-center justify-center p-6 bg-gray-900/50 rounded-2xl border border-yellow-400/10 hover:border-yellow-400/30 transition-all hover:-translate-y-2">
-                    <img src="https://z-cdn-media.chatglm.cn/files/3cf1e454-a33f-4bb4-875d-dfe0286d5a39.png?auth_key=1869946027-8ae8f1130ee640bcab852ba798fe7b4f-0-580a868840ecefa8a9822705d86d144c" alt="The Fun Empire Best in Singapore Award" class="max-h-32 w-auto object-contain">
+                    <img src="/images/awards/fun-empire.avif" alt="The Fun Empire Best in Singapore Award" class="max-h-32 w-auto object-contain" width="256" height="212" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -1651,6 +1657,7 @@
             </div>
         </div>
     </section>
+    </main>
     <!-- Footer -->
     <footer class="site-footer bg-gradient-to-b from-gray-900 to-black text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1897,21 +1904,21 @@
                     <div class="font-semibold text-yellow-400 mb-3 uppercase tracking-wider text-xs">Contact Info</div>
                     <div class="space-y-3">
                         <div>
-                            <h5 class="font-medium text-gray-300 mb-0.5 text-sm">Address</h5>
+                            <div class="font-medium text-gray-300 mb-0.5 text-sm">Address</div>
                             <p class="text-gray-400">30 Roberts Lane, #02-01<br>Singapore 218309</p>
                         </div>
                         <div>
-                            <h5 class="font-medium text-gray-300 mb-0.5 text-sm">Call Us</h5>
+                            <div class="font-medium text-gray-300 mb-0.5 text-sm">Call Us</div>
                             <p class="text-gray-400">+65 8183 6772</p>
                         </div>
                         <div>
-                            <h5 class="font-medium text-gray-300 mb-0.5 text-sm leading-snug">Opening Hours</h5>
+                            <div class="font-medium text-gray-300 mb-0.5 text-sm leading-snug">Opening Hours</div>
                             <p class="text-gray-400">10am–5pm<br><span class="text-xs text-gray-500">(Sunday, Saturday
                                     Closed)</span>
                             </p>
                         </div>
                         <div>
-                            <h5 class="font-medium text-gray-300 mb-0.5 text-sm">Email Us</h5>
+                            <div class="font-medium text-gray-300 mb-0.5 text-sm">Email Us</div>
                             <p class="text-gray-400"><a  href="https://mail.google.com/mail/?view=cm&fs=1&to=info@luminousengineering.com.sg" target="_blank" class="hover:text-yellow-300 transition break-all">info@luminousengineering.com.sg</a>
                             </p>
                         </div>
@@ -1938,7 +1945,7 @@
                 <div class="flex flex-col h-full min-h-[250px] relative mt-4 md:mt-0">
                     <div class="w-full h-full flex-grow bg-gray-800 rounded-lg overflow-hidden shadow-lg border border-gray-700 relative group">
                         <!-- Custom Google Profile Overlay inside Map -->
-                        <a href="https://www.google.com/maps/place/Luminous+Engineering+Pte.+Ltd./@1.3109117,103.8508085,17z/data=!3m1!4b1!4m6!3m5!1s0x2527d4914833582b:0x4f377e9267003f56!8m2!3d1.3109063!4d103.8533834!16s%2Fg%2F11yv_7p0r0?hl=en&amp;entry=ttu" target="_blank" rel="noopener noreferrer" class="absolute top-3 left-3 z-10 bg-white shadow-md rounded-[2px] p-2.5 flex flex-col hover:bg-gray-50 transition max-w-[200px]" aria-label="View Luminous Engineering on Google Maps">
+                        <a href="https://www.google.com/maps/place/Luminous+Engineering+Pte.+Ltd./@1.3109117,103.8508085,17z/data=!3m1!4b1!4m6!3m5!1s0x2527d4914833582b:0x4f377e9267003f56!8m2!3d1.3109063!4d103.8533834!16s%2Fg%2F11yv_7p0r0?hl=en&amp;entry=ttu" target="_blank" rel="noopener noreferrer" class="absolute top-3 left-3 z-10 bg-white shadow-md rounded-[2px] p-2.5 flex flex-col hover:bg-gray-50 transition max-w-[200px]">
                             <div class="font-bold text-gray-900 text-[13px] leading-tight truncate">Luminous Engineering
                             </div>
                             <div class="text-[11px] text-gray-600 mt-1 truncate">30 Roberts Lane, #02-01</div>
@@ -1969,7 +1976,7 @@
                                 <span class="text-[11px] text-[#1a73e8] ml-1 hover:underline">Reviews</span>
                             </div>
                         </a>
-                        <iframe src="https://maps.google.com/maps?q=Luminous+Engineering+Pte.+Ltd.,+30+Roberts+Lane,+%2302-01,+Singapore+218309&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" class="absolute inset-0 w-full h-full border-0 transition duration-500" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        <iframe src="https://maps.google.com/maps?q=Luminous+Engineering+Pte.+Ltd.,+30+Roberts+Lane,+%2302-01,+Singapore+218309&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" title="Map showing Luminous Engineering at 30 Roberts Lane, Singapore" class="absolute inset-0 w-full h-full border-0 transition duration-500" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
                 </div>
@@ -1984,7 +1991,7 @@
         </div>
     </footer>
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/+6581836772" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/+6581836772" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with Luminous Engineering on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="white">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
         </svg>

@@ -11,8 +11,13 @@ const htmlRedirects = Object.entries(PAGES)
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
-  images: {
-    unoptimized: true
+  compress: true,
+  async rewrites() {
+    return {
+      beforeFiles: [{ source: "/", destination: "/home-static" }],
+      afterFiles: [],
+      fallback: []
+    };
   },
   async redirects() {
     return [
@@ -35,6 +40,10 @@ const nextConfig = {
           { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" }
         ]
+      },
+      {
+        source: "/images/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }]
       }
     ];
   }

@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/generate-home-css.mjs",
     "start": "next start",
     "migrate": "node scripts/migrate.mjs",
     "seo:import": "node scripts/import-live-seo.mjs",

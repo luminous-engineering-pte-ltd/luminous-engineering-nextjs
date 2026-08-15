@@ -4,37 +4,35 @@ import { useEffect } from "react";
 
 export function usePageEnhancements(route) {
   useEffect(() => {
-    if (normalizePath(route || "") === "/about") {
-      return initOriginalAboutPage();
-    }
-    if (normalizePath(route || "") === "/blog") {
-      return initOriginalBlogPage();
-    }
-
-    const cleanups = [
-      initLegacyNavigation(),
-      initNavbarScroll(),
-      initHeroParallax(),
-      initWhatsappPulse(),
-      setFooterYear(),
-      initParticles(),
-      initCounters(),
-      initScrollReveal(),
-      initSmoothScroll(),
-      initProjectSliders(),
-      initServiceFeatureExpanders(),
-      initReviewExpanders(),
-      initFaqs(),
-      initContactForms(),
-      initFormFieldEffects(),
-      initInteractiveCards(),
-      initDateInputs()
-    ].filter(Boolean);
-
-    return () => {
-      cleanups.forEach((cleanup) => cleanup());
-    };
+    return initializePageEnhancements(route);
   }, [route]);
+}
+
+export function initializePageEnhancements(route) {
+  if (normalizePath(route || "") === "/about") return initOriginalAboutPage();
+  if (normalizePath(route || "") === "/blog") return initOriginalBlogPage();
+
+  const cleanups = [
+    initLegacyNavigation(),
+    initNavbarScroll(),
+    initHeroParallax(),
+    initWhatsappPulse(),
+    setFooterYear(),
+    initParticles(),
+    initCounters(),
+    initScrollReveal(),
+    initSmoothScroll(),
+    initProjectSliders(),
+    initServiceFeatureExpanders(),
+    initReviewExpanders(),
+    initFaqs(),
+    initContactForms(),
+    initFormFieldEffects(),
+    initInteractiveCards(),
+    initDateInputs()
+  ].filter(Boolean);
+
+  return () => cleanups.forEach((cleanup) => cleanup());
 }
 
 function initOriginalAboutPage() {

@@ -39,7 +39,7 @@ export default function Navbar() {
           <Link href="/" className="navbar-brand font-display" aria-label="Luminous Engineering home">
             <Image
               className="navbar-brand__icon"
-              src="/images/logo.png"
+              src="/images/logo-64.avif"
               width={50}
               height={50}
               alt="Luminous Engineering Logo"
