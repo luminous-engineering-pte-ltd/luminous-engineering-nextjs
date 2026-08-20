@@ -51,12 +51,19 @@
 .home-hero-stat{background:rgba(255,255,255,.06);border:1px solid rgba(212,175,55,.16);border-radius:8px;min-width:0;padding:16px 12px;text-align:center}
 .home-hero-stat .stats-counter{font-family:Playfair Display,serif;font-size:clamp(1.9rem,3vw,2.7rem);line-height:1}
 .home-hero-stat p{color:#d9d4c6;font-size:.78rem;font-weight:700;letter-spacing:.06em;line-height:1.25;margin:8px 0 0;text-transform:uppercase}
-.home-hero-media{animation:homeHeroFloat 6s ease-in-out infinite;background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.13);border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.42),0 18px 40px rgba(212,175,55,.12);overflow:hidden;padding:10px;position:relative}
-.home-hero-media img{aspect-ratio:1/1;border-radius:18px;display:block;height:auto;max-height:660px;object-fit:cover;object-position:center;width:100%}
+.home-hero-media{animation:homeHeroFloat 6s ease-in-out infinite;background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.13);border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.42),0 18px 40px rgba(212,175,55,.12);justify-self:end;max-width:590px;overflow:hidden;padding:8px;position:relative;width:100%}
+.home-hero-slider{aspect-ratio:1/1;border-radius:18px;isolation:isolate;overflow:hidden;position:relative;width:100%}
+.home-hero-slide{animation:homeHeroSlideFade 12s ease-in-out infinite;display:block;inset:0;opacity:0;position:absolute;transform:scale(1.035);will-change:opacity,transform}
+.home-hero-slide:first-child{position:relative}
+.home-hero-slide:nth-child(2){animation-delay:4s}
+.home-hero-slide:nth-child(3){animation-delay:8s}
+.home-hero-media img{border-radius:18px;display:block;height:100%;max-height:700px;object-fit:cover;object-position:center;width:100%}
+@keyframes homeHeroSlideFade{0%,29%{opacity:1;transform:scale(1)}39%,90%{opacity:0;transform:scale(1.045)}100%{opacity:1;transform:scale(1)}}
 @keyframes homeHeroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @media (max-width:1023px){.home-hero-shell{padding-bottom:56px;padding-top:120px}.home-hero-grid{grid-template-columns:1fr;min-height:auto}.home-hero-copy{align-items:flex-start}.home-hero-media{justify-self:center;max-width:680px;width:100%}.home-hero-trust-row{width:100%}.home-hero-media img{max-height:none;object-fit:contain}}
 @media (max-width:768px){.home-hero-shell.hero-content{padding-top:104px}.hero-bg{padding-bottom:0}.home-hero-title{font-size:clamp(2.15rem,11vw,3.4rem)!important}.home-hero-description{font-size:1rem;line-height:1.7}.home-hero-badges{gap:10px}.home-hero-chip{font-size:.86rem;min-height:40px;padding:9px 13px}.home-hero-trust-row{grid-template-columns:1fr}.home-hero-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.home-hero-actions{align-items:stretch;width:100%}.home-hero-actions a.home-hero-cta,.home-hero-actions a.home-hero-call{font-size:1rem!important;padding:1rem 1.45rem!important;width:100%}.home-hero-media{border-radius:18px;padding:8px}.home-hero-media img{border-radius:13px}}
 @media (max-width:560px){.home-hero-shell{padding-left:18px!important;padding-right:18px!important}.home-hero-copy{gap:20px}.home-hero-kicker{font-size:.72rem;letter-spacing:.14em}.home-hero-kicker:before{width:28px}.home-hero-trust-label{align-items:flex-start;flex-direction:column;font-size:.7rem;gap:9px;letter-spacing:.18em}.home-hero-stats{grid-template-columns:1fr}.home-hero-stat{align-items:center;display:flex;gap:14px;justify-content:space-between;padding:14px 16px;text-align:left}.home-hero-stat p{margin:0;text-align:right}.home-hero-stat .stats-counter{flex:0 0 auto}.home-hero-chip{flex:1 1 calc(50% - 10px);justify-content:center;text-align:center}.home-hero-chip svg{flex-basis:16px;height:16px;width:16px}}
+@media (prefers-reduced-motion:reduce){.home-hero-media{animation:none}.home-hero-slide{animation:none;opacity:0;transform:none}.home-hero-slide:first-child{opacity:1}}
 
 /* Premium Google reviews */
 .home-google-reviews-section{background:radial-gradient(circle at 14% 12%,rgba(212,175,55,.11),transparent 30%),radial-gradient(circle at 82% 28%,rgba(156,175,136,.08),transparent 32%),linear-gradient(180deg,#070a16 0,#081414 100%);contain:paint;overflow:hidden;padding:clamp(70px,8vw,112px) 0;position:relative}
