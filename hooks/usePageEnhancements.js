@@ -767,6 +767,7 @@ function initReviewExpanders() {
   const cards = [...new Set(reviewTexts.map((text) => text.closest(".home-google-review-card, .testimonial-card")).filter(Boolean))];
   const cleanups = [];
   let resizeTimer = null;
+  let resizeObserver = null;
 
   const setInitialCardHeights = () => {
     cards.forEach((card) => {
@@ -775,42 +776,59 @@ function initReviewExpanders() {
       }
     });
 
-    const tallest = Math.ceil(Math.max(...cards.map((card) => card.getBoundingClientRect().height), 0));
+    const collapsedCards = cards.filter((card) => !card.classList.contains("review-card-expanded"));
+    const tallest = Math.ceil(Math.max(...collapsedCards.map((card) => card.getBoundingClientRect().height), 0));
     if (!tallest) return;
-    cards.forEach((card) => {
+    collapsedCards.forEach((card) => {
       card.style.minHeight = `${tallest}px`;
     });
   };
 
   const setups = reviewTexts.map((text, index) => {
     text.dataset.reviewExpanderReady = "true";
-    text.classList.add("review-expand-text", "line-clamp-6");
+    text.classList.add("review-expand-text");
     text.id = text.id || `review-text-${Date.now()}-${index}`;
 
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "review-expand-toggle";
-    button.textContent = "See More...";
-    button.hidden = true;
-    button.setAttribute("aria-expanded", "false");
-    button.setAttribute("aria-controls", text.id);
-    text.insertAdjacentElement("afterend", button);
-
     const card = text.closest(".home-google-review-card, .testimonial-card");
+    const fullReview = text.textContent.trim();
+    const textNode = document.createTextNode(fullReview);
+    const toggle = document.createElement("span");
+    const state = {
+      isExpandable: false,
+      isExpanded: false,
+      collapsedText: fullReview
+    };
+    toggle.className = "review-expand-toggle";
+    toggle.setAttribute("role", "button");
+    toggle.setAttribute("tabindex", "0");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-controls", text.id);
 
     const collapsedHeight = () => {
       const styles = window.getComputedStyle(text);
       const lineHeight = parseFloat(styles.lineHeight) || parseFloat(styles.fontSize) * 1.6 || 24;
-      return Math.ceil(lineHeight * 6);
+      return Math.ceil(lineHeight * 5);
     };
 
-    const fullHeight = () => {
+    const render = (content, label = "") => {
+      text.replaceChildren();
+      textNode.nodeValue = content;
+      text.append(textNode);
+      if (label) {
+        toggle.textContent = label;
+        toggle.setAttribute("aria-expanded", String(state.isExpanded));
+        text.append(" ", toggle);
+      }
+    };
+
+    const measuredHeight = (content, label = "") => {
       const width = text.getBoundingClientRect().width;
-      if (!width) return text.scrollHeight;
+      if (!width) return 0;
 
       const clone = text.cloneNode(true);
-      clone.classList.remove("line-clamp-6", "review-expanded");
+      clone.classList.remove("review-expanded", "review-has-overflow");
       clone.removeAttribute("id");
+      clone.removeAttribute("style");
       clone.style.position = "absolute";
       clone.style.visibility = "hidden";
       clone.style.pointerEvents = "none";
@@ -819,68 +837,149 @@ function initReviewExpanders() {
       clone.style.overflow = "visible";
       clone.style.display = "block";
       clone.style.width = `${width}px`;
+      clone.replaceChildren(document.createTextNode(label ? `${content} ${label}` : content));
       text.insertAdjacentElement("afterend", clone);
       const height = clone.scrollHeight;
       clone.remove();
       return height;
     };
 
-    const updateTextHeight = () => {
-      const expanded = text.classList.contains("review-expanded");
-      text.style.maxHeight = expanded ? `${fullHeight()}px` : `${collapsedHeight()}px`;
+    const fullHeight = () => measuredHeight(fullReview, "See Less");
+
+    const buildCollapsedReview = () => {
+      const limit = collapsedHeight();
+      let low = 0;
+      let high = fullReview.length;
+      let best = "";
+
+      while (low <= high) {
+        const mid = Math.floor((low + high) / 2);
+        const candidate = fullReview.slice(0, mid).trimEnd();
+        if (measuredHeight(`${candidate}...`, "See More") <= limit + 1) {
+          best = candidate;
+          low = mid + 1;
+        } else {
+          high = mid - 1;
+        }
+      }
+
+      const trimmed = best.replace(/[\s.,;:!?-]+$/, "");
+      return trimmed ? `${trimmed}...` : "...";
     };
+
+    const measureState = () => {
+      const limit = collapsedHeight();
+      state.isExpandable = measuredHeight(fullReview) > limit + 2;
+      state.collapsedText = state.isExpandable ? buildCollapsedReview() : fullReview;
+
+      if (!state.isExpandable) {
+        state.isExpanded = false;
+      }
+
+      text.classList.toggle("review-has-overflow", state.isExpandable);
+      text.classList.toggle("review-expanded", state.isExpanded);
+      card?.classList.toggle("review-card-expanded", state.isExpanded);
+      toggle.setAttribute("aria-expanded", String(state.isExpanded));
+    };
+
+    const targetContent = () => ({
+      content: state.isExpanded ? fullReview : state.collapsedText,
+      label: state.isExpandable ? (state.isExpanded ? "See Less" : "See More") : "",
+      height: state.isExpanded ? fullHeight() : collapsedHeight()
+    });
 
     const syncVisibility = () => {
-      const expanded = text.classList.contains("review-expanded");
-      text.classList.toggle("line-clamp-6", !expanded);
-      card?.classList.toggle("review-card-expanded", expanded);
-      button.textContent = expanded ? "See Less" : "See More...";
-      button.setAttribute("aria-expanded", String(expanded));
+      measureState();
 
-      const limit = collapsedHeight();
-      text.style.maxHeight = `${limit}px`;
-      const isOverflowing = fullHeight() > limit + 2;
-      button.hidden = !isOverflowing;
-      text.classList.toggle("review-has-overflow", isOverflowing);
-
-      if (expanded) {
-        text.style.maxHeight = `${fullHeight()}px`;
+      if (!state.isExpandable) {
+        render(fullReview);
+        text.style.maxHeight = "";
+        return;
       }
+
+      const next = targetContent();
+      render(next.content, next.label);
+      text.style.maxHeight = state.isExpanded ? "" : `${next.height}px`;
     };
 
-    const toggle = () => {
-      const shouldExpand = !text.classList.contains("review-expanded");
+    const updateTextHeight = () => {
+      measureState();
 
-      if (shouldExpand) {
-        text.style.maxHeight = `${collapsedHeight()}px`;
-        text.classList.remove("line-clamp-6");
-        text.classList.add("review-expanded");
-        card?.classList.add("review-card-expanded");
+      if (!state.isExpandable) {
+        render(fullReview);
+        text.style.maxHeight = "";
+        return;
+      }
+
+      const next = targetContent();
+      render(next.content, next.label);
+      text.style.maxHeight = state.isExpanded ? "" : `${next.height}px`;
+    };
+
+    const animateTo = (nextExpanded) => {
+      if (!state.isExpandable) return;
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const startHeight = Math.ceil(text.getBoundingClientRect().height);
+      state.isExpanded = nextExpanded;
+      text.classList.toggle("review-expanded", state.isExpanded);
+      card?.classList.toggle("review-card-expanded", state.isExpanded);
+      toggle.setAttribute("aria-expanded", String(state.isExpanded));
+
+      if (reduceMotion) {
+        const next = targetContent();
+        render(next.content, next.label);
+        text.style.maxHeight = state.isExpanded ? "" : `${next.height}px`;
+        return;
+      }
+
+      text.style.maxHeight = `${startHeight}px`;
+
+      if (state.isExpanded) {
+        const next = targetContent();
+        render(next.content, next.label);
         requestAnimationFrame(() => {
-          text.style.maxHeight = `${fullHeight()}px`;
+          text.style.maxHeight = `${next.height}px`;
         });
       } else {
-        text.style.maxHeight = `${fullHeight()}px`;
+        const targetHeight = collapsedHeight();
         requestAnimationFrame(() => {
-          text.classList.add("line-clamp-6");
-          text.classList.remove("review-expanded");
-          card?.classList.remove("review-card-expanded");
-          text.style.maxHeight = `${collapsedHeight()}px`;
+          text.style.maxHeight = `${targetHeight}px`;
         });
       }
-
-      button.textContent = shouldExpand ? "See Less" : "See More...";
-      button.setAttribute("aria-expanded", String(shouldExpand));
     };
 
-    button.addEventListener("click", toggle);
+    const onTransitionEnd = (event) => {
+      if (event.target !== text || event.propertyName !== "max-height") return;
+      if (!state.isExpandable) return;
+
+      const next = targetContent();
+      render(next.content, next.label);
+      text.style.maxHeight = state.isExpanded ? "" : `${next.height}px`;
+    };
+
+    const toggleReview = () => {
+      animateTo(!state.isExpanded);
+    };
+
+    const onKeydown = (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      toggleReview();
+    };
+
+    toggle.addEventListener("click", toggleReview);
+    toggle.addEventListener("keydown", onKeydown);
+    text.addEventListener("transitionend", onTransitionEnd);
     syncVisibility();
 
     return {
       cleanup: () => {
-        button.removeEventListener("click", toggle);
-        button.remove();
-        text.classList.remove("review-expand-text", "line-clamp-6", "review-expanded", "review-has-overflow");
+        toggle.removeEventListener("click", toggleReview);
+        toggle.removeEventListener("keydown", onKeydown);
+        text.removeEventListener("transitionend", onTransitionEnd);
+        text.replaceChildren(document.createTextNode(fullReview));
+        text.classList.remove("review-expand-text", "review-expanded", "review-has-overflow");
         text.style.maxHeight = "";
         delete text.dataset.reviewExpanderReady;
       },
@@ -891,21 +990,48 @@ function initReviewExpanders() {
 
   requestAnimationFrame(setInitialCardHeights);
 
-  const onResize = () => {
+  const syncAll = () => {
+    setups.forEach((setup) => {
+      setup.syncVisibility();
+      setup.updateTextHeight();
+    });
+    setInitialCardHeights();
+  };
+
+  const scheduleSyncAll = () => {
     window.clearTimeout(resizeTimer);
     resizeTimer = window.setTimeout(() => {
-      setups.forEach((setup) => {
-        setup.syncVisibility();
-        setup.updateTextHeight();
-      });
-      setInitialCardHeights();
+      syncAll();
     }, 120);
   };
 
-  window.addEventListener("resize", onResize);
+  if ("ResizeObserver" in window) {
+    const observedWidths = new WeakMap();
+    resizeObserver = new ResizeObserver((entries) => {
+      const changed = entries.some((entry) => {
+        const width = Math.round(entry.target.getBoundingClientRect().width);
+        if (observedWidths.get(entry.target) === width) return false;
+        observedWidths.set(entry.target, width);
+        return true;
+      });
+
+      if (changed) scheduleSyncAll();
+    });
+
+    reviewTexts.forEach((text) => {
+      observedWidths.set(text, Math.round(text.getBoundingClientRect().width));
+      resizeObserver.observe(text);
+    });
+  } else {
+    window.addEventListener("resize", scheduleSyncAll);
+  }
+
+  document.fonts?.ready.then(scheduleSyncAll).catch(() => {});
+
   cleanups.push(() => {
     window.clearTimeout(resizeTimer);
-    window.removeEventListener("resize", onResize);
+    window.removeEventListener("resize", scheduleSyncAll);
+    resizeObserver?.disconnect();
     cards.forEach((card) => {
       card.style.minHeight = "";
       card.classList.remove("review-card-expanded");

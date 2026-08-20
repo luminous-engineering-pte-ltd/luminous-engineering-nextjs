@@ -249,41 +249,26 @@ a {
   opacity: 1;
 }
 
-.line-clamp-6 {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
-  line-clamp: 6;
-}
-
 .review-expand-toggle {
-  align-self: flex-start;
-  appearance: none;
-  background: none;
-  border: 0;
   color: var(--primary-gold, #d4af37);
   cursor: pointer;
-  display: inline-flex;
+  display: inline;
   font: inherit;
-  font-size: 0.92rem;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-top: 0.85rem;
-  padding: 0;
+  font-weight: 700;
   position: relative;
   text-decoration: none;
-  transition: color 220ms ease, opacity 220ms ease, transform 220ms ease;
+  transition: color 220ms ease, opacity 220ms ease;
 }
 
 .review-expand-toggle::after {
   background: currentColor;
-  bottom: -0.2rem;
+  bottom: -0.08em;
   content: "";
   height: 1px;
   left: 0;
-  opacity: 0.42;
+  opacity: 0.38;
   position: absolute;
-  transform: scaleX(0.45);
+  transform: scaleX(0.55);
   transform-origin: left;
   transition: opacity 220ms ease, transform 220ms ease;
   width: 100%;
@@ -291,9 +276,8 @@ a {
 
 .review-expand-toggle:hover,
 .review-expand-toggle:focus-visible {
-  color: #f5c84c;
+  color: var(--primary-gold, #d4af37);
   opacity: 1;
-  transform: translateY(-1px);
 }
 
 .review-expand-toggle:hover::after,
@@ -303,13 +287,9 @@ a {
 }
 
 .review-expand-toggle:focus-visible {
-  border-radius: 4px;
+  border-radius: 3px;
   outline: 2px solid rgba(245, 200, 76, 0.45);
-  outline-offset: 4px;
-}
-
-.review-expand-toggle[hidden] {
-  display: none;
+  outline-offset: 2px;
 }
 
 .navbar-brand {
