@@ -42,9 +42,7 @@ async function getDocuments() {
   <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preload" href="/images/opt/renovation1-1024.avif" as="image" type="image/avif" fetchpriority="high" imagesrcset="/images/opt/renovation1-1024.avif 1024w, /images/opt/renovation1-768.avif 768w, /images/opt/renovation1-480.avif 480w, /images/opt/renovation1-320.avif 320w" imagesizes="(max-width: 1023px) 100vw, 44vw">
-  <link rel="preload" href="/home.css" as="style">
-  <link rel="stylesheet" href="/home.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="/home.css"></noscript>
+  <link rel="stylesheet" href="/home.css">
   <script type="application/ld+json">${structuredData}</script>
   <script defer src="/home-interactions.js"></script>
 </head>
