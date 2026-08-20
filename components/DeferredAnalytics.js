@@ -22,10 +22,10 @@ export default function DeferredAnalytics() {
       document.head.appendChild(script);
     };
 
-    const events = ["pointerdown", "keydown", "touchstart", "scroll"];
+    const events = ["pointerdown", "keydown", "touchstart"];
     const options = { capture: true, passive: true, once: true };
     events.forEach((event) => window.addEventListener(event, load, options));
-    const fallback = window.setTimeout(load, 30_000);
+    const fallback = window.setTimeout(load, 90_000);
 
     function cleanup() {
       window.clearTimeout(fallback);

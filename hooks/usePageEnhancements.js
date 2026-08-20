@@ -651,23 +651,7 @@ function initServiceFeatureExpanders() {
 
   if (!lists.length) return null;
 
-  const cards = [...new Set(lists.map((list) => list.closest(".service-card")).filter(Boolean))];
   const setups = [];
-  let resizeTimer = null;
-
-  const setInitialCardHeights = () => {
-    cards.forEach((card) => {
-      if (!card.classList.contains("service-card-features-expanded")) {
-        card.style.minHeight = "";
-      }
-    });
-
-    const tallest = Math.ceil(Math.max(...cards.map((card) => card.getBoundingClientRect().height), 0));
-    if (!tallest) return;
-    cards.forEach((card) => {
-      card.style.minHeight = `${tallest}px`;
-    });
-  };
 
   lists.forEach((list, index) => {
     const items = [...list.children].filter((item) => item.matches("li"));
@@ -685,54 +669,16 @@ function initServiceFeatureExpanders() {
     button.hidden = items.length <= 5;
     list.insertAdjacentElement("afterend", button);
 
-    const collapsedHeight = () => {
-      if (items.length <= 5) return list.scrollHeight;
-      const fifth = items[4];
-      const listRect = list.getBoundingClientRect();
-      const itemRect = fifth.getBoundingClientRect();
-      const styles = window.getComputedStyle(list);
-      const paddingBottom = parseFloat(styles.paddingBottom) || 0;
-      return Math.ceil(itemRect.bottom - listRect.top + paddingBottom);
-    };
-
-    const fullHeight = () => {
-      const previousMaxHeight = list.style.maxHeight;
-      list.style.maxHeight = "none";
-      const height = list.scrollHeight;
-      list.style.maxHeight = previousMaxHeight;
-      return height;
-    };
-
-    const setHeight = () => {
-      const expanded = list.classList.contains("service-feature-list-expanded");
-      list.style.maxHeight = `${expanded ? fullHeight() : collapsedHeight()}px`;
-    };
-
     const sync = () => {
       const shouldToggle = items.length > 5;
       button.hidden = !shouldToggle;
       list.classList.toggle("service-feature-list-has-more", shouldToggle);
-      setHeight();
     };
 
     const toggle = () => {
       const shouldExpand = !list.classList.contains("service-feature-list-expanded");
-
-      if (shouldExpand) {
-        list.style.maxHeight = `${collapsedHeight()}px`;
-        list.classList.add("service-feature-list-expanded");
-        card?.classList.add("service-card-features-expanded");
-        requestAnimationFrame(() => {
-          list.style.maxHeight = `${fullHeight()}px`;
-        });
-      } else {
-        list.style.maxHeight = `${fullHeight()}px`;
-        requestAnimationFrame(() => {
-          list.classList.remove("service-feature-list-expanded");
-          card?.classList.remove("service-card-features-expanded");
-          list.style.maxHeight = `${collapsedHeight()}px`;
-        });
-      }
+      list.classList.toggle("service-feature-list-expanded", shouldExpand);
+      card?.classList.toggle("service-card-features-expanded", shouldExpand);
 
       button.textContent = shouldExpand ? "See Less" : "See More";
       button.setAttribute("aria-expanded", String(shouldExpand));
@@ -754,25 +700,11 @@ function initServiceFeatureExpanders() {
     });
   });
 
-  requestAnimationFrame(setInitialCardHeights);
-
-  const onResize = () => {
-    window.clearTimeout(resizeTimer);
-    resizeTimer = window.setTimeout(() => {
-      setups.forEach((setup) => setup.sync());
-      setInitialCardHeights();
-    }, 120);
-  };
-
-  window.addEventListener("resize", onResize);
+  const onResize = () => setups.forEach((setup) => setup.sync());
+  window.addEventListener("resize", onResize, { passive: true });
 
   return () => {
-    window.clearTimeout(resizeTimer);
     window.removeEventListener("resize", onResize);
-    cards.forEach((card) => {
-      card.style.minHeight = "";
-      card.classList.remove("service-card-features-expanded");
-    });
     setups.forEach((setup) => setup.cleanup());
   };
 }
@@ -784,25 +716,7 @@ function initReviewExpanders() {
 
   if (!reviewTexts.length) return null;
 
-  const cards = [...new Set(reviewTexts.map((text) => text.closest(".home-google-review-card, .testimonial-card")).filter(Boolean))];
   const cleanups = [];
-  let resizeTimer = null;
-  let resizeObserver = null;
-
-  const setInitialCardHeights = () => {
-    cards.forEach((card) => {
-      if (!card.classList.contains("review-card-expanded")) {
-        card.style.minHeight = "";
-      }
-    });
-
-    const collapsedCards = cards.filter((card) => !card.classList.contains("review-card-expanded"));
-    const tallest = Math.ceil(Math.max(...collapsedCards.map((card) => card.getBoundingClientRect().height), 0));
-    if (!tallest) return;
-    collapsedCards.forEach((card) => {
-      card.style.minHeight = `${tallest}px`;
-    });
-  };
 
   const setups = reviewTexts.map((text, index) => {
     text.dataset.reviewExpanderReady = "true";
@@ -814,7 +728,7 @@ function initReviewExpanders() {
     const textNode = document.createTextNode(fullReview);
     const toggle = document.createElement("span");
     const state = {
-      isExpandable: false,
+      isExpandable: fullReview.length > 180,
       isExpanded: false,
       collapsedText: fullReview
     };
@@ -823,12 +737,6 @@ function initReviewExpanders() {
     toggle.setAttribute("tabindex", "0");
     toggle.setAttribute("aria-expanded", "false");
     toggle.setAttribute("aria-controls", text.id);
-
-    const collapsedHeight = () => {
-      const styles = window.getComputedStyle(text);
-      const lineHeight = parseFloat(styles.lineHeight) || parseFloat(styles.fontSize) * 1.6 || 24;
-      return Math.ceil(lineHeight * 5);
-    };
 
     const render = (content, label = "") => {
       text.replaceChildren();
@@ -841,55 +749,13 @@ function initReviewExpanders() {
       }
     };
 
-    const measuredHeight = (content, label = "") => {
-      const width = text.getBoundingClientRect().width;
-      if (!width) return 0;
-
-      const clone = text.cloneNode(true);
-      clone.classList.remove("review-expanded", "review-has-overflow");
-      clone.removeAttribute("id");
-      clone.removeAttribute("style");
-      clone.style.position = "absolute";
-      clone.style.visibility = "hidden";
-      clone.style.pointerEvents = "none";
-      clone.style.maxHeight = "none";
-      clone.style.height = "auto";
-      clone.style.overflow = "visible";
-      clone.style.display = "block";
-      clone.style.width = `${width}px`;
-      clone.replaceChildren(document.createTextNode(label ? `${content} ${label}` : content));
-      text.insertAdjacentElement("afterend", clone);
-      const height = clone.scrollHeight;
-      clone.remove();
-      return height;
-    };
-
-    const fullHeight = () => measuredHeight(fullReview, "See Less");
-
     const buildCollapsedReview = () => {
-      const limit = collapsedHeight();
-      let low = 0;
-      let high = fullReview.length;
-      let best = "";
-
-      while (low <= high) {
-        const mid = Math.floor((low + high) / 2);
-        const candidate = fullReview.slice(0, mid).trimEnd();
-        if (measuredHeight(`${candidate}...`, "See More") <= limit + 1) {
-          best = candidate;
-          low = mid + 1;
-        } else {
-          high = mid - 1;
-        }
-      }
-
+      const best = fullReview.slice(0, 180).trimEnd();
       const trimmed = best.replace(/[\s.,;:!?-]+$/, "");
       return trimmed ? `${trimmed}...` : "...";
     };
 
     const measureState = () => {
-      const limit = collapsedHeight();
-      state.isExpandable = measuredHeight(fullReview) > limit + 2;
       state.collapsedText = state.isExpandable ? buildCollapsedReview() : fullReview;
 
       if (!state.isExpandable) {
@@ -904,8 +770,7 @@ function initReviewExpanders() {
 
     const targetContent = () => ({
       content: state.isExpanded ? fullReview : state.collapsedText,
-      label: state.isExpandable ? (state.isExpanded ? "See Less" : "See More") : "",
-      height: state.isExpanded ? fullHeight() : collapsedHeight()
+      label: state.isExpandable ? (state.isExpanded ? "See Less" : "See More") : ""
     });
 
     const syncVisibility = () => {
@@ -913,69 +778,23 @@ function initReviewExpanders() {
 
       if (!state.isExpandable) {
         render(fullReview);
-        text.style.maxHeight = "";
         return;
       }
 
       const next = targetContent();
       render(next.content, next.label);
-      text.style.maxHeight = state.isExpanded ? "" : `${next.height}px`;
-    };
-
-    const updateTextHeight = () => {
-      measureState();
-
-      if (!state.isExpandable) {
-        render(fullReview);
-        text.style.maxHeight = "";
-        return;
-      }
-
-      const next = targetContent();
-      render(next.content, next.label);
-      text.style.maxHeight = state.isExpanded ? "" : `${next.height}px`;
     };
 
     const animateTo = (nextExpanded) => {
       if (!state.isExpandable) return;
 
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const startHeight = Math.ceil(text.getBoundingClientRect().height);
       state.isExpanded = nextExpanded;
       text.classList.toggle("review-expanded", state.isExpanded);
       card?.classList.toggle("review-card-expanded", state.isExpanded);
       toggle.setAttribute("aria-expanded", String(state.isExpanded));
 
-      if (reduceMotion) {
-        const next = targetContent();
-        render(next.content, next.label);
-        text.style.maxHeight = state.isExpanded ? "" : `${next.height}px`;
-        return;
-      }
-
-      text.style.maxHeight = `${startHeight}px`;
-
-      if (state.isExpanded) {
-        const next = targetContent();
-        render(next.content, next.label);
-        requestAnimationFrame(() => {
-          text.style.maxHeight = `${next.height}px`;
-        });
-      } else {
-        const targetHeight = collapsedHeight();
-        requestAnimationFrame(() => {
-          text.style.maxHeight = `${targetHeight}px`;
-        });
-      }
-    };
-
-    const onTransitionEnd = (event) => {
-      if (event.target !== text || event.propertyName !== "max-height") return;
-      if (!state.isExpandable) return;
-
       const next = targetContent();
       render(next.content, next.label);
-      text.style.maxHeight = state.isExpanded ? "" : `${next.height}px`;
     };
 
     const toggleReview = () => {
@@ -990,72 +809,21 @@ function initReviewExpanders() {
 
     toggle.addEventListener("click", toggleReview);
     toggle.addEventListener("keydown", onKeydown);
-    text.addEventListener("transitionend", onTransitionEnd);
     syncVisibility();
 
     return {
       cleanup: () => {
         toggle.removeEventListener("click", toggleReview);
         toggle.removeEventListener("keydown", onKeydown);
-        text.removeEventListener("transitionend", onTransitionEnd);
         text.replaceChildren(document.createTextNode(fullReview));
         text.classList.remove("review-expand-text", "review-expanded", "review-has-overflow");
-        text.style.maxHeight = "";
         delete text.dataset.reviewExpanderReady;
       },
-      syncVisibility,
-      updateTextHeight
+      syncVisibility
     };
   });
 
-  requestAnimationFrame(setInitialCardHeights);
-
-  const syncAll = () => {
-    setups.forEach((setup) => {
-      setup.syncVisibility();
-      setup.updateTextHeight();
-    });
-    setInitialCardHeights();
-  };
-
-  const scheduleSyncAll = () => {
-    window.clearTimeout(resizeTimer);
-    resizeTimer = window.setTimeout(() => {
-      syncAll();
-    }, 120);
-  };
-
-  if ("ResizeObserver" in window) {
-    const observedWidths = new WeakMap();
-    resizeObserver = new ResizeObserver((entries) => {
-      const changed = entries.some((entry) => {
-        const width = Math.round(entry.target.getBoundingClientRect().width);
-        if (observedWidths.get(entry.target) === width) return false;
-        observedWidths.set(entry.target, width);
-        return true;
-      });
-
-      if (changed) scheduleSyncAll();
-    });
-
-    reviewTexts.forEach((text) => {
-      observedWidths.set(text, Math.round(text.getBoundingClientRect().width));
-      resizeObserver.observe(text);
-    });
-  } else {
-    window.addEventListener("resize", scheduleSyncAll);
-  }
-
-  document.fonts?.ready.then(scheduleSyncAll).catch(() => {});
-
   cleanups.push(() => {
-    window.clearTimeout(resizeTimer);
-    window.removeEventListener("resize", scheduleSyncAll);
-    resizeObserver?.disconnect();
-    cards.forEach((card) => {
-      card.style.minHeight = "";
-      card.classList.remove("review-card-expanded");
-    });
     setups.forEach((setup) => setup.cleanup());
   });
 

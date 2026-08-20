@@ -148,7 +148,7 @@
 .home-services-grid-section .service-feature-list li:before{align-items:center;background:linear-gradient(135deg,var(--primary-gold),#b8941f);border:1px solid rgba(255,243,191,.3);border-radius:10px;box-shadow:0 9px 18px rgba(212,175,55,.15),inset 0 1px 0 rgba(255,255,255,.22);color:#081414;content:"";display:flex;grid-column:1;height:20px;justify-content:center;margin-top:.16em;position:relative;transition:box-shadow .28s ease,filter .28s ease,transform .28s ease;width:20px}
 .home-services-grid-section .service-feature-list li:after{border:solid #081414;border-width:0 2px 2px 0;content:"";grid-column:1;height:8px;left:7px;position:absolute;top:.45em;transform:rotate(45deg);transition:transform .28s ease;width:4px}
 .home-services-grid-section .service-feature-list a{color:#ede6d2!important;display:block;grid-column:2;min-width:0;overflow-wrap:anywhere;text-decoration:none;transition:color .24s ease,opacity .24s ease,transform .28s ease}
-.home-services-grid-section .service-feature-list-has-more:not(.service-feature-list-expanded) li:nth-child(n+6){opacity:0;pointer-events:none}
+.home-services-grid-section .service-feature-list-has-more:not(.service-feature-list-expanded) li:nth-child(n+6){display:none;opacity:0;pointer-events:none}
 .home-services-grid-section .service-feature-list li:hover:before{box-shadow:0 0 0 5px rgba(212,175,55,.08),0 0 22px rgba(212,175,55,.26),inset 0 1px 0 rgba(255,255,255,.28);filter:saturate(1.08);transform:scale(1.08)}
 .home-services-grid-section .service-feature-list li:hover:after{transform:rotate(45deg) scale(1.08)}
 .home-services-grid-section .service-feature-list li:hover a{color:#fff3bf!important;opacity:1;transform:translateX(5px)}
@@ -167,6 +167,12 @@
 .home-services-grid-section .service-card .service-whatsapp-btn svg{fill:currentColor;flex:0 0 20px;height:20px;width:20px}
 @media (max-width:768px){.home-services-grid-section{padding-bottom:72px!important}.home-services-grid-section .grid{gap:22px}.home-services-grid-section .service-card p{-webkit-line-clamp:5}.home-services-grid-section .service-feature-list{gap:9px;padding-left:20px;padding-right:20px}.home-services-grid-section .service-feature-list li{font-size:.92rem;grid-template-columns:28px minmax(0,1fr);line-height:1.55}.home-services-grid-section .service-feature-toggle{margin-left:20px;margin-right:20px}.home-services-grid-section .service-card h3{font-size:.95rem!important;margin-left:14px!important;margin-right:14px!important}.home-services-grid-section .service-card .flex.justify-end a{flex-basis:100%}}
 @media (prefers-reduced-motion:reduce){.home-services-grid-section .service-feature-list,.home-services-grid-section .service-feature-list li,.home-services-grid-section .service-feature-toggle,.home-services-grid-section .service-feature-toggle:after{transition:none}.home-services-grid-section .service-feature-toggle:hover{transform:none}}
+
+/* Lighthouse tap-target fix: preserve the tiny dot visual while giving each dot a 28px hit area. */
+.home-google-review-dots{gap:4px}
+.home-google-review-dot{align-items:center!important;background:transparent!important;border:0!important;display:inline-flex!important;height:28px!important;justify-content:center!important;min-height:28px!important;min-width:28px!important;opacity:1!important;padding:0!important;position:relative!important;transform:none!important;width:28px!important}
+.home-google-review-dot:before{background:rgba(248,246,240,.28);border-radius:999px;content:"";display:block;height:7px;opacity:.72;transition:background-color 240ms ease,opacity 240ms ease,transform 240ms ease,width 240ms ease;width:7px}
+.home-google-review-dot[aria-current="true"]:before{background:var(--primary-gold,#d4af37);opacity:1;transform:scale(1.02);width:20px}
 
 /* Premium why choose section */
 .home-why-choose-section{background:radial-gradient(circle at 12% 18%,rgba(212,175,55,.09),transparent 32%),linear-gradient(180deg,#070a16 0,#081414 100%);overflow:hidden;padding:clamp(16px,2.5vw,32px) 0 clamp(76px,8vw,120px);position:relative}

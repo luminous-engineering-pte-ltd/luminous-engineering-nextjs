@@ -41,7 +41,10 @@ async function getDocuments() {
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/home.css">
+  <link rel="preload" href="/images/opt/renovation1-1024.avif" as="image" type="image/avif" fetchpriority="high" imagesrcset="/images/opt/renovation1-1024.avif 1024w, /images/opt/renovation1-768.avif 768w, /images/opt/renovation1-480.avif 480w, /images/opt/renovation1-320.avif 320w" imagesizes="(max-width: 1023px) 100vw, 44vw">
+  <link rel="preload" href="/home.css" as="style">
+  <link rel="stylesheet" href="/home.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/home.css"></noscript>
   <script type="application/ld+json">${structuredData}</script>
   <script defer src="/home-interactions.js"></script>
 </head>
@@ -65,5 +68,5 @@ function escapeHtml(value) {
 }
 
 function deferredAnalytics() {
-  return `(function(){var loaded=false,events=['pointerdown','keydown','touchstart','scroll'];function cleanup(){events.forEach(function(e){removeEventListener(e,load,true)});clearTimeout(timer)}function load(){if(loaded)return;loaded=true;cleanup();window.dataLayer=window.dataLayer||[];window.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=GTM-TJ9758RG';document.head.appendChild(s)}events.forEach(function(e){addEventListener(e,load,{capture:true,passive:true,once:true})});var timer=setTimeout(load,30000)})();`;
+  return `(function(){var loaded=false,events=['pointerdown','keydown','touchstart'];function cleanup(){events.forEach(function(e){removeEventListener(e,load,true)});clearTimeout(timer)}function load(){if(loaded)return;loaded=true;cleanup();window.dataLayer=window.dataLayer||[];window.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=GTM-TJ9758RG';document.head.appendChild(s)}events.forEach(function(e){addEventListener(e,load,{capture:true,passive:true,once:true})});var timer=setTimeout(load,90000)})();`;
 }
