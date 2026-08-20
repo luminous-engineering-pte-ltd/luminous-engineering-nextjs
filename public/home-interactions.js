@@ -57,6 +57,7 @@
       element.textContent = String(new Date().getFullYear());
     });
 
+    initServiceFeatureExpanders();
     initReviewExpanders();
     initReviewCarouselDots();
 
@@ -69,6 +70,84 @@
       });
     });
   };
+
+  function initServiceFeatureExpanders() {
+    const lists = [...document.querySelectorAll(".home-services-grid-section .service-feature-list")]
+      .filter((list) => !list.dataset.serviceFeatureExpanderReady);
+
+    lists.forEach((list, index) => {
+      const items = [...list.children].filter((item) => item.matches("li"));
+      list.dataset.serviceFeatureExpanderReady = "true";
+      list.id = list.id || `service-feature-list-${Date.now()}-${index}`;
+      list.classList.add("service-feature-list-collapsible");
+
+      const card = list.closest(".service-card");
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "service-feature-toggle";
+      button.textContent = "See More";
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-controls", list.id);
+      button.hidden = items.length <= 5;
+      list.insertAdjacentElement("afterend", button);
+
+      const collapsedHeight = () => {
+        if (items.length <= 5) return list.scrollHeight;
+        const fifth = items[4];
+        const listRect = list.getBoundingClientRect();
+        const itemRect = fifth.getBoundingClientRect();
+        const styles = getComputedStyle(list);
+        const paddingBottom = parseFloat(styles.paddingBottom) || 0;
+        return Math.ceil(itemRect.bottom - listRect.top + paddingBottom);
+      };
+
+      const fullHeight = () => {
+        const previousMaxHeight = list.style.maxHeight;
+        list.style.maxHeight = "none";
+        const height = list.scrollHeight;
+        list.style.maxHeight = previousMaxHeight;
+        return height;
+      };
+
+      const sync = () => {
+        const hasMore = items.length > 5;
+        button.hidden = !hasMore;
+        list.classList.toggle("service-feature-list-has-more", hasMore);
+        list.style.maxHeight = `${list.classList.contains("service-feature-list-expanded") ? fullHeight() : collapsedHeight()}px`;
+      };
+
+      const toggle = () => {
+        const shouldExpand = !list.classList.contains("service-feature-list-expanded");
+
+        if (shouldExpand) {
+          list.style.maxHeight = `${collapsedHeight()}px`;
+          list.classList.add("service-feature-list-expanded");
+          card?.classList.add("service-card-features-expanded");
+          requestAnimationFrame(() => {
+            list.style.maxHeight = `${fullHeight()}px`;
+          });
+        } else {
+          list.style.maxHeight = `${fullHeight()}px`;
+          requestAnimationFrame(() => {
+            list.classList.remove("service-feature-list-expanded");
+            card?.classList.remove("service-card-features-expanded");
+            list.style.maxHeight = `${collapsedHeight()}px`;
+          });
+        }
+
+        button.textContent = shouldExpand ? "See Less" : "See More";
+        button.setAttribute("aria-expanded", String(shouldExpand));
+      };
+
+      button.addEventListener("click", toggle);
+      sync();
+
+      addEventListener("resize", () => {
+        clearTimeout(list.serviceFeatureResizeTimer);
+        list.serviceFeatureResizeTimer = setTimeout(sync, 120);
+      });
+    });
+  }
 
   function initReviewExpanders() {
     const reviewTexts = [...document.querySelectorAll(".home-google-review-text")]

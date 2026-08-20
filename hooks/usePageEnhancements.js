@@ -660,7 +660,7 @@ function initServiceFeatureExpanders() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "service-feature-toggle";
-    button.innerHTML = '<span>See More...</span><span class="service-feature-toggle-arrow" aria-hidden="true">+</span>';
+    button.textContent = "See More";
     button.setAttribute("aria-expanded", "false");
     button.setAttribute("aria-controls", list.id);
     button.hidden = items.length <= 5;
@@ -715,7 +715,7 @@ function initServiceFeatureExpanders() {
         });
       }
 
-      button.querySelector("span").textContent = shouldExpand ? "See Less" : "See More...";
+      button.textContent = shouldExpand ? "See Less" : "See More";
       button.setAttribute("aria-expanded", String(shouldExpand));
     };
 
