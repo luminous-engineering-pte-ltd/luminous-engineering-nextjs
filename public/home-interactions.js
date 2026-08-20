@@ -58,6 +58,7 @@
     });
 
     initReviewExpanders();
+    initReviewCarouselDots();
 
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
       link.addEventListener("click", (event) => {
@@ -266,6 +267,76 @@
         });
       }
     });
+  }
+
+  function initReviewCarouselDots() {
+    const carousel = document.querySelector(".home-google-reviews-grid");
+    if (!carousel || carousel.dataset.reviewCarouselDotsReady) return;
+
+    const cards = [...carousel.querySelectorAll(".home-google-review-card")];
+    if (cards.length < 2) return;
+
+    carousel.dataset.reviewCarouselDotsReady = "true";
+
+    const dots = document.createElement("div");
+    dots.className = "home-google-review-dots";
+    dots.setAttribute("aria-label", "Google review carousel pagination");
+
+    const buttons = cards.map((card, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "home-google-review-dot";
+      button.setAttribute("aria-label", `Show review ${index + 1} of ${cards.length}`);
+      button.setAttribute("aria-current", index === 0 ? "true" : "false");
+      button.addEventListener("click", () => {
+        const paddingLeft = parseFloat(getComputedStyle(carousel).paddingLeft) || 0;
+        carousel.scrollTo({
+          left: Math.max(0, card.offsetLeft - carousel.offsetLeft - paddingLeft),
+          behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+        });
+      });
+      dots.append(button);
+      return button;
+    });
+
+    carousel.insertAdjacentElement("afterend", dots);
+
+    let activeIndex = 0;
+    let ticking = false;
+
+    const nearestCardIndex = () => {
+      const carouselRect = carousel.getBoundingClientRect();
+      const center = carouselRect.left + carouselRect.width / 2;
+      return cards.reduce((nearest, card, index) => {
+        const rect = card.getBoundingClientRect();
+        const distance = Math.abs(rect.left + rect.width / 2 - center);
+        return distance < nearest.distance ? { index, distance } : nearest;
+      }, { index: 0, distance: Infinity }).index;
+    };
+
+    const setActiveDot = (index) => {
+      if (index === activeIndex && buttons[index]?.getAttribute("aria-current") === "true") return;
+      activeIndex = index;
+      buttons.forEach((button, buttonIndex) => {
+        button.setAttribute("aria-current", buttonIndex === activeIndex ? "true" : "false");
+      });
+    };
+
+    const updateActiveDot = () => {
+      ticking = false;
+      setActiveDot(nearestCardIndex());
+    };
+
+    const scheduleUpdate = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(updateActiveDot);
+    };
+
+    carousel.addEventListener("scroll", scheduleUpdate, { passive: true });
+    carousel.addEventListener("scrollend", updateActiveDot);
+    addEventListener("resize", scheduleUpdate);
+    requestAnimationFrame(updateActiveDot);
   }
 
   const lazyEvents = ["scroll", "pointerdown", "keydown", "touchstart"];
