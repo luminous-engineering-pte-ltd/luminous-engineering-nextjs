@@ -25,11 +25,93 @@
 
   const desktopButton = document.getElementById("desktopServicesToggle");
   const desktopMenu = document.getElementById("desktopServicesDropdown");
-  desktopButton?.addEventListener("click", () => {
-    const open = desktopMenu?.classList.toggle("invisible") === false;
-    desktopMenu?.classList.toggle("opacity-0", !open);
-    desktopButton.setAttribute("aria-expanded", String(open));
+  const desktopContainer = document.getElementById("desktopServicesContainer");
+  const desktopSubmenu = document.getElementById("desktopSubMenuPanel");
+  const desktopParents = desktopContainer ? [...desktopContainer.querySelectorAll(".service-parent-link")] : [];
+  const desktopPanels = desktopSubmenu ? [...desktopSubmenu.querySelectorAll(".submenu-panel")] : [];
+
+  const showDesktopPanel = (link) => {
+    const targetId = link?.getAttribute("data-submenu");
+    const target = targetId ? document.getElementById(targetId) : null;
+
+    desktopPanels.forEach((panel) => panel.classList.add("hidden"));
+    desktopParents.forEach((parent) => parent.classList.remove("bg-gray-800", "text-yellow-400"));
+
+    if (!target || !desktopSubmenu) {
+      desktopSubmenu?.classList.add("hidden");
+      return;
+    }
+
+    desktopSubmenu.classList.remove("hidden");
+    target.classList.remove("hidden");
+    link.classList.add("bg-gray-800", "text-yellow-400");
+  };
+
+  const openDesktopMenu = () => {
+    if (!desktopMenu) return;
+    desktopMenu.classList.remove("invisible", "opacity-0");
+    desktopMenu.classList.add("visible", "opacity-100");
+    desktopMenu.style.visibility = "visible";
+    desktopMenu.style.opacity = "1";
+    desktopButton?.setAttribute("aria-expanded", "true");
+    if (desktopSubmenu && !desktopPanels.some((panel) => !panel.classList.contains("hidden"))) {
+      showDesktopPanel(desktopParents[0]);
+    }
+  };
+
+  const closeDesktopMenu = () => {
+    if (!desktopMenu) return;
+    desktopMenu.classList.add("invisible", "opacity-0");
+    desktopMenu.classList.remove("visible", "opacity-100");
+    desktopMenu.style.visibility = "hidden";
+    desktopMenu.style.opacity = "0";
+    desktopButton?.setAttribute("aria-expanded", "false");
+    desktopSubmenu?.classList.add("hidden");
+    desktopPanels.forEach((panel) => panel.classList.add("hidden"));
+    desktopParents.forEach((parent) => parent.classList.remove("bg-gray-800", "text-yellow-400"));
+  };
+
+  desktopButton?.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const open = desktopMenu?.classList.contains("invisible");
+    if (open) {
+      openDesktopMenu();
+    } else {
+      closeDesktopMenu();
+    }
   });
+
+  desktopParents.forEach((link) => {
+    const handler = () => showDesktopPanel(link);
+    link.addEventListener("mouseenter", handler);
+    link.addEventListener("pointerenter", handler);
+    link.addEventListener("focus", handler);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!desktopContainer?.contains(event.target)) {
+      closeDesktopMenu();
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeDesktopMenu();
+    }
+  });
+
+  desktopMenu?.classList.toggle("opacity-100", desktopMenu.classList.contains("visible"));
+  if (!desktopContainer && desktopButton) {
+    desktopButton.addEventListener("click", () => {
+      const open = desktopMenu?.classList.toggle("invisible") === false;
+      desktopMenu?.classList.toggle("opacity-0", !open);
+      if (desktopMenu) {
+        desktopMenu.style.visibility = open ? "visible" : "hidden";
+        desktopMenu.style.opacity = open ? "1" : "0";
+      }
+      desktopButton.setAttribute("aria-expanded", String(open));
+    });
+  }
 
   const initializeBelowFold = () => {
     lazyEvents.forEach((event) => removeEventListener(event, initializeBelowFold, true));

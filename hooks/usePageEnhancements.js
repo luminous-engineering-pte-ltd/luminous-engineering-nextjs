@@ -157,25 +157,51 @@ function initLegacyNavigation() {
   const desktopDropdown = document.getElementById("desktopServicesDropdown");
   const desktopIcon = document.getElementById("desktopServicesIcon");
   const submenuPanel = document.getElementById("desktopSubMenuPanel");
+  const desktopParentLinks = desktopContainer ? [...desktopContainer.querySelectorAll(".service-parent-link")] : [];
+  const desktopSubmenuPanels = submenuPanel ? [...submenuPanel.querySelectorAll(".submenu-panel")] : [];
+
+  const showDesktopSubmenu = (link) => {
+    const targetId = link?.getAttribute("data-submenu");
+    const targetPanel = targetId ? document.getElementById(targetId) : null;
+
+    desktopSubmenuPanels.forEach((panel) => panel.classList.add("hidden"));
+    desktopParentLinks.forEach((parentLink) => parentLink.classList.remove("bg-gray-800", "text-yellow-400"));
+
+    if (targetPanel && submenuPanel) {
+      submenuPanel.classList.remove("hidden");
+      targetPanel.classList.remove("hidden");
+      link.classList.add("bg-gray-800", "text-yellow-400");
+      return;
+    }
+
+    submenuPanel?.classList.add("hidden");
+  };
 
   const openDesktop = () => {
     if (!desktopDropdown) return;
     desktopDropdown.classList.remove("opacity-0", "invisible");
     desktopDropdown.classList.add("opacity-100", "visible");
+    desktopDropdown.style.visibility = "visible";
+    desktopDropdown.style.opacity = "1";
     if (desktopIcon) desktopIcon.style.transform = "rotate(180deg)";
+    if (submenuPanel && !desktopSubmenuPanels.some((panel) => !panel.classList.contains("hidden"))) {
+      showDesktopSubmenu(desktopParentLinks[0]);
+    }
   };
 
   const closeDesktop = () => {
     if (desktopDropdown) {
       desktopDropdown.classList.add("opacity-0", "invisible");
       desktopDropdown.classList.remove("opacity-100", "visible");
+      desktopDropdown.style.visibility = "hidden";
+      desktopDropdown.style.opacity = "0";
     }
     if (desktopIcon) desktopIcon.style.transform = "rotate(0deg)";
     if (submenuPanel) {
       submenuPanel.classList.add("hidden");
-      submenuPanel.querySelectorAll(".submenu-panel").forEach((panel) => panel.classList.add("hidden"));
+      desktopSubmenuPanels.forEach((panel) => panel.classList.add("hidden"));
     }
-    document.querySelectorAll(".service-parent-link").forEach((link) => link.classList.remove("bg-gray-800", "text-yellow-400"));
+    desktopParentLinks.forEach((link) => link.classList.remove("bg-gray-800", "text-yellow-400"));
   };
 
   if (desktopContainer && desktopDropdown) {
@@ -187,36 +213,29 @@ function initLegacyNavigation() {
     const closeOnOutside = (event) => {
       if (!desktopContainer.contains(event.target)) closeDesktop();
     };
-    const parentHandlers = [...document.querySelectorAll(".service-parent-link")].map((link) => {
-      const handler = () => {
-        const targetId = link.getAttribute("data-submenu");
-        const targetPanel = targetId ? document.getElementById(targetId) : null;
-
-        document.querySelectorAll(".submenu-panel").forEach((panel) => panel.classList.add("hidden"));
-        document.querySelectorAll(".service-parent-link").forEach((parentLink) => parentLink.classList.remove("bg-gray-800", "text-yellow-400"));
-
-        if (targetPanel && submenuPanel) {
-          submenuPanel.classList.remove("hidden");
-          targetPanel.classList.remove("hidden");
-          link.classList.add("bg-gray-800", "text-yellow-400");
-        } else if (submenuPanel) {
-          submenuPanel.classList.add("hidden");
-        }
-      };
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") closeDesktop();
+    };
+    const parentHandlers = desktopParentLinks.map((link) => {
+      const handler = () => showDesktopSubmenu(link);
       link.addEventListener("mouseenter", handler);
-      return () => link.removeEventListener("mouseenter", handler);
+      link.addEventListener("pointerenter", handler);
+      link.addEventListener("focus", handler);
+      return () => {
+        link.removeEventListener("mouseenter", handler);
+        link.removeEventListener("pointerenter", handler);
+        link.removeEventListener("focus", handler);
+      };
     });
 
-    desktopContainer.addEventListener("mouseenter", openDesktop);
-    desktopContainer.addEventListener("mouseleave", closeDesktop);
     desktopToggle?.addEventListener("click", toggleDesktop);
     document.addEventListener("click", closeOnOutside);
+    document.addEventListener("keydown", closeOnEscape);
 
     cleanups.push(() => {
-      desktopContainer.removeEventListener("mouseenter", openDesktop);
-      desktopContainer.removeEventListener("mouseleave", closeDesktop);
       desktopToggle?.removeEventListener("click", toggleDesktop);
       document.removeEventListener("click", closeOnOutside);
+      document.removeEventListener("keydown", closeOnEscape);
       parentHandlers.forEach((cleanup) => cleanup());
     });
   }

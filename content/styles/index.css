@@ -1,5 +1,11 @@
 /* Generated per-page CSS for Luminous_html-2/index.html. */
 
+/* Keep the Home legacy desktop dropdown above isolated/transformed hero layers. */
+.glass-nav{overflow:visible;z-index:10000}
+.glass-nav #desktopServicesContainer,.glass-nav #desktopServicesDropdown{z-index:10001}
+.glass-nav #desktopServicesDropdown{overflow:visible}
+.glass-nav #desktopSubMenuPanel{position:relative;z-index:10002}
+
 @keyframes floatParticle {
 
   0%, 100% { transform: translateY(0) translateX(0); }
