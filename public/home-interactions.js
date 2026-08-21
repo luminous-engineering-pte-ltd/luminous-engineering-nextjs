@@ -144,6 +144,7 @@
     });
 
     initServiceFeatureExpanders();
+    initProjectSliders();
     initReviewExpanders();
     initReviewCarouselDots();
 
@@ -196,6 +197,125 @@
       sync();
 
       addEventListener("resize", sync, { passive: true });
+    });
+  }
+
+  function initProjectSliders() {
+    document.querySelectorAll("[data-project-slider]").forEach((slider) => {
+      if (slider.dataset.projectSliderReady) return;
+
+      const track = slider.querySelector(".project-photos-track");
+      if (!track) return;
+
+      const slides = [...track.children];
+      const dots = slider.querySelector(".project-slider-dots");
+      const buttons = [...slider.querySelectorAll("[data-direction]")];
+      let index = 0;
+      let timer = null;
+
+      slider.dataset.projectSliderReady = "true";
+
+      const visible = () => {
+        if (innerWidth >= 1280) return 3;
+        if (innerWidth >= 768) return 2;
+        return 1;
+      };
+
+      const maxIndex = () => Math.max(0, slides.length - visible());
+
+      const renderDots = () => {
+        if (!dots) return;
+        dots.replaceChildren();
+
+        for (let dotIndex = 0; dotIndex <= maxIndex(); dotIndex += 1) {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = `project-slider-dot${dotIndex === index ? " active" : ""}`;
+          dot.setAttribute("aria-label", `Go to slide ${dotIndex + 1}`);
+          dot.addEventListener("click", () => {
+            index = dotIndex;
+            update();
+            restart();
+          });
+          dots.append(dot);
+        }
+      };
+
+      const updateDots = () => {
+        dots?.querySelectorAll(".project-slider-dot").forEach((dot, dotIndex) => {
+          dot.classList.toggle("active", dotIndex === index);
+        });
+      };
+
+      const update = () => {
+        const firstSlide = slides[0];
+        if (!firstSlide) return;
+
+        slider.style.setProperty("--visible-slides", String(visible()));
+        index = Math.min(index, maxIndex());
+
+        const styles = getComputedStyle(track);
+        const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+        const offset = index * (firstSlide.getBoundingClientRect().width + gap);
+
+        track.style.transform = `translateX(-${offset}px)`;
+        updateDots();
+      };
+
+      const move = (direction) => {
+        if (slides.length <= visible()) return;
+
+        const max = maxIndex();
+        index = direction === "prev" ? (index <= 0 ? max : index - 1) : (index >= max ? 0 : index + 1);
+        update();
+      };
+
+      const stop = () => {
+        if (timer) clearInterval(timer);
+        timer = null;
+      };
+
+      const start = () => {
+        stop();
+        if (slides.length > visible()) {
+          timer = setInterval(() => move("next"), 4000);
+        }
+      };
+
+      const restart = () => {
+        stop();
+        start();
+      };
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          move(button.dataset.direction || (button.classList.contains("prev") ? "prev" : "next"));
+          restart();
+        });
+      });
+
+      let touchStart = 0;
+      track.addEventListener("touchstart", (event) => {
+        touchStart = event.changedTouches[0].screenX;
+      }, { passive: true });
+      track.addEventListener("touchend", (event) => {
+        const diff = touchStart - event.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) {
+          move(diff > 0 ? "next" : "prev");
+          restart();
+        }
+      }, { passive: true });
+
+      slider.addEventListener("mouseenter", stop);
+      slider.addEventListener("mouseleave", start);
+      addEventListener("resize", () => {
+        renderDots();
+        update();
+      }, { passive: true });
+
+      renderDots();
+      update();
+      start();
     });
   }
 

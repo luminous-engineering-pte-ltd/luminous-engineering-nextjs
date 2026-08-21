@@ -5,9 +5,12 @@ import { useEffect } from "react";
 export default function PageEnhancements({ route }) {
   useEffect(() => {
     let disposed = false;
+    let initialized = false;
     let cleanup;
 
     const initialize = () => {
+      if (initialized) return;
+      initialized = true;
       removeListeners();
       import("../hooks/usePageEnhancements").then(({ initializePageEnhancements }) => {
         if (!disposed) cleanup = initializePageEnhancements(route);
@@ -18,6 +21,10 @@ export default function PageEnhancements({ route }) {
     const options = { capture: true, passive: true, once: true };
     const removeListeners = () => events.forEach((event) => window.removeEventListener(event, initialize, options));
     events.forEach((event) => window.addEventListener(event, initialize, options));
+
+    if (document.querySelector("[data-project-slider]")) {
+      requestAnimationFrame(initialize);
+    }
 
     return () => {
       disposed = true;

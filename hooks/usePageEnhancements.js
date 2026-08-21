@@ -510,8 +510,12 @@ function initProjectSliders() {
 }
 
 function setupSlider(slider) {
+  if (slider.dataset.projectSliderReady) return null;
+
   const track = slider.querySelector(".project-photos-track, .packages-container");
   if (!track) return null;
+  slider.dataset.projectSliderReady = "true";
+
   const slides = [...track.children];
   const dots = slider.querySelector(".project-slider-dots");
   const buttons = [...slider.querySelectorAll("[data-direction], .packages-nav")];
@@ -619,6 +623,7 @@ function setupSlider(slider) {
 
   return () => {
     stop();
+    delete slider.dataset.projectSliderReady;
     buttonHandlers.forEach((cleanup) => cleanup());
     track.removeEventListener("touchstart", onTouchStart);
     track.removeEventListener("touchend", onTouchEnd);
