@@ -1,6 +1,6 @@
 import "./globals.css";
-import DeferredAnalytics from "../components/DeferredAnalytics";
 import FloatingWhatsAppButton from "../components/FloatingWhatsAppButton";
+import GoogleTagManager from "../components/GoogleTagManager";
 
 export const metadata = {
   metadataBase: new URL("https://luminousengineering.com.sg"),
@@ -31,19 +31,8 @@ export default function RootLayout({ children }) {
       <head>
       </head>
       <body>
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-TJ9758RG"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-            title="Google Tag Manager"
-          />
-        </noscript>
-        {/* End Google Tag Manager (noscript) */}
+        <GoogleTagManager />
         {children}
-        <DeferredAnalytics />
         <FloatingWhatsAppButton />
       </body>
     </html>

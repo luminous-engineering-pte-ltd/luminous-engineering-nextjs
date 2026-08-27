@@ -6,6 +6,10 @@
 .glass-nav #desktopServicesDropdown{overflow:visible}
 .glass-nav #desktopSubMenuPanel{position:relative;z-index:10002}
 
+/* Collapsed navigation trees stay out of initial style and layout calculation. */
+.mobile-menu:not(.active),.glass-nav #desktopServicesDropdown.invisible{content-visibility:hidden}
+.mobile-menu.active,.glass-nav #desktopServicesDropdown.visible{content-visibility:visible}
+
 @keyframes floatParticle {
 
   0%, 100% { transform: translateY(0) translateX(0); }

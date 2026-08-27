@@ -15,27 +15,25 @@
     servicesButton.setAttribute("aria-expanded", String(open));
   });
 
-  document.querySelectorAll(".mobile-sub-toggle").forEach((button) => {
-    button.addEventListener("click", () => {
-      const menu = button.nextElementSibling;
-      const open = menu?.classList.toggle("hidden") === false;
-      button.setAttribute("aria-expanded", String(open));
-    });
+  mobileMenu?.addEventListener("click", (event) => {
+    const button = event.target.closest(".mobile-sub-toggle");
+    if (!button || !mobileMenu.contains(button)) return;
+    const menu = button.nextElementSibling;
+    const open = menu?.classList.toggle("hidden") === false;
+    button.setAttribute("aria-expanded", String(open));
   });
 
   const desktopButton = document.getElementById("desktopServicesToggle");
   const desktopMenu = document.getElementById("desktopServicesDropdown");
   const desktopContainer = document.getElementById("desktopServicesContainer");
   const desktopSubmenu = document.getElementById("desktopSubMenuPanel");
-  const desktopParents = desktopContainer ? [...desktopContainer.querySelectorAll(".service-parent-link")] : [];
-  const desktopPanels = desktopSubmenu ? [...desktopSubmenu.querySelectorAll(".submenu-panel")] : [];
 
   const showDesktopPanel = (link) => {
     const targetId = link?.getAttribute("data-submenu");
     const target = targetId ? document.getElementById(targetId) : null;
 
-    desktopPanels.forEach((panel) => panel.classList.add("hidden"));
-    desktopParents.forEach((parent) => parent.classList.remove("bg-gray-800", "text-yellow-400"));
+    desktopSubmenu?.querySelectorAll(".submenu-panel").forEach((panel) => panel.classList.add("hidden"));
+    desktopContainer?.querySelectorAll(".service-parent-link").forEach((parent) => parent.classList.remove("bg-gray-800", "text-yellow-400"));
 
     if (!target || !desktopSubmenu) {
       desktopSubmenu?.classList.add("hidden");
@@ -54,21 +52,21 @@
     desktopMenu.style.visibility = "visible";
     desktopMenu.style.opacity = "1";
     desktopButton?.setAttribute("aria-expanded", "true");
-    if (desktopSubmenu && !desktopPanels.some((panel) => !panel.classList.contains("hidden"))) {
-      showDesktopPanel(desktopParents[0]);
+    if (desktopSubmenu && !desktopSubmenu.querySelector(".submenu-panel:not(.hidden)")) {
+      showDesktopPanel(desktopContainer?.querySelector(".service-parent-link"));
     }
   };
 
   const closeDesktopMenu = () => {
-    if (!desktopMenu) return;
+    if (!desktopMenu || desktopButton?.getAttribute("aria-expanded") !== "true") return;
     desktopMenu.classList.add("invisible", "opacity-0");
     desktopMenu.classList.remove("visible", "opacity-100");
     desktopMenu.style.visibility = "hidden";
     desktopMenu.style.opacity = "0";
     desktopButton?.setAttribute("aria-expanded", "false");
     desktopSubmenu?.classList.add("hidden");
-    desktopPanels.forEach((panel) => panel.classList.add("hidden"));
-    desktopParents.forEach((parent) => parent.classList.remove("bg-gray-800", "text-yellow-400"));
+    desktopSubmenu?.querySelectorAll(".submenu-panel").forEach((panel) => panel.classList.add("hidden"));
+    desktopContainer?.querySelectorAll(".service-parent-link").forEach((parent) => parent.classList.remove("bg-gray-800", "text-yellow-400"));
   };
 
   desktopButton?.addEventListener("click", (event) => {
@@ -82,12 +80,12 @@
     }
   });
 
-  desktopParents.forEach((link) => {
-    const handler = () => showDesktopPanel(link);
-    link.addEventListener("mouseenter", handler);
-    link.addEventListener("pointerenter", handler);
-    link.addEventListener("focus", handler);
-  });
+  const handleDesktopParent = (event) => {
+    const link = event.target.closest(".service-parent-link");
+    if (link && desktopContainer?.contains(link)) showDesktopPanel(link);
+  };
+  desktopContainer?.addEventListener("pointerover", handleDesktopParent);
+  desktopContainer?.addEventListener("focusin", handleDesktopParent);
 
   document.addEventListener("click", (event) => {
     if (!desktopContainer?.contains(event.target)) {
@@ -115,6 +113,11 @@
 
   let belowFoldInitialized = false;
 
+  document.querySelectorAll(".home-hero-stats [data-count], .home-hero-stats [data-target]").forEach((element) => {
+    const target = Number(element.dataset.count || element.dataset.target || 0);
+    element.textContent = `${target}${element.dataset.suffix || ""}`;
+  });
+
   const initializeBelowFold = () => {
     if (belowFoldInitialized) return;
     belowFoldInitialized = true;
@@ -129,16 +132,6 @@
     }, { rootMargin: "120px 0px", threshold: 0.01 });
     document.querySelectorAll(".scroll-reveal").forEach((element) => revealObserver.observe(element));
 
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const target = Number(entry.target.dataset.count || entry.target.dataset.target || 0);
-        entry.target.textContent = `${target}${entry.target.dataset.suffix || ""}`;
-        observer.unobserve(entry.target);
-      });
-    });
-    document.querySelectorAll("[data-count], [data-target]").forEach((element) => counterObserver.observe(element));
-
     document.querySelectorAll("[data-footer-year]").forEach((element) => {
       element.textContent = String(new Date().getFullYear());
     });
@@ -148,15 +141,16 @@
     initReviewExpanders();
     initReviewCarouselDots();
 
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
-      link.addEventListener("click", (event) => {
-        const target = document.querySelector(link.getAttribute("href"));
-        if (!target) return;
-        event.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    });
   };
+
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest('a[href^="#"]');
+    const target = link ? document.querySelector(link.getAttribute("href")) : null;
+    if (!target) return;
+    event.preventDefault();
+    initializeBelowFold();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 
   function initServiceFeatureExpanders() {
     const lists = [...document.querySelectorAll(".home-services-grid-section .service-feature-list")]
@@ -251,12 +245,17 @@
         const firstSlide = slides[0];
         if (!firstSlide) return;
 
-        slider.style.setProperty("--visible-slides", String(visible()));
         index = Math.min(index, maxIndex());
+        if (index === 0) {
+          track.style.transform = "translateX(0)";
+          updateDots();
+          return;
+        }
 
-        const styles = getComputedStyle(track);
-        const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
-        const offset = index * (firstSlide.getBoundingClientRect().width + gap);
+        const gapStyles = getComputedStyle(track);
+        const gap = parseFloat(gapStyles.columnGap || gapStyles.gap || "0") || 0;
+        const slideWidth = firstSlide.getBoundingClientRect().width;
+        const offset = index * (slideWidth + gap);
 
         track.style.transform = `translateX(-${offset}px)`;
         updateDots();
@@ -310,11 +309,11 @@
       slider.addEventListener("mouseleave", start);
       addEventListener("resize", () => {
         renderDots();
-        update();
+        requestAnimationFrame(update);
       }, { passive: true });
 
       renderDots();
-      update();
+      requestAnimationFrame(update);
       start();
     });
   }
@@ -453,13 +452,8 @@
     let ticking = false;
 
     const nearestCardIndex = () => {
-      const carouselRect = carousel.getBoundingClientRect();
-      const center = carouselRect.left + carouselRect.width / 2;
-      return cards.reduce((nearest, card, index) => {
-        const rect = card.getBoundingClientRect();
-        const distance = Math.abs(rect.left + rect.width / 2 - center);
-        return distance < nearest.distance ? { index, distance } : nearest;
-      }, { index: 0, distance: Infinity }).index;
+      const cardWidth = Math.max(1, carousel.clientWidth);
+      return Math.min(cards.length - 1, Math.max(0, Math.round(carousel.scrollLeft / cardWidth)));
     };
 
     const setActiveDot = (index) => {
@@ -484,23 +478,11 @@
     carousel.addEventListener("scroll", scheduleUpdate, { passive: true });
     carousel.addEventListener("scrollend", updateActiveDot);
     addEventListener("resize", scheduleUpdate);
-    requestAnimationFrame(updateActiveDot);
+    setActiveDot(0);
   }
 
-  const lazyEvents = ["pointerdown", "keydown", "touchstart"];
+  const lazyEvents = ["keydown", "scroll"];
   lazyEvents.forEach((event) => addEventListener(event, initializeBelowFold, { capture: true, passive: true, once: true }));
 
-  const scheduleIdleBelowFold = () => {
-    if ("requestIdleCallback" in window) {
-      requestIdleCallback(initializeBelowFold, { timeout: 9000 });
-      return;
-    }
-    setTimeout(initializeBelowFold, 9000);
-  };
-
-  if (document.readyState === "complete") {
-    scheduleIdleBelowFold();
-  } else {
-    addEventListener("load", scheduleIdleBelowFold, { once: true });
-  }
+  if (location.hash) requestAnimationFrame(initializeBelowFold);
 })();
