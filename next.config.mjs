@@ -26,6 +26,16 @@ const nextConfig = {
         destination: "/",
         permanent: true
       },
+      {
+        source: "/blog/best-electrician-services-singapore-2026",
+        destination: "/blog/best-electrician-singapore",
+        permanent: true
+      },
+      {
+        source: "/blog/best-electrician-services-singapore-2026.html",
+        destination: "/blog/best-electrician-singapore",
+        permanent: true
+      },
       ...htmlRedirects
     ];
   },

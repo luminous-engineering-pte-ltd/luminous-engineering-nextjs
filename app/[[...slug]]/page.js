@@ -104,6 +104,28 @@ export default async function SitePage({ params }) {
 
   const renderedContent = isServiceDetailRoute(route) ? rewriteServiceLocationLinks(content, route.replace(/\.html$/, "").split("/").pop()) : content;
 
+  if (page.wrapWithShell) {
+    return (
+      <>
+        <BodyClass className={page.bodyClass || "bg-gray-900 text-white"} />
+        <PageStyle
+          css={css}
+          legacyCascade={legacyCascade}
+          blogDetailCascade={blogDetailCascade}
+          legacyBaseShim
+          legacyServiceUtilityShim={serviceCascade}
+          legacyShim={legacyShim}
+        />
+        <Navbar />
+        <StaticContent html={renderedContent} />
+        <Footer />
+        <GoogleReviewBadge />
+        <JsonLd data={getSeoByRoute(route)?.jsonLd || []} />
+        <PageEnhancements route={route} />
+      </>
+    );
+  }
+
   return (
     <>
       <BodyClass className={page.bodyClass || ""} />
