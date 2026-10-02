@@ -102,9 +102,15 @@ export default async function SitePage({ params }) {
     : "";
   const css = legacyCascade ? [pageCss, legacyUtilityCss].filter(Boolean).join("\n") : pageCss;
 
-  const renderedContent = isServiceDetailRoute(route) ? rewriteServiceLocationLinks(content, route.replace(/\.html$/, "").split("/").pop()) : content;
+  const renderedContent = sanitizeRenderedContent({
+    content: isServiceDetailRoute(route) ? rewriteServiceLocationLinks(content, route.replace(/\.html$/, "").split("/").pop()) : content,
+    route
+  });
 
-  if (page.wrapWithShell) {
+  if (page.wrapWithShell || isBlogDetailRoute(route)) {
+    const hasEmbeddedFooter = /<footer\b/i.test(renderedContent);
+    const hasEmbeddedReviewBadge = renderedContent.includes("google-review-badge");
+
     return (
       <>
         <BodyClass className={page.bodyClass || "bg-gray-900 text-white"} />
@@ -118,8 +124,8 @@ export default async function SitePage({ params }) {
         />
         <Navbar />
         <StaticContent html={renderedContent} />
-        <Footer />
-        <GoogleReviewBadge />
+        {!hasEmbeddedFooter ? <Footer /> : null}
+        {!hasEmbeddedReviewBadge ? <GoogleReviewBadge /> : null}
         <JsonLd data={getSeoByRoute(route)?.jsonLd || []} />
         <PageEnhancements route={route} />
       </>
@@ -161,6 +167,23 @@ function toRoute(slug = []) {
 function isServiceDetailRoute(route) {
   const normalized = route.replace(/\.html$/, "").replace(/\/$/, "");
   return normalized.startsWith("/services/") && normalized !== "/services/index";
+}
+
+function isBlogDetailRoute(route) {
+  const normalized = route.replace(/\.html$/, "").replace(/\/$/, "");
+  return normalized.startsWith("/blog/") && normalized !== "/blog";
+}
+
+function sanitizeRenderedContent({ content, route }) {
+  if (!isBlogDetailRoute(route)) return content;
+  return stripLegacyPrimaryNavbar(content);
+}
+
+function stripLegacyPrimaryNavbar(content) {
+  return content.replace(
+    /^\s*(?:<!-- Google Tag Manager \(noscript\) -->[\s\S]*?<!-- End Google Tag Manager \(noscript\) -->\s*)?(?:<!-- Navigation -->\s*)?<nav\b[^>]*\bclass=["'][^"']*\bglass-nav\b[^"']*["'][\s\S]*?<\/nav>\s*/i,
+    ""
+  );
 }
 
 export { PAGES };

@@ -5,3 +5,5 @@ build/
 out/
 .env
 .env.local
+.tmp/
+.temp/

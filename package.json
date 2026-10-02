@@ -5,22 +5,27 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/generate-home-css.mjs",
+    "build": "next build --webpack && node scripts/generate-home-css.mjs",
     "start": "next start",
     "migrate": "node scripts/migrate.mjs",
     "seo:import": "node scripts/import-live-seo.mjs",
     "seo:verify": "node scripts/verify-seo.mjs"
   },
+  "engines": {
+    "node": "22.x"
+  },
   "dependencies": {
     "@better-auth/mongo-adapter": "^1.6.25",
     "better-auth": "^1.6.25",
     "mongodb": "^7.5.0",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "next": "16.3.8",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "latest",
-    "tailwindcss": "latest"
+    "@tailwindcss/postcss": "4.3.3",
+    "lightningcss": "1.30.2",
+    "postcss": "8.5.6",
+    "tailwindcss": "4.3.3"
   }
 }
